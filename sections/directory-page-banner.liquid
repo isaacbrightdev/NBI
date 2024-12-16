@@ -1,0 +1,75 @@
+{% if section.blocks.size > 0 %}
+  <div class="w-full max-w-full mx-auto bg-gradient-to-l from-primary to-secondary">
+    <directory-page-nav class="w-full max-w-full mx-auto flex justify-center leading-snug">
+      <div class="flex gap-6 lg:gap-14 overscroll-contain overflow-x-auto py-7 px-0">
+        {% for block in section.blocks %}
+          <a
+            class="relative flex-shrink-0 select-none !text-white flex flex-col min-w-0 items-center justify-center px-4"
+            href="#{{- block.settings.scroll_to_id | escape | downcase -}}"
+          >
+            {%- if block.settings.image != blank -%}
+              <div class="w-[75px] h-[75px] bg-primary rounded-full aspect-square relative flex justify-center items-center">
+                {%- assign image_mobile_alt = block.settings.image.alt
+                  | default: shop.name
+                  | escape
+                -%}
+                {{-
+                  block.settings.image
+                  | image_url: width: 100
+                  | image_tag:
+                    width: block.settings.image.width,
+                    height: block.settings.image.height,
+                    loading: 'eager',
+                    fetchpriority: 'high',
+                    alt: image_mobile_alt
+                -}}
+              </div>
+            {%- endif -%}
+            <span class="block text-center mt-2.5 font-medium">
+              {{- block.settings.label -}}
+            </span>
+          </a>
+        {% endfor %}
+      </div>
+    </directory-page-nav>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Directory Banner",
+  "class": "section-directory-banner",
+  "limit": 1,
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Link",
+      "settings": [
+        {
+          "id": "label",
+          "type": "text",
+          "label": "Label"
+        },
+        {
+          "id": "scroll_to_id",
+          "type": "text",
+          "label": "Scroll to ID"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Directory Banner"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,24 @@
+{% if section.settings.anchor != blank %}
+  <div id="{{ section.settings.anchor }}"></div>
+{% else %}
+  <div id="form_anchor"></div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Form Anchor",
+  "settings": [
+    {
+      "id": "anchor",
+      "type": "text",
+      "label": "Unique Anchor Identifier",
+      "info": "The form ID will default to 'form_anchor' unless a value is provided in the input field. If a value is entered, the form ID will be set to the provided value."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Form Anchor"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,36 @@
+<div
+  class="meta-section"
+  data-section-id="{{ section.id }}"
+  data-meta-handle="{{ section.settings.meta_handle }}"
+  data-meta-type="{{ section.settings.meta_type }}"
+></div>
+
+{% schema %}
+{
+  "name": "Meta Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "meta_handle",
+      "label": "Metaobject Handle"
+    },
+    {
+      "type": "select",
+      "id": "meta_type",
+      "label": "Metaobject Type",
+      "options": [
+        {
+          "group": "Content",
+          "value": "two_up",
+          "label": "Two Up"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meta Section"
+    }
+  ]
+}
+{% endschema %}

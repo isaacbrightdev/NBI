@@ -1,0 +1,134 @@
+.business-skills-container * {
+    font-family: Poppins, sans-serif;
+}
+
+.business-skills-container {
+    padding: 75px 0 75px;
+    background: #f2f1f0;
+}
+
+.business-skills-container .business-skills-content {
+    margin: 0 auto;
+    padding: 0 88px;
+    position: relative;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+}
+
+.business-skills-container .bs-header-contet {
+    margin: 0 auto;
+    max-width: 855px;
+}
+
+.business-skills-container .bs-header {
+    font-size: 2.25rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.business-skills-container .bs-paragraph {
+    margin: 36px auto 0;
+    font-size: 1.49502rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.business-skills-container .bs-paragraph h6 {
+    margin: 30px 0 0;
+}
+
+.business-skills-container .bs-items {
+    margin: 71px auto 0;
+    position: relative;
+    max-width: 967px;
+    display: flex;
+    flex-direction: column;
+    gap: 71px;
+}
+
+.business-skills-container .bs-item {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+}
+
+.business-skills-container .bs-item-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.business-skills-container .bs-subtitle {
+    margin: 16px 0 0;
+    max-width: 461px;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+.business-skills-container .bs-title {
+    font-size: 1.99336rem;
+    font-weight: bold;
+}
+
+.business-skills-container .bs-link {
+    font-style: italic;
+    text-decoration: underline;
+    font-size: 1.125rem;
+    font-weight: normal;
+    letter-spacing: 0.02em;
+    color: #063b70;
+
+}
+
+
+.business-skills-container .bs-button {
+    margin: 72px auto 0;
+    min-height: 47px;
+    position: relative;
+    width: 268px;
+    -webkit-border-radius: 23.5px;
+    -moz-border-radius: 23.5px;
+    border-radius: 23.5px;
+    background: #99e2f2;
+    color: #1b3666;
+    line-height: 47px;
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+    .business-skills-container .business-skills-content {
+        padding-right: var(--bs-gutter-x, .75rem);
+        padding-left: var(--bs-gutter-x, .75rem);
+    }
+    .business-skills-container .bs-header {
+        font-size: 1.5rem;
+    }
+
+    .business-skills-container .bs-paragraph {
+        font-size: 1rem;
+    }
+
+    .business-skills-container .bs-title {
+        font-size: 1.25rem;
+    }
+
+    .business-skills-container .bs-subtitle {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .business-skills-container .bs-item {
+        gap: 20px;
+    }
+
+    .business-skills-container .bs-image {
+        width: 100px;
+    }
+
+    .business-skills-container .bs-item-text-content {
+        gap: 8px;
+    }
+
+}

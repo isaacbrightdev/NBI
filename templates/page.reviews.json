@@ -1,0 +1,35 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "ca64112d-a1d6-4d63-9904-499b57f52d59": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<script src=\"https://widget.reviews.io/rich-snippet-reviews-widgets/dist.js\" type=\"text/javascript\"></script>\n<div id=\"compound-widget\" class=\"container xl:gx-xl my-7 lg:my-12\"></div>\n\n<script>\n        richSnippetReviewsWidgets(\"compound-widget\", {\n            store: \"national-business-institute\",\n            primaryClr: \"#f47e27\",\n            neutralClr: \"#333333\",\n            reviewTextClr: \"#333333\",\n            widgetName: \"compound\",\n            layout: \"fullWidth\",\n            numReviews: 40,\n            contentMode: \"company;third-party\",\n            compound: \"google local\"\n        });\n</script>"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "root",
+    "ca64112d-a1d6-4d63-9904-499b57f52d59"
+  ]
+}

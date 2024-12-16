@@ -1,0 +1,66 @@
+{% if section.blocks.size > 0 %}
+  <div class="container-fluid max-w-4xl gx-sm xl:gx-xl leading-snug py-10 lg:py-12 flex flex-col gap-6 lg:gap-12">
+    {% for block in section.blocks %}
+      <div
+        class="{% if block.settings.border_top %}border-t border-grey pt-6 lg:pt-12{% endif %} {% if block.settings.border_bottom %}border-b border-grey pb-6 lg:pb-12{% endif %}"
+        id="{{- block.settings.scroll_to_id | escape | downcase -}}"
+      >
+        <h3 class="text-h3-mobile lg:text-h3 mb-6">
+          {{- block.settings.title -}}
+        </h3>
+        <div>{{- block.settings.html_embed -}}</div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Directory HTML Block",
+  "class": "section-directory-html-block bg-grey-light",
+  "limit": 1,
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "blocks": [
+    {
+      "type": "block",
+      "name": "HTML Block",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        },
+        {
+          "id": "scroll_to_id",
+          "type": "text",
+          "label": "Scroll to ID"
+        },
+        {
+          "type": "html",
+          "id": "html_embed",
+          "label": "HTML embed"
+        },
+        {
+          "type": "checkbox",
+          "id": "border_top",
+          "default": false,
+          "label": "Border Top"
+        },
+        {
+          "type": "checkbox",
+          "id": "border_bottom",
+          "default": false,
+          "label": "Border Bottom"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Directory HTML Block"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,102 @@
+{% assign articleURL = shop.url | append: article.url %}
+{%- if article.image -%}
+  {%- assign padding = 'pb-10' -%}
+{%- endif -%}
+
+<header class="article--header article--light {{ padding }}">
+  <div class="container xl:gx-xl">
+    <div class="row">
+      <ul class="breadcrumbs">
+        <li class="breadcrumb inline-flex items-center basis-auto">
+          <a class="text-secondary underline px-1" href="/">Home</a>
+        </li>
+        <li class="breadcrumb inline-flex items-center basis-auto">
+          <a class="text-secondary underline px-1" href="{{ blog.url }}">
+            {{- blog.title -}}
+          </a>
+        </li>
+        <li class="breadcrumb inline-flex items-center basis-1/3 sm:basis-auto">
+          <span class="text-primary px-1">
+            {{- article.title -}}
+          </span>
+        </li>
+      </ul>
+
+      <h1 class="my-3.5 text-h2-mobile lg:text-h2">{{ article.title }}</h1>
+
+      <ul class="flex justify-center gap-2 items-center">
+        {% for block in section.blocks %}
+          {% assign socialMediaLink = block.settings.url
+            | replace: '[url]', articleURL
+            | replace: '[title]', article.title
+          %}
+          <li class="w-12 h-12 flex justify-center items-center">
+            <a
+              class="block"
+              href="{{ socialMediaLink }}"
+              target="_blank"
+              ><img
+                width="{{ block.settings.icon.width }}"
+                height="{{ block.settings.icon.height }}"
+                loading="eager"
+                src="{{ block.settings.icon | image_url }}"
+            ></a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="mt-7">
+        {{ article.metafields.custom.summary_html_field | metafield_tag }}
+      </div>
+
+      {%- if article.metafields.custom.byline_author -%}
+        <span class="text-callout mt-7 flex items-center justify-center gap-[5px]">
+          <svg
+            width="15"
+            height="15"
+            aria-hidden="true"
+            strokeWidth="1"
+          >
+            <use href='#icon-account' />
+          </svg>
+          {{ article.metafields.custom.byline_author }}
+        </span>
+      {%- endif -%}
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Article Header Light",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "socialMediaLinks",
+      "name": "Social Media Links",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "url",
+          "label": "Share URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "article-header-light"
+    }
+  ]
+}
+{% endschema %}

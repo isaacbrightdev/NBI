@@ -1,0 +1,115 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "article-header-light": {
+      "type": "article-header-light",
+      "blocks": {
+        "d858f402-cba6-4f49-ad53-2e779d137095": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "Facebook",
+            "icon": "shopify://shop_images/Facebook-dark-blue.png",
+            "url": "https://www.facebook.com/sharer/sharer.php?u=[url]&t=[title]"
+          }
+        },
+        "3cbdae34-9dc2-44de-b98e-7cec842e186c": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "LinkedIn",
+            "icon": "shopify://shop_images/LinkedIn-dark-blue.png",
+            "url": "https://www.linkedin.com/sharing/share-offsite/?url=[url]"
+          }
+        },
+        "b66c8656-07e9-4094-bb27-fd325ca810f9": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "Twitter",
+            "icon": "shopify://shop_images/Twitter-dark-blue.png",
+            "url": "https://twitter.com/intent/tweet?text=[title]&url=[url]"
+          }
+        }
+      },
+      "block_order": [
+        "d858f402-cba6-4f49-ad53-2e779d137095",
+        "3cbdae34-9dc2-44de-b98e-7cec842e186c",
+        "b66c8656-07e9-4094-bb27-fd325ca810f9"
+      ],
+      "settings": {
+      }
+    },
+    "article": {
+      "type": "article",
+      "blocks": {
+        "e999c3b7-8df2-4b6e-9612-0ec4766b1473": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "Facebook",
+            "icon": "shopify://shop_images/Facebook-dark-blue.png",
+            "url": "https://www.facebook.com/sharer/sharer.php?u=[url]&t=[title]"
+          }
+        },
+        "8f2ba604-d2f6-4c7f-9c7c-85a58ffce848": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "LinkedIn",
+            "icon": "shopify://shop_images/LinkedIn-dark-blue.png",
+            "url": "https://www.linkedin.com/sharing/share-offsite/?url=[url]"
+          }
+        },
+        "e2df6371-ab36-45be-964c-057c35349421": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "Twitter",
+            "icon": "shopify://shop_images/Twitter-dark-blue.png",
+            "url": "https://twitter.com/intent/tweet?text=[title]&url=[url]"
+          }
+        }
+      },
+      "block_order": [
+        "e999c3b7-8df2-4b6e-9612-0ec4766b1473",
+        "8f2ba604-d2f6-4c7f-9c7c-85a58ffce848",
+        "e2df6371-ab36-45be-964c-057c35349421"
+      ],
+      "settings": {
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "e18a38e9-bf2c-4090-adc0-8b3ba1e58f4e": {
+      "type": "horizontal-product-carousel",
+      "settings": {
+        "title": "New Courses",
+        "sub_title": "",
+        "collection": "all-products",
+        "show_view_all": false,
+        "two_columns": false,
+        "border_top": true,
+        "border_bottom": false
+      }
+    }
+  },
+  "order": [
+    "header",
+    "article-header-light",
+    "article",
+    "root",
+    "e18a38e9-bf2c-4090-adc0-8b3ba1e58f4e"
+  ]
+}

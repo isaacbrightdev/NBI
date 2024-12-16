@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .scroll-bar::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .scroll-bar::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 20px;
+  }
+
+  .scroll-bar::-webkit-scrollbar-thumb {
+    background-color: #b9bec9;
+    border-radius: 20px;
+    border: 3px solid white;
+  }
+
+  .aa-autocomplete-item {
+    @apply !rounded-[0.3125rem] bg-white border-[5px] border-solid border-white transition-colors;
+  }
+
+  .aa-Item.aa-autocomplete-item[aria-selected=true] {
+    @apply bg-[#F3F5F9] border-[#F3F5F9] text-secondary;
+  }
+
+  .search-autocomplete-container {
+    @apply !pr-[65px] justify-between;
+    transform: translateZ(0);
+  }
+
+  .aa-ClearButton {
+    --aa-muted-color-rgb: rgba(var(--tw-primary),1);
+  }
+
+  .menu-is-open {
+    outline: 1px solid #b9bec9;
+  }
+
+  .disclosure-panel {
+    @apply border-b border-solid border-grey
+  }
+
+  .navsearch-is-showing-show {
+    @apply !hidden
+  }
+
+  .navsearch-is-showing .navsearch-is-showing-show {
+    @apply !block
+  }
+  .navsearch-is-showing .navsearch-is-showing-hide {
+    @apply !opacity-0
+  }
+
+  .nav-search-mobile-disclosure-panel .is-open {
+    @apply !bg-white;
+  }
+
+  .horizontal-product-display-grid .course-card:not(:last-child) {
+    @apply !pb-4 border-b border-solid border-b-grey
+  }
+}
+
+.aa-GradientBottom {
+  display: none !important;
+}
+
+.aa-ItemContentTitle {
+  color: var(--tw-primary);
+}
+
+.disclosure-panels > .disclosure-panel:last-child {
+  border: none !important;
+}
+
+.aa-InputWrapper.inputWrapper-desktop::before {
+  content: 'Search';
+  position: absolute;
+  display: block;
+  font-style: normal;
+  line-height: 130%;
+  font-weight: 600;
+  font-size: 0.75rem;
+  left: 1.75rem;
+  top: 0.65rem;
+  user-select: none;
+}
+
+.aa-Panel .aa-Source:not(:only-child):last-child {
+  border-top: 1px solid #b9bec9;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.aa-SourceNoResults + .aa-SourceFooter {
+  display: none !important;
+}
+
+.aa-Autocomplete {
+  --aa-primary-color-rgb: rgba(var(--tw-primary),1);
+}
+.aa-Label svg, .aa-LoadingIndicator svg {
+  --aa-primary-color-rgb: rgba(var(--tw-primary),1);
+}
+
+.ais-SearchBox-form {
+  position: relative;
+}
+
+.ais-SearchBox-input {
+  --tw-ring-color: var(--tw-accent) !important;
+  border-radius: 9999px !important;
+  border: 1px solid var(--nbi-colors-grey, #b0b7c6);
+  background: var(--nbi-colors-white, #fff);
+  color: var(--nbi-colors-primary, #092254);
+  width: 100%;
+  padding: 0.5rem 1rem !important;
+}
+
+.ais-SearchBox-input:focus {
+  border-color: var(--tw-accent) !important;
+}
+
+.ais-RefinementList-searchBox {
+  margin-bottom: 1rem;
+}
+.ais-SearchBox-reset {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  padding: 1rem;
+}
+
+.ais-SearchBox-submit {
+  display: none !important;
+}
+
+.ais-SearchBox-reset {
+  display: flex;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  padding: 0.3125rem;
+  justify-content: center;
+  align-items: center;
+  right: 10px;
+  top: 8px;
+  color: var(--tw-primary) !important;
+  background-color: var(--tw-accent) !important;
+  border-radius: 9999px;
+}
+
+.ais-Highlight-highlighted {
+  background-color: transparent !important;
+  font-weight: bold;
+}
+
+
+.ais-SearchBox-form input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+.ais-SearchBox-form input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+.ais-SearchBox-form input[type="search"]::-webkit-search-decoration,
+.ais-SearchBox-form input[type="search"]::-webkit-search-cancel-button,
+.ais-SearchBox-form input[type="search"]::-webkit-search-results-button,
+.ais-SearchBox-form input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+.ais-HierarchicalMenu-link {
+  gap: 0.125rem;
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-direction: column;
+}
+
+span.ais-HierarchicalMenu-label::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  --tw-ring-color: currentColor !important;
+  vertical-align: top;
+  --tw-bg-opacity: 1;
+  cursor: pointer;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-width: 1px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  border-style: solid;
+  min-width: 25px;
+  min-height: 25px;
+  max-width: 25px;
+  max-height: 25px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: transparent;
+  margin-right: 0.625rem;
+}
+
+
+span.ais-HierarchicalMenu-label {
+  color: var(--tw-primary);
+  line-height: 130%;
+  font-style: normal !important;
+  font-size: 1rem !important;
+  padding: 0.375rem;
+  display: flex;
+  align-items: center;
+}
+
+.ais-HierarchicalMenu-item.ais-HierarchicalMenu-item--selected {
+  font-weight: unset !important;
+}
+
+ul.ais-HierarchicalMenu-list--child .ais-HierarchicalMenu-item .ais-HierarchicalMenu-link .ais-HierarchicalMenu-label {
+  margin-left: 2em;
+}
+
+span.ais-HierarchicalMenu-label:hover,
+ul.ais-HierarchicalMenu-list--child .ais-HierarchicalMenu-item:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(243 245 249 / 1) !important;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  border-radius: 0.3125rem;
+}
+
+.ais-HierarchicalMenu-item.ais-HierarchicalMenu-item--selected.ais-HierarchicalMenu-item--parent .ais-HierarchicalMenu-link.ais-HierarchicalMenu-link--selected:focus,
+.ais-HierarchicalMenu-list--child .ais-HierarchicalMenu-item--selected .ais-HierarchicalMenu-link--selected:focus,
+.ais-HierarchicalMenu-item.ais-HierarchicalMenu-item--selected .ais-HierarchicalMenu-link--selected:focus {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(243 245 249 / 1) !important;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  border-radius: 0.3125rem;
+  transition-duration: 300ms;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ais-HierarchicalMenu-item.ais-HierarchicalMenu-item--selected.ais-HierarchicalMenu-item--parent .ais-HierarchicalMenu-link.ais-HierarchicalMenu-link--selected:focus span.ais-HierarchicalMenu-label::before,
+.ais-HierarchicalMenu-item.ais-HierarchicalMenu-item--selected .ais-HierarchicalMenu-link--selected:focus span.ais-HierarchicalMenu-label::before {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  height: 50px;
+  --tw-ring-inset: var(--tw-empty);
+  --tw-ring-offset-width: 2px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: currentColor;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  --tw-ring-color: currentColor !important;
+  transition-duration: 150ms;
+}
+
+.ais-HierarchicalMenu-item.ais-HierarchicalMenu-item--selected.ais-HierarchicalMenu-item--parent .ais-HierarchicalMenu-link.ais-HierarchicalMenu-link--selected span.ais-HierarchicalMenu-label::before,
+.ais-HierarchicalMenu-item.ais-HierarchicalMenu-item--selected .ais-HierarchicalMenu-link--selected span.ais-HierarchicalMenu-label::before {
+  background-color: var(--tw-primary) !important;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}
+
+.ais-HierarchicalMenu-showMore {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+
+.CreditsAvailableComponent span::before{
+  display: none;
+}
+
+.CreditsAvailableComponent .ais-HierarchicalMenu-label {
+  padding: 0;
+}

@@ -1,0 +1,109 @@
+@layer components {
+  .select--custom-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .select--custom-label {
+    height: 40px;
+    width: fit-content;
+    display: block;
+    padding: 12px 15px;
+    border: 1px solid #092254;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease-in;
+  }
+
+  .dark-select .select--custom-label {
+    @apply border-white text-white;
+  }
+
+  .select--custom-option:focus {
+    @apply outline-none
+  }
+
+  .select--custom-label:hover,
+  .select--custom-label:focus {
+    @apply border-secondary text-secondary outline-none
+  }
+
+  .select--custom-label .icon--caret {
+    transform: rotate(0deg);
+    margin-left: 6px;
+    transition: 0.4s;
+  }
+
+  .select--custom-label[aria-expanded="true"] .icon--caret {
+    transform: rotate(180deg);
+  }
+
+  input.select--custom-option-radio,
+  input.select--custom-toggle {
+    appearance: none;
+    border: 0;
+    width: 0;
+    height: 0;
+    box-shadow: none;
+    outline: none;
+  }
+
+  input.select--custom-option-radio:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .select--custom-options {
+    box-shadow: 0px 1px 15px rgba(9, 34, 84, 0.2);
+    border-radius: 20px;
+    padding: 0;
+    position: absolute;
+    top: 40px;
+    z-index: 2;
+    background-color: #fff;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: top 0.2s ease-in, opacity 0.2s ease-in;
+  }
+
+  .select--custom-label[aria-expanded="true"] + .select--custom-options {
+    padding: 15px 0;
+    opacity: 1;
+    top: 50px;
+    height: auto;
+  }
+
+  .select--custom-option-label {
+    display: block;
+    padding: 5px 75px 5px 25px;
+    min-width: 100%;
+    width: max-content;
+    cursor: pointer;
+    background-color: #fff;
+    transition: 0.2s ease-in;
+    position: relative;
+    @apply text-primary;
+  }
+
+  [aria-selected="true"] .select--custom-option-label,
+  .select--custom-option-label:has(:checked) {
+    @apply text-secondary;
+  }
+
+  [aria-selected="true"] .select--custom-option-label::after,
+  .select--custom-option-label:has(:checked)::after {
+    content: "\2713";
+    position: absolute;
+    right: 28px;
+  }
+
+  .select--custom-option-label:hover {
+    @apply bg-grey-light;
+    @apply text-secondary;
+  }
+}

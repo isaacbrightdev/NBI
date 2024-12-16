@@ -1,0 +1,103 @@
+{{ 'business-skills.css' | asset_url | stylesheet_tag }}
+
+<div class="business-skills-container">
+  <div class="business-skills-content">
+    <div class="bs-header-contet">
+      <h3 class="bs-header">{{ section.settings.header }}</h3>
+      <div class="bs-paragraph">{{ section.settings.paragraph }}</div>
+    </div>
+    <div class="bs-items">
+      {% for block in section.blocks %}
+        {% liquid
+          assign img = block.settings.image | image_url: width: 1652 | image_tag: width: 71, widths: '100, 200, 300, 500, 600, 700, 800, 1000, 1200, 1400, 1652', class: 'bs-image'
+        %}
+        <div class="bs-item">
+          {{ img }}
+          <div class="bs-item-text-content">
+            <p class="bs-title">{{ block.settings.title }}</p>
+            <p class="bs-subtitle">{{ block.settings.subtitle }}</p>
+            <a href="{{ block.settings.button_link }}" class="bs-link">
+              {{- block.settings.button_text -}}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <a href="{{ section.settings.button_url }}" class="bs-button">
+      {{- section.settings.button_text -}}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Business Skills",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "id": "header",
+      "type": "text",
+      "label": "Section Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph"
+    },
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text"
+    },
+    {
+      "type": "text",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Block Title"
+        },
+        {
+          "id": "subtitle",
+          "type": "text",
+          "label": "Block Subtitle"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Business Skills",
+      "category": "custom",
+      "blocks": [
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

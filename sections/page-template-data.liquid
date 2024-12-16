@@ -1,0 +1,23 @@
+<div
+  class="hidden"
+  id="pageTemplate"
+  data-template="{{ page.template_suffix }}"
+></div>
+
+{% schema %}
+{
+  "name": "Template (do not remove)",
+  "tag": "section",
+  "limit": 1,
+  "settings": [],
+  "presets": [
+    {
+      "name": "Template (do not remove)",
+      "settings": {}
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

@@ -1,0 +1,46 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "faculty_banner_4AQUJM": {
+      "type": "faculty-banner",
+      "settings": {
+        "subheading": "",
+        "heading": "Page Not Found",
+        "description": ""
+      }
+    },
+    "text_callout_module_4Dangt": {
+      "type": "text-callout-module",
+      "settings": {
+        "text": "<h4>The page you're looking for has been moved, deleted, or is otherwise unavailable. But please don't give up! Try this:</h4><p>1. Double-check the web address for any typos.</p><p>2. Return to the homepage and start fresh.</p><p>3. Use our search bar above to find what you're looking for. OR</p><p>4. Contact our support team for assistance at 800-930-6182. We are always happy to help.</p>",
+        "url": "",
+        "cta": "Go to Homepage"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "root",
+    "faculty_banner_4AQUJM",
+    "text_callout_module_4Dangt"
+  ]
+}

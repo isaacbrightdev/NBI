@@ -1,0 +1,46 @@
+<script type="text/javascript">
+  window.CartSettings = {};
+  window.CartSettings.cartSummaryText = '{{ section.settings.cartSummaryText }}';
+  window.CartSettings.icons = [{% for block in section.blocks %}
+    {
+    image: '{{ block.settings.image | image_url }}',
+    text: '{{ block.settings.text }}'
+    },
+  {% endfor %}];
+</script>
+{% schema %}
+{
+  "name": "Cart Settings",
+  "class": "cart-settings",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "cartSummaryText",
+      "label": "Cart Summary Text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Icon List Item",
+      "type": "icon_list_item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cart"
+    }
+  ]
+}
+{% endschema %}

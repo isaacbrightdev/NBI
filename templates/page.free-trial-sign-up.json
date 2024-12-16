@@ -1,0 +1,109 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "db497329-aed1-4c00-96e7-be51ba0d4a4e": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "product_icon_list_LDLwBU": {
+      "type": "product-icon-list",
+      "settings": {
+        "label_01": "",
+        "label_02": "",
+        "label_03": ""
+      }
+    },
+    "1714670768279d2595": {
+      "type": "apps",
+      "blocks": {
+        "hulk_form_builder_form_block_RGW9nP": {
+          "type": "shopify://apps/hulk-form-builder/blocks/form-block/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+          "settings": {
+            "form_uuid": "9hlizNgcZP-TlVhWtxBgwg",
+            "form_settings": false,
+            "font_color": "#000000",
+            "size": 14,
+            "input_background_color": "#ffffff",
+            "input_background_color_focus": "#f4dada",
+            "input_border_radius": 1,
+            "input_border_color": "#ebe9e9",
+            "input_border_color_focus": "#2d2727",
+            "input_font_color": "#3d3131",
+            "input_size": 14,
+            "border_color": "#121212",
+            "border_radius": 2,
+            "border": 1,
+            "fill_color": "#ebe9e9",
+            "padding": 35,
+            "form_width": 600,
+            "btn_text": "Submit",
+            "sub_btn_txt_color": "#f3f3f3",
+            "sub_btn_bg_color": "#3f3333",
+            "sub_btn_font_size": 14,
+            "sub_btn_bdr_color": "#ffffff",
+            "sub_btn_bdr_rad": 3,
+            "sub_btn_bdr_width": 1,
+            "fonts": "Times New Roman"
+          }
+        }
+      },
+      "block_order": [
+        "hulk_form_builder_form_block_RGW9nP"
+      ],
+      "settings": {
+      }
+    },
+    "6f278ef9-b8b5-4b0b-b208-9439d8fc5f24": {
+      "type": "horizontal-product-carousel",
+      "settings": {
+        "title": "{{ section.settings.collection.title }} On Demand Best Sellers",
+        "sub_title": "On Demand Best Sellers",
+        "collection": "{{ page.metafields.collections.ondemand_courses.value }}",
+        "show_view_all": true,
+        "two_columns": false,
+        "border_top": false,
+        "border_bottom": true
+      }
+    },
+    "9e1d3e80-8414-4a6f-8be5-6fa72bfd2799": {
+      "type": "faqs-module",
+      "settings": {
+      }
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "header",
+    "db497329-aed1-4c00-96e7-be51ba0d4a4e",
+    "product_icon_list_LDLwBU",
+    "1714670768279d2595",
+    "6f278ef9-b8b5-4b0b-b208-9439d8fc5f24",
+    "9e1d3e80-8414-4a6f-8be5-6fa72bfd2799",
+    "shogun-optimizer"
+  ]
+}

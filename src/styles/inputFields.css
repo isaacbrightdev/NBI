@@ -1,0 +1,101 @@
+@layer components {
+  .form-field--dark {
+    @apply bg-primary;
+  }
+
+  .input--regular {
+    @apply text-primary outline-none;
+    border: 1px solid #b9bec9;
+    border-radius: 10px;
+    padding: 12px 15px;
+    line-height: 1;
+  }
+
+  .input--regular:focus {
+    @apply border-accent-light outline-none;
+    box-shadow: none;;
+  }
+
+  input.input--regular::placeholder {
+    transition: 0.2s;
+  }
+
+  input.input--regular:focus::placeholder {
+    opacity: 0;
+  }
+
+  .form--floating-label-wrapper {
+    border: 1px solid #b9bec9;
+    border-radius: 10px;
+    padding: 26px 15px 8px;
+    height: 55px;
+    position: relative;
+    transition: 0.2s;
+  }
+
+  .form--floating-label-wrapper:has(:focus) {
+    @apply border-accent;
+  }
+
+  .form--floating-label-wrapper:has(:invalid) {
+    @apply border-error;
+  }
+
+  .form--floating-label {
+    @apply absolute text-grey;
+    top: 17px;
+    left: 15px;
+    transition: 0.3s;
+    line-height: 1;
+  }
+
+  .form--floating-label-wrapper:has(:focus) .form--floating-label,
+  .form--floating-label-wrapper:has(:valid):has(input:not(:placeholder-shown))
+    .form--floating-label,
+  .form--floating-label-wrapper:has(:invalid) .form--floating-label {
+    top: 8px;
+    font-size: 0.75rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .form--floating-label-input,
+  .form--floating-label-input:focus {
+    @apply ring-0;
+    font-size: 1rem;
+    line-height: 1;
+    height: 20px;
+    border: none;
+    outline:none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .form--floating-label-input:focus,
+  .form--floating-label-input:active,
+  .form--floating-label-input:hover {
+    @apply border-none outline-none shadow-none;
+  }
+
+  .form--floating-label-input::placeholder {
+    opacity: 0;
+  }
+
+  input.input--regular:not(:focus):invalid,
+  input.input--regular.error {
+    @apply border-error ring-0;
+  }
+
+  .form-field--dark input.input--regular:not(:focus):invalid,
+  .form-field--dark input.input--regular.error {
+    @apply bg-error-light ring-0;
+  }
+
+  input.input--regular:not(:focus):invalid + .error-message,
+  input.input--regular.error + .error-message {
+    @apply block;
+  }
+
+  .error-message {
+    @apply text-error text-sm-body;
+  }
+}

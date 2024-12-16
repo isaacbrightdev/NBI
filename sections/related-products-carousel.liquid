@@ -1,0 +1,97 @@
+<div class="w-full max-w-full mx-auto {% if section.settings.border_top and section.settings.two_columns == false %}border-t border-grey py-4 lg:py-6 {% endif %} {% if section.settings.border_bottom and section.settings.two_columns == false %}border-b border-grey py-4 lg:py-6{% endif %}">
+  <div
+    class="container-fluid max-w-screen-2xl gx-sm xl:gx-xl lg-max:!px-0 leading-snug py-10 lg:py-12"
+  >
+    {% if section.settings.border_top
+      and section.settings.two_columns == true
+    %}
+      <div class="col-12 lg:ml-[auto] lg:col-9">
+        <hr class="border-grey mb-4 lg:mb-12">
+      </div>
+    {% endif %}
+    {% if request.design_mode %}
+      <script>
+        (function(window) {
+          window.meta = {
+            products: []
+          };
+          window.meta.products = [
+            {%- for product in collections.all.products limit: 4 -%}
+            {{- product | json -}} {%- unless forloop.last -%},{%- endunless -%}
+            {%- endfor -%}
+          ];
+
+        })(window)
+      </script>
+    {% endif %}
+    <div
+      class="min-h-[20.312rem] {% if section.settings.two_columns == true %}col-12 lg:ml-[auto] lg:col-9{% endif %}"
+      data-section-id="algolia_related_products-{{- section.id -}}-{{- block.id -}}"
+      data-related-products-carousel
+    >
+      <script type="application/json">
+         {
+           "title": {{- section.settings.title | json -}},
+           "subTitle": {{- section.settings.sub_title | json -}},
+           "showViewAll": {{- section.settings.show_view_all | json -}},
+           "twoColumns": {{- section.settings.two_columns | json -}}
+        }
+      </script>
+    </div>
+
+    {% if section.settings.border_bottom
+      and section.settings.two_columns == true
+    %}
+      <div class="col-12 lg:ml-[auto] lg:col-9">
+        <hr class="border-grey mt-4 lg:mt-12">
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Related Products Carousel",
+  "tag": "section",
+  "class": "section horizontal-product-carousel",
+  "enabled_on": {
+    "templates": ["product", "collection"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Collections",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "checkbox",
+      "id": "two_columns",
+      "default": false,
+      "label": "Two Columns"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "default": false,
+      "label": "Border Top"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_bottom",
+      "default": false,
+      "label": "Border Bottom"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related Products Carousel"
+    }
+  ]
+}
+{% endschema %}

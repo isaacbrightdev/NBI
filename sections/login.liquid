@@ -1,0 +1,23 @@
+<div class="container my-6">
+  <div class="row justify-center">
+    <div class="col-4">
+      {% form 'customer_login' %}
+        {{ form.errors | default_errors }}
+
+        <div class="email mb-4">
+          <label class="block" for="email">Email</label>
+          <input class="block w-full" type="email" name="customer[email]">
+        </div>
+
+        <div class="password">
+          <label class="block" for="password">Password</label>
+          <input class="block w-full" type="password" name="customer[password]">
+        </div>
+
+        <div class="submit">
+          <input type="submit" value="Sign in">
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</div>

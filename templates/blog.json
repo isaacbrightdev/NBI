@@ -1,0 +1,114 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "root_rewDAE": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "hero": {
+      "type": "blog-listing-hero",
+      "settings": {
+        "blogPageDescription": "",
+        "backgroundHeroImg": "shopify://shop_images/BG_2x_fc37abdc-271f-403c-aa55-1d21e136c6d8.jpg"
+      }
+    },
+    "main": {
+      "type": "blog-listing-main",
+      "settings": {
+        "link_cta": "More",
+        "truncated_word_limit": 30,
+        "paginationLimit": 8
+      }
+    },
+    "27cde156-f8b4-4663-b879-4c166dd4c5d7": {
+      "type": "horizontal-product-carousel",
+      "settings": {
+        "title": "Popular Courses",
+        "sub_title": "Browse our best-selling CLE courses.",
+        "collection": "best-selling-products",
+        "show_view_all": false,
+        "two_columns": false,
+        "border_top": false,
+        "border_bottom": false
+      }
+    },
+    "c93d1dcf-5d94-4a55-989b-2c57fcb71881": {
+      "type": "trusted-by",
+      "blocks": {
+        "54c1bac6-fc2e-4a00-87e2-58f743d394fa": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Brown_Crouppen_logo_white.png"
+          }
+        },
+        "825b14fa-4456-4bf8-babb-27558a6b0549": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Davidson_Law_Firm_logo_white.png"
+          }
+        },
+        "c4edd6ae-6ddd-4980-aca3-a638f5c9387d": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Cincinnati_Insurance_Companies_logo_white.png"
+          }
+        },
+        "1d88818c-d217-4979-88bb-da1d1a11fd95": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/FoxRothschild_logo_white.png"
+          }
+        },
+        "efe3b925-52e5-4830-9608-538d56908042": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Manley_Deas_Kochalski_logo_white.png"
+          }
+        },
+        "e7005758-3798-467d-90e4-cbd34e799b42": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Hastings_logo_white.png"
+          }
+        }
+      },
+      "block_order": [
+        "54c1bac6-fc2e-4a00-87e2-58f743d394fa",
+        "825b14fa-4456-4bf8-babb-27558a6b0549",
+        "c4edd6ae-6ddd-4980-aca3-a638f5c9387d",
+        "1d88818c-d217-4979-88bb-da1d1a11fd95",
+        "efe3b925-52e5-4830-9608-538d56908042",
+        "e7005758-3798-467d-90e4-cbd34e799b42"
+      ],
+      "settings": {
+        "bg_img_pos": "object-right-bottom",
+        "bg_size": "object-contain",
+        "title": "Trusted by Over 30,000 Law Firms",
+        "subheading": "Leading law firms and businesses trust NBI for their CLE needs"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "root_rewDAE",
+    "hero",
+    "main",
+    "27cde156-f8b4-4663-b879-4c166dd4c5d7",
+    "c93d1dcf-5d94-4a55-989b-2c57fcb71881"
+  ]
+}

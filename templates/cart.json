@@ -1,0 +1,77 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "cart": {
+      "type": "cart",
+      "blocks": {
+        "326c68ea-3929-4ec4-a59a-abb48fd1cd27": {
+          "type": "icon_list_item",
+          "settings": {
+            "image": "shopify://shop_images/Satisfaction_Guarantee_NBI_1_c6174b8c-11e9-4aa1-9ec2-b38fa85a7bdf.png",
+            "text": "Satisfaction Guaranteed"
+          }
+        }
+      },
+      "block_order": [
+        "326c68ea-3929-4ec4-a59a-abb48fd1cd27"
+      ],
+      "settings": {
+        "cartSummaryText": "<p><strong>Unlimited Members</strong> attend this at no cost. <a href=\"/pages/subscribe-save\" title=\"/pages/subscribe-save\"><strong>Upgrade now!<br/><br/></strong></a>User-specific subscription discounts will be applied later in the checkout process.</p>"
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "a90045db-983a-4025-b949-e7e57387762a": {
+      "type": "subscription-upsell-module",
+      "disabled": true,
+      "settings": {
+        "containerWidth": "w-full md:w-3/5 lg:w-8/12",
+        "colorBackground": "#092254",
+        "backgroundSize": "bg-[length:110%]",
+        "backgroundPosition": "bg-right",
+        "product": "all-inclusive-subscription-annual",
+        "type": "year",
+        "title": "<p>Subscribe and get 12 months of unlimited CLE</p>",
+        "upsellTitle": "<p>Claim your [$XX] subscription savings before it's gone</p>",
+        "upgradeTitle": "<p>Upgrade to the All Inclusive CLE Pass to get unlimited live courses included in your subscription</p>",
+        "upgradeLiveTitle": "<p>Upgrade to the All Inclusive CLE Pass to get unlimited On-Demand courses included in your subscription</p>",
+        "text": "",
+        "defaultCTA": "Get Unlimited",
+        "upgradeCTA": "Upgrade Now",
+        "discountCTA": "Upgrade to Unlimited CLE"
+      }
+    },
+    "magic_url_delay_Li8G6w": {
+      "type": "magic-url-delay",
+      "settings": {
+        "cart_poll_interval": 2000,
+        "cart_poll_total": 1000,
+        "cart_poll_discount": 100
+      }
+    }
+  },
+  "order": [
+    "header",
+    "cart",
+    "root",
+    "a90045db-983a-4025-b949-e7e57387762a",
+    "magic_url_delay_Li8G6w"
+  ]
+}

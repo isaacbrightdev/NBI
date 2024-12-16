@@ -1,0 +1,171 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "d713a066-ba20-4816-990d-b27c8c16b291": {
+      "type": "article-header-light",
+      "blocks": {
+        "76395090-490e-4f91-8206-351a483c7aef": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "Facebook",
+            "icon": "shopify://shop_images/FB_Blue_Small2_1.png",
+            "url": "https://www.facebook.com/sharer/sharer.php?u=[url]&t=[title]"
+          }
+        },
+        "27f2c811-9429-4ade-a24f-10d6599d360e": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "LinkedIn",
+            "icon": "shopify://shop_images/LinkedIn-dark-blue.png",
+            "url": "https://www.linkedin.com/sharing/share-offsite/?url=[url]"
+          }
+        },
+        "26ca095b-d3db-4ee4-917b-b254a6cef96e": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "Twitter",
+            "icon": "shopify://shop_images/Twitter-dark-blue.png",
+            "url": "https://twitter.com/intent/tweet?text=[title]&url=[url]"
+          }
+        }
+      },
+      "block_order": [
+        "76395090-490e-4f91-8206-351a483c7aef",
+        "27f2c811-9429-4ade-a24f-10d6599d360e",
+        "26ca095b-d3db-4ee4-917b-b254a6cef96e"
+      ],
+      "settings": {
+      }
+    },
+    "article": {
+      "type": "article",
+      "blocks": {
+        "e999c3b7-8df2-4b6e-9612-0ec4766b1473": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "Facebook",
+            "icon": "shopify://shop_images/Facebook-dark-blue.png",
+            "url": "https://www.facebook.com/sharer/sharer.php?u=[url]&t=[title]"
+          }
+        },
+        "8f2ba604-d2f6-4c7f-9c7c-85a58ffce848": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "LinkedIn",
+            "icon": "shopify://shop_images/LinkedIn-dark-blue.png",
+            "url": "https://www.linkedin.com/sharing/share-offsite/?url=[url]"
+          }
+        },
+        "e2df6371-ab36-45be-964c-057c35349421": {
+          "type": "socialMediaLinks",
+          "settings": {
+            "title": "Twitter",
+            "icon": "shopify://shop_images/Twitter-dark-blue.png",
+            "url": "https://twitter.com/intent/tweet?text=[title]&url=[url]"
+          }
+        }
+      },
+      "block_order": [
+        "e999c3b7-8df2-4b6e-9612-0ec4766b1473",
+        "8f2ba604-d2f6-4c7f-9c7c-85a58ffce848",
+        "e2df6371-ab36-45be-964c-057c35349421"
+      ],
+      "settings": {
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "e18a38e9-bf2c-4090-adc0-8b3ba1e58f4e": {
+      "type": "horizontal-product-carousel",
+      "settings": {
+        "title": "Popular Courses",
+        "sub_title": "Browse our best-selling CLE courses.",
+        "collection": "best-selling-products",
+        "show_view_all": true,
+        "two_columns": false,
+        "border_top": true,
+        "border_bottom": false
+      }
+    },
+    "88c34064-7a72-46ae-beac-6c32bfdc4299": {
+      "type": "trusted-by",
+      "blocks": {
+        "764e238d-6237-494c-954e-5ef7738d2016": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Brown_Crouppen_logo_white.png"
+          }
+        },
+        "c32b3f2b-f972-44a5-8011-b5d4e0ebb402": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Davidson_Law_Firm_logo_white.png"
+          }
+        },
+        "3630519d-f109-46ae-b4f3-652f818928ac": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Cincinnati_Insurance_Companies_logo_white.png"
+          }
+        },
+        "6e37e47f-dc06-4674-9477-ccc892a1ea3f": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/FoxRothschild_logo_white.png"
+          }
+        },
+        "a568b19e-98e4-4508-a3bd-b17dfc28cb80": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Manley_Deas_Kochalski_logo_white.png"
+          }
+        },
+        "fa5a90ea-2cd4-41fa-a7f2-990a08eab5e8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Hastings_logo_white.png"
+          }
+        }
+      },
+      "block_order": [
+        "764e238d-6237-494c-954e-5ef7738d2016",
+        "c32b3f2b-f972-44a5-8011-b5d4e0ebb402",
+        "3630519d-f109-46ae-b4f3-652f818928ac",
+        "6e37e47f-dc06-4674-9477-ccc892a1ea3f",
+        "a568b19e-98e4-4508-a3bd-b17dfc28cb80",
+        "fa5a90ea-2cd4-41fa-a7f2-990a08eab5e8"
+      ],
+      "settings": {
+        "bg_img_pos": "object-right-bottom",
+        "bg_size": "object-contain",
+        "title": "Trusted by Over 30,000 Law Firms",
+        "subheading": "Leading law firms and businesses trust NBI for their CLE needs"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "d713a066-ba20-4816-990d-b27c8c16b291",
+    "article",
+    "root",
+    "e18a38e9-bf2c-4090-adc0-8b3ba1e58f4e",
+    "88c34064-7a72-46ae-beac-6c32bfdc4299"
+  ]
+}

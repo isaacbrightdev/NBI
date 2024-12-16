@@ -1,0 +1,201 @@
+{% liquid
+  assign faqs = ''
+  for metaobject in page.metafields.custom.faqs.value
+    assign faqs = faqs | append: metaobject.faq_category_title
+    unless forloop.last
+      assign faqs = faqs | append: ','
+    endunless
+  endfor
+  assign faqs = faqs | split: ','
+  assign faqs = faqs | uniq
+%}
+
+{% if faqs.size > 0 %}
+  <div class="max-w-screen-2xl items-start justify-between container-fluid gx-sm xl:gx-xl lg-max:!px-0 leading-snug py-10 lg:py-12">
+    <div class="row gx-0 lg-max:mx-auto justify-center relative z-[1]">
+      <div class="col-12 pt-10 pb-7 lg:pt-16 text-center">
+        <nav
+          class="breadcrumbs flex mb-4 lg:mb-5"
+          role="navigation"
+          aria-label="breadcrumbs"
+        >
+          <ol class="breadcrumbs__list flex gap-2.5 items-center text-[12px]">
+            <li class="breadcrumbs__item">
+              <a
+                class="breadcrumbs__link text-secondary text-[12px] underline"
+                href="{{- routes.root_url -}}"
+                >Home</a
+              >
+            </li>
+            <li class="breadcrumbs__item flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="11"
+                height="10"
+                viewBox="0 0 11 10"
+                fill="none"
+              >
+                <path class="stroke-primary" d="M3.56055 0.939453L7.34516 4.72407C7.3746 4.75169 7.39806 4.78506 7.41409 4.8221C7.43013 4.85915 7.4384 4.89909 7.4384 4.93945C7.4384 4.97982 7.43013 5.01976 7.41409 5.0568C7.39806 5.09385 7.3746 5.12721 7.34516 5.15484L3.56055 8.93945" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </li>
+            <li class="breadcrumbs__item">
+              <div class="breadcrumbs__link text-[12px]" aria-current="page">
+                {{- page.title | escape -}}
+              </div>
+            </li>
+          </ol>
+        </nav>
+        <h2 class="text-h3 lg:text-h2">{{- page.title | escape -}}</h2>
+        {% if page.content != blank %}
+          <div class="lg-max:container-fluid lg-max:gx-sm">
+            <div class="mt-6 max-w-[51.75rem] mx-auto">
+              <div class="bg-white flex flex-col rounded-lg p-5 lg:p-12 border border-grey">
+                {{- page.content -}}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="row lg-max:mx-auto justify-center py-10 lg:py-14">
+      <div class="lg:col-3 lg:pr-12 lg-max:gx-0 lg:relative lg:z-[1]">
+        <div class="lg:sticky lg:z-[1020] lg:top-[100px]">
+          <faq-nav class="flex min-h-[80px] flex-col lg-max:mb-9 lg-max:!border-grey lg-max:border-t lg-max:border-b">
+            <div class="sentinel h-[1px] block"></div>
+
+            <div data-drop-down class="faq-drop-down relative">
+              <button
+                type="button"
+                class="btn min-h-[80px] !text-callout !border-0 !rounded-none !py-6 uppercase tracking-[0.0875rem] flex items-center justify-center bg-white w-full lg:hidden"
+              >
+                FAQ Menu
+                <svg
+                  width="12"
+                  height="20"
+                  aria-hidden="true"
+                  class="icon--caret ml-2"
+                >
+                  <use href="#icon-caret-down"></use>
+                </svg>
+              </button>
+              <div
+                data-toggle-container
+                class="faq-toggle-container lg-max:!hidden lg-max:!border-grey lg-max:border-b w-full lg-max:bg-white flex flex-col items-start lg-max:absolute min-w-full text-left bg-clip-padding m-0 p-0"
+              >
+                {%- for faq in faqs -%}
+                  <a
+                    role="button"
+                    href="#{{- faq | handleize -}}-{{- section.id | handleize -}}"
+                    class="lg-max:container-fluid gx-sm select-none block text-inherit no-underline text-h4-mobile lg:text-h4 py-4 w-full border-t border-grey border-solid"
+                  >
+                    {{- faq -}}
+                  </a>
+                {%- endfor -%}
+              </div>
+            </div>
+          </faq-nav>
+        </div>
+      </div>
+
+      <div class="col-12 lg:col-9">
+        <div class="grid grid-cols-1 gap-2.5">
+          {%- for faq in faqs -%}
+            <div class="grid grid-cols-1 gap-2.5">
+              <h3
+                id="{{- faq | handleize -}}-{{- section.id | handleize -}}"
+                class="text-h3-mobile lg:text-h3 mb-5 lg:mb-[1.88rem]"
+              >
+                {{- faq | escape -}}
+              </h3>
+              {%- for metaobject in page.metafields.custom.faqs.value -%}
+                {%- if metaobject.faq_category_title == faq -%}
+                  <details
+                    id="Details-{{- block.id -}}-{{- section.id -}}"
+                    class="bg-white border border-grey border-solid rounded-[0.625rem] overflow-hidden"
+                  >
+                    <summary
+                      class="pl-16 flex select-none font-medium relative w-full text-base text-left p-5 rounded-none border-0 items-center faq-item"
+                      id="Summary-{{- block.id -}}-{{- section.id -}}"
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        aria-hidden="true"
+                        class="icon-plus"
+                      >
+                        <use href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        width="20"
+                        height="20"
+                        aria-hidden="true"
+                        class="icon-minus"
+                      >
+                        <use href="#icon-minus"></use>
+                      </svg>
+                      {{- metaobject.faq_item_title | escape -}}
+                    </summary>
+                    <div
+                      class="pl-16 px-5 pb-5 prose prose-h1:text-primary prose-h2:text-primary prose-h3:text-primary prose-h4:text-primary prose-p:text-primary"
+                      id="CollapsibleAccordion-{{- block.id -}}-{{- section.id -}}"
+                      role="region"
+                      aria-labelledby="Summary-{{- block.id -}}-{{- section.id -}}"
+                    >
+                      {{- metaobject.faq_item_content -}}
+                    </div>
+                  </details>
+                {%- endif -%}
+              {%- endfor %}
+              {%- unless forloop.last -%}
+                <hr class="border-grey my-4 lg:my-10">
+              {%- endunless -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overflow-hidden">
+    {%- if section.settings.bg_image != blank -%}
+      {%- assign img_alt_1 = section.settings.bg_image.alt
+        | default: shop.name
+        | escape
+      -%}
+      {{
+        section.settings.bg_image
+        | image_url: width: 1100
+        | image_tag:
+          width: section.settings.bg_image.width,
+          height: section.settings.bg_image.height,
+          loading: 'lazy',
+          class: 'lg:absolute lg-max:translate-x-[-10%] lg-max:translate-y-[15%] bottom-0 left-0 col-8 md:col-4 lg:col-3',
+          sizes: '100vw',
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+          alt: img_alt_1
+      }}
+    {% endif %}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "FAQ Page",
+  "class": "relative section-faq bg-grey-light",
+  "limit": 1,
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Page"
+    }
+  ]
+}
+{% endschema %}

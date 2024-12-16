@@ -1,0 +1,167 @@
+{% liquid
+  assign splide_list_class = ' md:!grid md:grid-cols-3 md:gap-4'
+  if section.settings.two_columns == true
+    assign splide_list_class = ' md:!grid md:grid-cols-2 md:gap-4'
+  endif
+%}
+<div class="w-full max-w-full mx-auto {% if section.settings.border_top and section.settings.two_columns == false %}border-t border-grey py-4 lg:py-6 {% endif %} {% if section.settings.border_bottom and section.settings.two_columns == false %}border-b border-grey py-4 lg:py-6{% endif %}">
+  <div
+    class="container-fluid max-w-screen-2xl gx-sm xl:gx-xl lg-max:!px-0 leading-snug py-10 lg:py-12"
+  >
+    {% if section.settings.border_top
+      and section.settings.two_columns == true
+    %}
+      <div class="col-12 lg:ml-[auto] lg:col-9">
+        <hr class="border-grey mb-4 lg:mb-12">
+      </div>
+    {% endif %}
+    <div class="min-h-[20.312rem] {% if section.settings.two_columns == true %}col-12 lg:ml-[auto] lg:col-9{% endif %}">
+      <upcoming-programs-carousel
+        data-two-columns="{{- section.settings.two_columns -}}"
+        class="splide"
+        aria-label="{{- section.id  -}}"
+      >
+        <div class="mb-5 flex items-center lg-max:container-fluid lg:mb-7">
+          <div class="flex-grow">
+            <h3 class="text-h3 lg-max:!text-h3-mobile">
+              {{- section.settings.title -}}
+            </h3>
+          </div>
+          <div class="flex flex-shrink-0 items-center gap-2.5 lg:gap-4">
+            <div
+              class="splide__arrows flex items-center gap-2.5 lg:gap-4"
+            ></div>
+          </div>
+        </div>
+        <div class="splide__track">
+          <ul class="splide__list {{- splide_list_class -}}">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }} class="splide__slide">
+                <div class="relative flex flex-col min-w-0 h-full bg-clip-border overflow-hidden rounded-[0.625rem] min-h-[12.5rem]">
+                  {%- if block.settings.image != blank -%}
+                    {%- assign img_alt_1 = block.settings.image.alt
+                      | default: shop.name
+                      | escape
+                    -%}
+                    {%- capture blockImageURL -%}
+                        {%- render 'cdn-url-from-image', image: block.settings.image -%}
+                      {%- endcapture -%}
+                    {% render 'picture-tag',
+                      url: blockImageURL,
+                      alt: img_alt_1,
+                      lazy: true,
+                      crop: 'center',
+                      widths: '250,300,500,360,500',
+                      screenWidths: '0,320,640,768,1024',
+                      classes: 'h-full absolute top-0 left-0 w-full object-center object-cover -z-[1]'
+                    %}
+                  {%- endif -%}
+                  <div class="flex flex-col w-full max-w-[90%] flex-auto justify-between p-6">
+                    <h3 class="text-h3 lg-max:!text-h3-mobile mb-3">
+                      {{- block.settings.title -}}
+                    </h3>
+                    <div>
+                      <a
+                        href="{{ block.settings.url }}"
+                        class="btn btn--accent stretched-link !inline-block"
+                      >
+                        <span class="flex w-full items-center">
+                          {{- block.settings.cta_text -}}
+
+                          <svg
+                            class="icon-arrow rotate-180 text-inherit ml-1.5"
+                            width="16"
+                            height="9"
+                            aria-hidden="true"
+                            strokeWidth="1"
+                          >
+                            <use href="#icon-arrow"></use>
+                          </svg>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </upcoming-programs-carousel>
+    </div>
+    {% if section.settings.border_bottom
+      and section.settings.two_columns == true
+    %}
+      <div class="col-12 lg:ml-[auto] lg:col-9">
+        <hr class="border-grey mt-4 lg:mt-12">
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Upcoming Programs",
+  "class": "upcoming-programs-carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Upcoming Programs",
+      "label": "Title"
+    },
+    {
+      "type": "checkbox",
+      "id": "two_columns",
+      "default": false,
+      "label": "Two Columns"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "default": false,
+      "label": "Border Top"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_bottom",
+      "default": false,
+      "label": "Border Bottom"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Promo for marketing"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA text",
+          "default": "Browse"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "CTA Url"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upcoming Programs"
+    }
+  ]
+}
+{% endschema %}

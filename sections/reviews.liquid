@@ -1,0 +1,23 @@
+<div id="reviews" class="container mx-auto">
+  <h2>{{ section.settings.title }}</h2>
+</div>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "class": "reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Header",
+      "default": "Reviews"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews"
+    }
+  ]
+}
+{% endschema %}

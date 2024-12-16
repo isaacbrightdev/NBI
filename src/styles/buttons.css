@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply rounded-full font-medium text-center align-middle cursor-pointer select-none px-5 py-3 border border-primary transition hover:text-secondary hover:border-secondary;
+  }
+
+  .btn:active,
+  .btn:focus {
+    @apply text-secondary border-secondary outline-none;
+    background: linear-gradient(
+      102.32deg,
+      var(--tw-gradient-light-stop) 0%,
+      #ffffff 100%
+    );
+  }
+
+  .btn[disabled] {
+    @apply border-grey-dark text-grey-dark;
+  }
+
+  .btn--accent {
+    @apply border-none bg-accent text-accent-text-color hover:text-accent-text-color hover:bg-accent-light;
+  }
+
+  .btn--accent:active,
+  .btn--accent:focus {
+    @apply outline-none;
+    background: var(--tw-accent-dark);
+  }
+
+  .btn--accent[disabled] {
+    @apply border-none bg-grey text-white;
+  }
+
+  .btn--nav {
+    @apply bg-grey-light flex justify-center items-center rounded-full border-none appearance-none;
+    width: 45px;
+    height: 45px;
+  }
+
+  .btn--nav:not(:disabled):hover {
+    background: linear-gradient(135deg, var(--tw-gradient-light-stop) 0%, #ffffff 100%);
+  }
+
+  .btn--nav:not(:disabled):active,
+  .btn--nav:not(:disabled):focus {
+    @apply outline-none text-accent-text-color;
+    background: var(--tw-accent);
+  }
+
+  .btn--nav:disabled .icon-caret {
+    @apply text-grey;
+  }
+
+  .btn--nav:not(:disabled):active,
+  .btn--nav:not(:disabled):active:focus {
+    @apply bg-accent shadow-none;
+  }
+
+  .btn--secondary {
+    @apply bg-white font-medium border border-grey flex items-center;
+    gap: 6px;
+    border-radius: 50px;
+    transition: 0.2s ease-in-out;
+  }
+
+  .btn--details {
+    @apply border-primary hover:border-secondary;
+    height: 40px;
+    font-size: 0.875rem;
+    line-height: 1;
+    padding: 0 15px;
+  }
+
+  .btn--secondary:focus,
+  .btn--secondary:not(:disabled):hover {
+    @apply text-secondary bg-white outline-none;
+  }
+
+  .btn--secondary:disabled {
+    opacity: 0.8;
+  }
+
+  .btn--credit {
+    font-size: 0.75rem;
+    line-height: 1;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    height: 26px;
+    padding: 5px 10px;
+    border: 1px solid #b9bec9;
+    border-radius: 50px;
+    transition: 0.15s ease-in-out;
+  }
+
+  .btn--credit:hover {
+    @apply border-secondary;
+  }
+
+  .btn--credit .icon-plus {
+    width: 10px;
+    height: 10px;
+  }
+
+  .stretched-link::after {
+    @apply absolute z-[1] content-[""] inset-0;
+  }
+
+  a[disabled] {
+    pointer-events: none;
+  }
+}

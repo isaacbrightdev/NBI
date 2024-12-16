@@ -1,0 +1,78 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "89c2844f-9766-4c04-ab1b-554d778249d3": {
+      "type": "mcle-hero-module",
+      "settings": {
+        "search_title": "",
+        "page": "cle-requirements-by-jurisdiction",
+        "directory_title": "Directory"
+      }
+    },
+    "text_callout_module_HfhUmt": {
+      "type": "text-callout-module",
+      "settings": {
+        "text": "",
+        "url": "{{ page.metafields.custom.view_accredited_cle_courses.value }}",
+        "cta": "{{ page.metafields.custom.faq_section_view_all_courses_text.value }}"
+      }
+    },
+    "50f0d8c2-c113-4dd6-a754-d6bbabc2e4e4": {
+      "type": "horizontal-product-carousel",
+      "disabled": true,
+      "settings": {
+        "title": "Best-Selling Courses",
+        "sub_title": "",
+        "collection": "{{ page.metafields.custom.collection_for_best_selling_state_cle_courses.value }}",
+        "show_view_all": false,
+        "two_columns": false,
+        "border_top": false,
+        "border_bottom": false
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "bdc2737e-02d6-452e-a3f0-b617b4df15b4": {
+      "type": "faqs-module",
+      "settings": {
+      }
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "header",
+    "89c2844f-9766-4c04-ab1b-554d778249d3",
+    "text_callout_module_HfhUmt",
+    "50f0d8c2-c113-4dd6-a754-d6bbabc2e4e4",
+    "root",
+    "bdc2737e-02d6-452e-a3f0-b617b4df15b4",
+    "shogun-optimizer"
+  ]
+}

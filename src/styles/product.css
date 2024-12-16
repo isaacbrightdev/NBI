@@ -1,0 +1,60 @@
+@layer components {
+  .product-nav {
+    @apply sticky z-10 top-[142px] md:top-[82px]
+  }
+  .product--overview ul {
+    @apply list-disc pl-6 my-4;
+  }
+
+  .product--overview ol {
+    @apply pl-6 my-4 list-decimal;
+  }
+
+  .product--overview ol[type="I"]{
+    @apply list-[upper-roman]
+  }
+
+  .agenda--roman-numerals {
+    counter-reset: agenda-list-item;
+  }
+
+  .agenda--roman-numerals .agenda__detail::before {
+    @apply lg:text-h2 text-h2-mobile w-12 md:w-16 block;
+    counter-increment: agenda-list-item;
+    content: counter(agenda-list-item, upper-roman) " ";
+  }
+
+  .agenda__detail ol,
+  .agenda__detail ul {
+    @apply pl-5;
+  }
+
+  .agenda__detail ol {
+    @apply list-decimal;
+  }
+
+  .agenda__detail ul {
+    @apply list-disc;
+  }
+
+  .profile__badge {
+    @apply rounded-full text-white flex justify-center items-center border-2 border-white;
+    background: linear-gradient(316deg, var(--tw-primary) 0%, var(--tw-secondary) 100%);
+  }
+
+  .product--location ul {
+    @apply list-disc pl-6 my-4;
+  }
+
+  .product--location ol {
+    @apply pl-6 my-4 list-decimal;
+  }
+
+  .who_should_attend ol {
+    @apply pl-6 my-2 list-decimal;
+  }
+
+  .who_should_attend ul {
+    @apply pl-6 my-2 list-disc;
+  }
+}

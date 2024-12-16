@@ -1,0 +1,157 @@
+<div class="container-fluid gx-[0px] relative mt-[-1px] bg-gradient-to-l from-primary to-secondary">
+  <script>
+    (() => {
+      window._disableNavSearch = true;
+    })();
+  </script>
+  <div class="row py-10 lg:py-[75px] relative">
+    <div class="col-12 lg:col-8 mx-auto px-5 lg:px-0 flex flex-col flex-wrap justify-center items-center text-white leading-snug max-w-[51.75rem]">
+      <nav
+        class="breadcrumbs flex mb-4 lg:mb-5"
+        role="navigation"
+        aria-label="breadcrumbs"
+      >
+        <ol class="breadcrumbs__list flex gap-2.5 items-center text-[12px]">
+          <li class="breadcrumbs__item">
+            <a
+              class="breadcrumbs__link text-accent text-[12px] underline"
+              href="{{- routes.root_url -}}"
+              >Home</a
+            >
+          </li>
+          <li class="breadcrumbs__item flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11"
+              height="10"
+              viewBox="0 0 11 10"
+              fill="none"
+            >
+              <path
+                d="M3.56055 0.939453L7.34516 4.72407C7.3746 4.75169 7.39806 4.78506 7.41409 4.8221C7.43013 4.85915 7.4384 4.89909 7.4384 4.93945C7.4384 4.97982 7.43013 5.01976 7.41409 5.0568C7.39806 5.09385 7.3746 5.12721 7.34516 5.15484L3.56055 8.93945"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </li>
+          {%- if section.settings.page != blank -%}
+            <li class="breadcrumbs__item flex items-center">
+              <a
+                class="breadcrumbs__link text-accent text-[12px] underline"
+                href="{{- section.settings.page.url -}}"
+              >
+                {%- if section.settings.directory_title != blank -%}
+                  {{- section.settings.directory_title | escape -}}
+                {%- else -%}
+                  {{- section.settings.page.title | escape -}}
+                {%- endif -%}
+              </a>
+            </li>
+            <li class="breadcrumbs__item flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="11"
+                height="10"
+                viewBox="0 0 11 10"
+                fill="none"
+              >
+                <path
+                  d="M3.56055 0.939453L7.34516 4.72407C7.3746 4.75169 7.39806 4.78506 7.41409 4.8221C7.43013 4.85915 7.4384 4.89909 7.4384 4.93945C7.4384 4.97982 7.43013 5.01976 7.41409 5.0568C7.39806 5.09385 7.3746 5.12721 7.34516 5.15484L3.56055 8.93945"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </li>
+          {%- endif -%}
+          <li class="breadcrumbs__item">
+            <div class="breadcrumbs__link text-[12px]" aria-current="page">
+              {%- if page.metafields.custom.breadcrumb_name.value != blank -%}
+                {{- page.metafields.custom.breadcrumb_name.value | escape -}}
+              {%- else -%}
+                {{- page.title | escape -}}
+              {%- endif -%}
+            </div>
+          </li>
+        </ol>
+      </nav>
+      <h1 class="!text-h3 lg:!text-h2 text-center mb-5">
+        {{- page.title | escape -}}
+      </h1>
+      <div class="flex justify-center mb-7 lg:mb-12">
+        <svg
+          class="h-[28px] lg:h-[38px]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 39 41"
+          fill="none"
+        >
+          <path
+            d="M18.8136 27.9905C26.1287 27.9905 32.0588 22.0604 32.0588 14.7452C32.0588 7.43009 26.1287 1.5 18.8136 1.5C11.4985 1.5 5.56836 7.43009 5.56836 14.7452C5.56836 22.0604 11.4985 27.9905 18.8136 27.9905Z"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path
+            d="M18.8135 20.6329C22.0647 20.6329 24.7003 17.9973 24.7003 14.7461C24.7003 11.495 22.0647 8.85938 18.8135 8.85938C15.5624 8.85938 12.9268 11.495 12.9268 14.7461C12.9268 17.9973 15.5624 20.6329 18.8135 20.6329Z"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path
+            d="M16.2527 27.7558L13.6625 38.6463C13.6113 38.8533 13.5165 39.0469 13.3845 39.2144C13.2526 39.3819 13.0865 39.5194 12.8972 39.6176C12.6975 39.7043 12.4821 39.749 12.2644 39.749C12.0467 39.749 11.8313 39.7043 11.6316 39.6176L1.85954 35.3497C1.65457 35.2528 1.4742 35.1107 1.332 34.9342C1.18979 34.7576 1.08942 34.5511 1.03844 34.3301C0.98746 34.1092 0.987184 33.8796 1.03763 33.6586C1.08808 33.4375 1.18795 33.2308 1.32973 33.0539L8.89423 23.5762"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path
+            d="M22.1387 27.6073L24.7877 38.645C24.8404 38.8555 24.939 39.0517 25.0763 39.2196C25.2137 39.3875 25.3866 39.523 25.5824 39.6163C25.7767 39.7041 25.9874 39.7495 26.2005 39.7495C26.4137 39.7495 26.6244 39.7041 26.8187 39.6163L36.5318 35.3484C36.7399 35.2527 36.9227 35.1097 37.0658 34.9308C37.2089 34.752 37.3082 34.5422 37.356 34.3182C37.4118 34.0991 37.4142 33.8698 37.3629 33.6495C37.3117 33.4293 37.2084 33.2246 37.0616 33.0526L29.1734 23.0156"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </div>
+      {%- if page.content != blank -%}
+        <div class="mb-7 lg:mb-12 col-12 px-5 py-[30px] lg:p-[50px] bg-white rounded-3xl">
+          {{- page.content -}}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.search_title != blank -%}
+        <h3 class="text-h3-mobile lg:text-h3 mb-2.5 text-center">
+          {{- section.settings.search_title | escape -}}
+        </h3>
+        <div class="mb-7 w-full relative z-[1]" id="hero-module-search"></div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "MCLE Hero",
+  "class": "section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "search_title",
+      "label": "Search Title",
+      "default": "Search Courses"
+    },
+    {
+      "type": "page",
+      "id": "page",
+      "label": "Breadcrumb Directory"
+    },
+    {
+      "type": "text",
+      "id": "directory_title",
+      "label": "Directory Title",
+      "default": "Directory"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MCLE Module"
+    }
+  ]
+}
+{% endschema %}

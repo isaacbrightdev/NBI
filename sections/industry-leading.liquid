@@ -1,0 +1,71 @@
+{{ 'industry-leading.css' | asset_url | stylesheet_tag }}
+
+<div class="industry-leading-container" id="industry-leading-container">
+  <div class="industry-leading-content">
+    <div class="il-header-contet">
+      <h3 class="il-header">{{ section.settings.header }}</h3>
+      <div class="il-paragraph">{{ section.settings.subtitle }}</div>
+    </div>
+    <div class="il-items">
+      {% for block in section.blocks %}
+        <div class="il-item">
+          <div class="il-item-text-content">
+            <p class="il-title">
+              {{ block.settings.title -}}
+              <sup>+</sup>
+            </p>
+            <p class="il-subtitle">{{ block.settings.subtitle }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Industry Leading",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "id": "header",
+      "type": "text",
+      "label": "Section Heading"
+    },
+    {
+      "id": "subtitle",
+      "type": "text",
+      "label": "Section Subtitle"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Block",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Block Title"
+        },
+        {
+          "id": "subtitle",
+          "type": "text",
+          "label": "Block Subtitle"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Industry Leading",
+      "category": "custom",
+      "blocks": [
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

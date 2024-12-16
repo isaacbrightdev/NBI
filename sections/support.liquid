@@ -1,0 +1,197 @@
+{% liquid
+  assign bg_img = false
+  if section.settings.bg_image != blank
+    assign bg_img = section.settings.bg_image | image_url: width: section.settings.bg_image.width
+    assign bg_img_pos = section.settings.bg_img_pos | append: ' '
+    assign bg_size = section.settings.bg_size | append: ' '
+    assign bg_classes = 'absolute w-full h-full ' | append: bg_img_pos | append: bg_size
+  endif
+  assign bg_css = section.settings.bg_css
+  assign bg_img_style = ''
+  assign bg_css_style = ''
+%}
+
+{%- if section.settings.bg_css != blank -%}
+  {%- assign bg_css_style = section.settings.bg_css -%}
+{%- endif -%}
+
+{%- unless section.settings.bg_css == blank and bg_img -%}
+  {%- assign fallback_bg = 'bg-primary-light' -%}
+{%- endunless -%}
+
+<div
+  class="relative collection w-full m-auto gx-[0px] {{ fallback_bg }}"
+  style="{{ bg_css_style }}"
+>
+  {%- if bg_img -%}
+    {%- assign bgAlt = section.settings.bg_image.alt
+      | default: shop.name
+      | escape
+    -%}
+    {%- capture bgImageURL -%}
+      {%- render 'cdn-url-from-image', image: section.settings.bg_image -%}
+    {%- endcapture -%}
+    {% render 'picture-tag',
+      url: bgImageURL,
+      alt: bgAlt,
+      lazy: true,
+      widths: '375,425,768,1200,1440,1920,2560',
+      screenWidths: '0,375,425,768,1200,1440,1920',
+      classes: bg_classes
+    %}
+  {%- endif %}
+
+  <div class="relative px-5 py-12 md:py-20 text-center text-white">
+    {%- if section.settings.summary_eyebrow != blank -%}
+      <h3 class="mb-5">{{ section.settings.summary_eyebrow }}</h3>
+    {%- endif -%}
+    <div class="grid grid-cols-1 content-center gap-6 md:grid-cols-2 max-w-[824px] mx-auto">
+      {%- for block in section.blocks -%}
+        <div class="flex flex-col items-center gap-2 rounded-xl border border-secondary px-5 py-10 w-full max-w-[400px] mx-auto">
+          {%- if block.settings.image != blank -%}
+            {%- assign img_alt_1 = block.settings.image.alt
+              | default: shop.name
+              | escape
+            -%}
+            {{
+              block.settings.image
+              | image_url: width: 110
+              | image_tag:
+                loading: 'lazy',
+                width: 110,
+                class: 'inline mb-2 w-[80px] md:w-[110px]',
+                alt: img_alt_1
+            }}
+          {%- endif -%}
+          {%- if block.settings.support_title != blank -%}
+            <h4 class="mb-2">{{ block.settings.support_title }}</h4>
+          {%- endif -%}
+          {%- if block.settings.support_subtitle != blank -%}
+            <p class="text-sm-body mb-2">
+              {{ block.settings.support_subtitle }}
+            </p>
+          {%- endif -%}
+          {%- if block.settings.support_cta_text != blank
+            and block.settings.support_cta_url != blank
+          -%}
+            <a
+              href="{{ block.settings.support_cta_url }}"
+              class="btn btn--accent"
+            >
+              {{- block.settings.support_cta_text -}}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Support Module",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "bg_img_pos",
+      "label": "Background Image Position",
+      "options": [
+        {
+          "value": "object-center",
+          "label": "Center"
+        },
+        {
+          "value": "object-left-top",
+          "label": "Top Left"
+        },
+        {
+          "value": "object-right-top",
+          "label": "Top Right"
+        },
+        {
+          "value": "object-left-bottom",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "object-right-bottom",
+          "label": "Bottom Right"
+        }
+      ],
+      "default": "object-right-bottom"
+    },
+    {
+      "type": "select",
+      "id": "bg_size",
+      "label": "Background Size",
+      "options": [
+        {
+          "value": "object-none",
+          "label": "Default"
+        },
+        {
+          "value": "object-cover",
+          "label": "Cover"
+        },
+        {
+          "value": "object-contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "object-contain"
+    },
+    {
+      "type": "text",
+      "id": "bg_css",
+      "label": "Background CSS (no brackets)"
+    },
+    {
+      "type": "text",
+      "id": "summary_eyebrow",
+      "label": "Summary Eyebrow Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "Support Group",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "support_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "support_subtitle",
+          "label": "Sub-Title"
+        },
+        {
+          "type": "text",
+          "id": "support_cta_text",
+          "label": "CTA Text"
+        },
+        {
+          "type": "url",
+          "id": "support_cta_url",
+          "label": "CTA URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Support Module"
+    }
+  ]
+}
+{% endschema %}

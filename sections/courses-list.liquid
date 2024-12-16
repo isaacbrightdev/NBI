@@ -1,0 +1,90 @@
+{{ 'courses-list.css' | asset_url | stylesheet_tag }}
+
+<div class="courses-list-container">
+  <div class="courses-list-content">
+    <div class="cl-header-contet">
+      <h3 class="cl-header">{{ section.settings.header }}</h3>
+      <div class="cl-paragraph">{{ section.settings.paragraph }}</div>
+    </div>
+    <div class="cl-items">
+      {% for block in section.blocks %}
+        {% liquid
+          assign img = block.settings.image | image_url: width: 1652 | image_tag: width: 71, widths: '100, 200, 300, 500, 600, 700, 800, 1000, 1200, 1400, 1652', class: 'cl-image'
+        %}
+        <div class="cl-item">
+          {{ img }}
+          <div class="cl-item-text-content">
+            <p class="cl-title">{{ block.settings.title }}</p>
+            <p class="cl-subtitle">{{ block.settings.subtitle }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <a href="{{ section.settings.button_url }}" class="cl-button">
+      {{- section.settings.button_text -}}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Courses List",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "id": "header",
+      "type": "text",
+      "label": "Section Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph"
+    },
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text"
+    },
+    {
+      "type": "text",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Block Title"
+        },
+        {
+          "id": "subtitle",
+          "type": "text",
+          "label": "Block Subtitle"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Courses List",
+      "category": "custom",
+      "blocks": [
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

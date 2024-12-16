@@ -1,0 +1,79 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "root_7fF6XN": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "hero_module_p37mNW": {
+      "type": "hero-module",
+      "blocks": {
+        "bullet_list_item_48th7z": {
+          "type": "bullet_list_item",
+          "settings": {
+            "stat_text": "40+",
+            "stat_title": "Years' Experience"
+          }
+        },
+        "bullet_list_item_nEU7bw": {
+          "type": "bullet_list_item",
+          "settings": {
+            "stat_text": "100,000+",
+            "stat_title": "5-Star Reviews"
+          }
+        },
+        "bullet_list_item_k6WHPG": {
+          "type": "bullet_list_item",
+          "settings": {
+            "stat_text": "1,000+",
+            "stat_title": "New Courses Yearly"
+          }
+        }
+      },
+      "block_order": [
+        "bullet_list_item_48th7z",
+        "bullet_list_item_nEU7bw",
+        "bullet_list_item_k6WHPG"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/BG_2x_fc37abdc-271f-403c-aa55-1d21e136c6d8.jpg",
+        "title": "CLE Is Just the Beginning",
+        "sub_title": "Our Skill-Based CLE Is Created & Taught By Attorneys Focused on Teaching The Nuts & Bolts Specializing In Your Area Of Law:",
+        "faculty_image_count": 5,
+        "static_text": "X lawyers learning from over X faculty"
+      }
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {
+      }
+    },
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "header",
+    "root_7fF6XN",
+    "hero_module_p37mNW",
+    "shogun-optimizer",
+    "shogun-helper"
+  ]
+}

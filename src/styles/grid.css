@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .grid--layout {
+        @apply bg-grey-light grid sm:grid-cols-1 pr-5 pl-5 pb-[50px] pt-[50px] gap-y-[15px] gap-x-[28px] justify-items-center;
+    }
+    
+    .grid--layout.tagged {
+      @apply pt-[30px];
+    }
+
+    .grid-layout-1 {
+        @apply px-[95px] pb-[50px] pt-[75px] gap-y-[25px];
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+    
+    .page--select {
+        @apply w-auto flex items-center py-[7.5px] px-[7.5px] border-accent rounded-[500px] bg-white cursor-pointer text-primary;
+    }
+
+    .pagination {
+        @apply flex justify-center items-center bg-grey-light gap-[5px] pb-[75px];
+    }
+
+    .pagination > :first-child {
+        @apply mr-[15px];
+    }
+
+    .pagination > :last-child {
+        @apply ml-[15px];
+    }
+
+    .current--page {
+        background: linear-gradient(to bottom, transparent 90%,  #99E2F2 90%);
+    }
+}

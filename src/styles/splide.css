@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.splide:not(.is-overflow) .splide__arrows {
+  display: none;
+}
+
+.splide-horizontal-product-carousel .splide__arrow svg {
+  width: 0.9375rem;
+  height: 0.9375rem;
+}

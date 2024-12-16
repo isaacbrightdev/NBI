@@ -1,0 +1,41 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "text_callout_module_TnCwUt": {
+      "type": "text-callout-module",
+      "custom_css": [
+        ".btn {display: none;}",
+        ".text-callout h1 {text-align: center; text-wrap:balance;}"
+      ],
+      "settings": {
+        "text": "<h1>Expert-Led Continuing Legal Education Courses</h1>",
+        "url": "",
+        "cta": ""
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "header",
+    "text_callout_module_TnCwUt",
+    "root"
+  ]
+}

@@ -1,0 +1,122 @@
+trigger:
+  branches:
+    include:
+      - staging
+      - main
+
+resources:
+  - repo: self
+
+variables:
+  vmImageName: "ubuntu-latest"
+
+pool:
+  vmImage: $(vmImageName)
+
+stages:
+  - stage: Deploy
+
+    jobs:
+      - job: BuildAndDeployToNBIStaging
+        displayName: Build and deploy to NBI Staging
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/staging'))
+        container: ruby:latest
+
+        steps:
+          - script: |
+              nodeVersion=$(cat .nvmrc)
+              echo "##vso[task.setvariable variable=NodeVersionKey;isOutput=true]$nodeVersion"
+            name: NodeVersionVar
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersionVar.NodeVersionKey)
+            displayName: Install node
+          - script: |
+              echo $(nodeVersionVar.NodeVersionKey)
+              npm install
+              npm run build -- --mode staging
+              npm run deploy -- --store nbi-staging --password $(NBI_SHOPIFY_CLI_THEME_TOKEN_STAGING) --theme 'NBI Staging Azure'
+            displayName: Shopify Theme Deploy | NBI Staging
+            env:
+              SHOPIFY_CLI_THEME_TOKEN: $(NBI_SHOPIFY_CLI_THEME_TOKEN_STAGING)
+              SHOPIFY_CLI_TTY: 0
+              SHOPIFY_CLI_NO_ANALYTICS: 0
+
+      - job: BuildAndDeployToIPEStaging
+        displayName: Build and deploy to IPE Staging
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/staging'))
+        container: ruby:latest
+
+        steps:
+          - script: |
+              nodeVersion=$(cat .nvmrc)
+              echo "##vso[task.setvariable variable=NodeVersionKey;isOutput=true]$nodeVersion"
+            name: NodeVersionVar
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersionVar.NodeVersionKey)
+            displayName: Install node
+          - script: |
+              echo $(nodeVersionVar.NodeVersionKey)
+              npm install
+              npm run build -- --mode ipe-staging
+              npm run deploy -- --store ipe-staging --password $(IPE_SHOPIFY_CLI_THEME_TOKEN_STAGING) --theme 'IPE Staging Azure'
+            displayName: Shopify Theme Deploy | IPE Staging
+            env:
+              SHOPIFY_CLI_THEME_TOKEN: $(IPE_SHOPIFY_CLI_THEME_TOKEN_STAGING)
+              SHOPIFY_CLI_TTY: 0
+              SHOPIFY_CLI_NO_ANALYTICS: 0
+
+      - job: BuildAndDeployToNBIProduction
+        displayName: Build and deploy to NBI Production
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+        container: ruby:latest
+
+        steps:
+          - script: |
+              nodeVersion=$(cat .nvmrc)
+              echo "##vso[task.setvariable variable=NodeVersionKey;isOutput=true]$nodeVersion"
+            name: NodeVersionVar
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersionVar.NodeVersionKey)
+            displayName: Install node
+          - script: |
+              echo $(nodeVersionVar.NodeVersionKey)
+              npm install
+              npm run build -- --mode production
+              npm run deploy -- --store nbi-sems --password $(NBI_SHOPIFY_CLI_THEME_TOKEN) --theme 'NBI Production Azure'
+            displayName: Shopify Theme Deploy | NBI Production
+            env:
+              SHOPIFY_CLI_THEME_TOKEN: $(NBI_SHOPIFY_CLI_THEME_TOKEN)
+              SHOPIFY_CLI_TTY: 0
+              SHOPIFY_CLI_NO_ANALYTICS: 0
+
+      - job: BuildAndDeployToIPEProduction
+        displayName: Build and deploy to IPE Production
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+        container: ruby:latest
+
+        steps:
+          - script: |
+              nodeVersion=$(cat .nvmrc)
+              echo "##vso[task.setvariable variable=NodeVersionKey;isOutput=true]$nodeVersion"
+            name: NodeVersionVar
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersionVar.NodeVersionKey)
+            displayName: Install node
+          - script: |
+              echo $(nodeVersionVar.NodeVersionKey)
+              npm install
+              npm run build -- --mode ipe-production
+              npm run deploy -- --store ipe-sems --password $(IPE_SHOPIFY_CLI_THEME_TOKEN) --theme 'IPE Production Azure'
+            displayName: Shopify Theme Deploy | IPE Production
+            env:
+              SHOPIFY_CLI_THEME_TOKEN: $(IPE_SHOPIFY_CLI_THEME_TOKEN)
+              SHOPIFY_CLI_TTY: 0
+              SHOPIFY_CLI_NO_ANALYTICS: 0

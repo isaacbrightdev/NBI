@@ -1,0 +1,71 @@
+{{ 'discover-nbi.css' | asset_url | stylesheet_tag }}
+
+<div class="discover-nbi-container">
+  <div class="discover-nbi-content">
+    <div class="dn-header-contet">
+      <h3 class="dn-header">{{ section.settings.header }}</h3>
+    </div>
+    <div class="dn-items">
+      {% for block in section.blocks %}
+        {% liquid
+          assign img = block.settings.image | image_url: width: 1652 | image_tag: width: 71, widths: '100, 200, 300, 500, 600, 700, 800, 1000, 1200, 1400, 1652', class: 'dn-image'
+        %}
+        <div class="dn-item">
+          {{ img }}
+          <div class="dn-item-text-content">
+            <p class="dn-title">{{ block.settings.title }}</p>
+            <p class="dn-subtitle">{{ block.settings.subtitle }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Discover NBI",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "id": "header",
+      "type": "text",
+      "label": "Section Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Block Title"
+        },
+        {
+          "id": "subtitle",
+          "type": "text",
+          "label": "Block Subtitle"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Discover NBI",
+      "category": "custom",
+      "blocks": [
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,125 @@
+{% liquid
+  assign faqs = ''
+  for metaobject in page.metafields.custom.faqs.value
+    assign faqs = faqs | append: metaobject.faq_category_title
+    unless forloop.last
+      assign faqs = faqs | append: ','
+    endunless
+  endfor
+  assign faqs = faqs | split: ','
+  assign faqs = faqs | uniq
+%}
+{% if faqs.size > 0 %}
+  <div class="max-w-screen-2xl items-start justify-between container-fluid gx-sm xl:gx-xl leading-snug py-10 lg:py-12">
+    <div class="row justify-center z-[1]">
+      <div class="col-12 lg:col-8 mx-auto">
+        {% if page.metafields.custom.faq_section_title.value != blank %}
+          <div class="row justify-center z-[1]">
+            <div class="col-12 pt-10 pb-7 lg:pt-16">
+              <h2 class="text-h3 lg:text-h2 font-normal">
+                {{- page.metafields.custom.faq_section_title.value | escape -}}
+              </h2>
+              <hr class="border-grey my-10 lg:my-12">
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="grid grid-cols-1 gap-10 lg:gap-14">
+          {%- for faq in faqs -%}
+            <div class="grid grid-cols-1 gap-2.5">
+              <h3
+                id="{{- faq | handleize -}}-{{- section.id | handleize -}}"
+                class="text-h3-mobile lg:text-h3 mb-5 lg:mb-[1.88rem]"
+              >
+                {{- faq | escape -}}
+              </h3>
+              {%- for metaobject in page.metafields.custom.faqs.value -%}
+                {%- if metaobject.faq_category_title == faq -%}
+                  <details
+                    id="Details-{{- block.id -}}-{{- section.id -}}"
+                    class="bg-white border border-grey border-solid rounded-[0.625rem] overflow-hidden"
+                  >
+                    <summary
+                      class="pl-16 flex select-none font-medium relative w-full text-base text-left p-5 rounded-none border-0 items-center faq-item"
+                      id="Summary-{{- block.id -}}-{{- section.id -}}"
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        aria-hidden="true"
+                        class="icon-plus"
+                      >
+                        <use href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        width="20"
+                        height="20"
+                        aria-hidden="true"
+                        class="icon-minus"
+                      >
+                        <use href="#icon-minus"></use>
+                      </svg>
+                      {{- metaobject.faq_item_title | escape -}}
+                    </summary>
+
+                    <div
+                      class="pl-16 px-5 pb-5 prose prose-h1:text-primary prose-h2:text-primary prose-h3:text-primary prose-h4:text-primary prose-p:text-primary"
+                      id="CollapsibleAccordion-{{- block.id -}}-{{- section.id -}}"
+                      role="region"
+                      aria-labelledby="Summary-{{- block.id -}}-{{- section.id -}}"
+                    >
+                      {{- metaobject.faq_item_content -}}
+                    </div>
+                  </details>
+                {%- endif -%}
+              {%- endfor %}
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="flex flex-col items-center pt-10 lg:pt-14 lg:pb-20">
+          <a
+            href="{{- page.metafields.custom.faq_section_view_all_courses_link.value.url -}}"
+            class="btn btn--accent flex items-center select-none"
+          >
+            {{- page.metafields.custom.faq_section_view_all_courses_text.value -}}
+            <span>
+              <svg
+                class="ml-2.5"
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="10"
+                viewBox="0 0 15 10"
+                fill="none"
+              >
+                <path d="M1.7998 5.125H13.4998" stroke="var(--tw-accent-text-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.3506 8.27461L13.5006 5.12461L10.3506 1.97461" stroke="var(--tw-accent-text-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg></span
+          ></a>
+          <p class="pt-5 lg:pt-14">
+            Have more questions?
+            <a
+              href="{{- page.metafields.custom.faq_contact_us_link.value.url -}}"
+              class="underline font-medium text-primary"
+              >Please Contact Us</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "FAQ Module",
+  "class": "section-faq bg-grey-light",
+  "limit": 1,
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "presets": [
+    {
+      "name": "FAQ Module"
+    }
+  ]
+}
+{% endschema %}

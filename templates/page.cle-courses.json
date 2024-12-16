@@ -1,0 +1,37 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "bea1a941-96f9-4da5-98da-d8fa07bd5efe": {
+      "type": "text-callout-module",
+      "settings": {
+        "text": "<p>Move your practice forward with practical, current, and engaging CLE Courses</p>",
+        "url": "",
+        "cta": "Explore CLE Courses"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "root",
+    "bea1a941-96f9-4da5-98da-d8fa07bd5efe"
+  ]
+}

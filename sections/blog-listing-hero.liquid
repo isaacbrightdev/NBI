@@ -1,0 +1,85 @@
+{% if request.path contains 'tagged' %}
+  {% liquid
+    assign tags = ''
+
+    for tag in current_tags
+      assign currentTag = tag | capitalize
+      assign tags = tags | append: currentTag | append: ','
+    endfor
+
+    assign tags = tags | split: ','
+  %}
+  <header class="bg-grey-light text-center pt-10 lg:pt-[75px]">
+    <ul class="breadcrumbs">
+      <li class="breadcrumb">
+        <a class="text-secondary underline px-[2px]" href="/">Home</a>
+      </li>
+      <li class="breadcrumb">
+        <a class="text-secondary underline px-[2px]" href="{{blog.url}}">
+          {{- blog.title -}}
+        </a>
+      </li>
+      <li class="breadcrumb">
+        <span class="text-primary px-1">{{ tags | join: ',' }}</span>
+      </li>
+    </ul>
+    <h2 class="leading-8 md:leading-[52px] pt-[15px] font-medium md:font-normal">
+      {{ tags | join: ', ' }}
+    </h2>
+  </header>
+{% else %}
+  {% assign blogPageDescription = section.settings.blogPageDescription %}
+
+  <div class="h-[132px] sm:h-[285px] relative bg-primary text-white w-full overflow-hidden">
+    {%- if section.settings.backgroundHeroImg -%}
+      {%- capture backgroundHeroImg -%}
+        {%- render 'cdn-url-from-image', image: section.settings.backgroundHeroImg -%}
+      {%- endcapture -%}
+      {% render 'picture-tag',
+        url: backgroundHeroImg,
+        alt: section.settings.backgroundHeroImg.alt,
+        lazy: true,
+        widths: '295,640,1024,1440',
+        screenWidths: '0,375,640,1024',
+        classes: 'absolute w-full top-0 h-full object-cover object-center'
+      %}
+    {%- endif -%}
+
+    <div class="translate-x-[-50%] translate-y-[-50%] absolute text-center w-full top-1/2 left-1/2">
+      {%- if blogPageDescription -%}
+        <p class="text-[12px] leading-[15.6px] font-medium uppercase sm:text-[14px] sm:leading-[18.2px]">
+          {{ blogPageDescription }}
+        </p>
+      {%- endif -%}
+      <p class="text-[25px] leading-[32.5px] font-medium sm:leading-[52px] sm:text-[40px] sm:font-normal">
+        {{ blog.title }}
+      </p>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Blog Listing Hero",
+  "templates": ["blog"],
+  "settings": [
+    {
+      "type": "text",
+      "id": "blogPageDescription",
+      "label": "Description of Blogs",
+      "default": "Top description of blog here"
+    },
+    {
+      "type": "image_picker",
+      "id": "backgroundHeroImg",
+      "label": "Background image for hero"
+    }
+  ],
+  "limit": 1,
+  "presets": [
+    {
+      "name": "Blog Listing Hero"
+    }
+  ]
+}
+{% endschema %}

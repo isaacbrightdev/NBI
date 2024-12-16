@@ -1,0 +1,24 @@
+<script type="application/javascript">
+  window.FacultyMember = {
+    url: '{{ section.settings.faculty_directory_url }}'
+  };
+</script>
+
+{% schema %}
+{
+  "name": "Faculty Member",
+  "settings": [
+    {
+      "type": "text",
+      "id": "faculty_directory_url",
+      "label": "Faculty Directory URL",
+      "default": "/pages/faculty"
+    }
+  ],
+  "presets": [
+    {
+      "name": "faculty-member"
+    }
+  ]
+}
+{% endschema %}

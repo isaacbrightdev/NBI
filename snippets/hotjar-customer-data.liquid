@@ -1,0 +1,12 @@
+<script>
+  {% if customer == nil %}
+    window.hj('identify', null, {});
+  {% else %}
+    window.hj('identify', {{ customer.id }}, {
+      web_user_id: "{{ customer.metafields.global.webUserId }}",
+      {% if customer.default_address.province %}billing_state: "{{ customer.default_address.province }}",{% endif %}
+      {% if customer.metafields.global.profession %}profession: "{{ customer.metafields.global.profession }}",{% endif %}
+      {% if customer.metafields.subscriptions.details.value['sub-type'] %}subscription: "{{ customer.metafields.subscriptions.details.value['sub-type'] }}",{% endif %}
+    });
+  {% endif %}
+</script>

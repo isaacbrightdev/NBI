@@ -1,0 +1,265 @@
+{% assign link_cta = section.settings.link_cta %}
+{% assign truncated_word_limit = section.settings.truncated_word_limit %}
+{% assign paginationLimit = section.settings.paginationLimit %}
+
+{% capture calendarDesktopSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1">
+    <use href='#icon-calendar' />
+  </svg>
+{% endcapture %}
+{% capture calendarMobileSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1">
+    <use href='#icon-platform' />
+  </svg>
+{% endcapture %}
+{% capture authorDesktopSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1">
+    <use href='#icon-account' />
+  </svg>
+{% endcapture %}
+{% capture authorMobileSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1">
+    <use href='#icon-credits' />
+  </svg>
+{% endcapture %}
+{% capture seeMoreSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1"
+    class="rotate-180">
+    <use href="#icon-arrow" />
+  </svg>
+{% endcapture %}
+{% capture prevPageSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1">
+    <use href='#icon-caret-left' />
+  </svg>
+{% endcapture %}
+{% capture nextPageSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1">
+    <use href='#icon-caret-right' />
+  </svg>
+{% endcapture %}
+
+{% if request.path contains 'tagged' %}
+  {% assign taggedStyling = 'tagged' %}
+{% endif %}
+
+{%- paginate blog.articles by paginationLimit -%}
+  <div class="grid--layout lg:grid-layout-1 {{ taggedStyling }}">
+    {% for article in blog.articles %}
+      {% liquid
+        assign remainder = forloop.index | modulo: 2
+        assign isOdd = true
+        if remainder == 0
+          assign isOdd = false
+        endif
+
+        assign alignment = 'lg:justify-self-end'
+        unless isOdd
+          assign alignment = 'lg:justify-self-start'
+        endunless
+      %}
+      <div class="border border-grey bg-white p-5 rounded-[10px] w-auto max-w-[335px] sm:max-w-none sm:w-[400px] {{ alignment }}">
+        {%- if article -%}
+          <div class="mb-5">
+            {%- if article.image != blank -%}
+              {%- capture articleImageURL -%}
+                {%- render 'cdn-url-from-image', image: article.image -%}
+              {%- endcapture -%}
+              {% render 'picture-tag',
+                url: articleImageURL,
+                alt: article.image.alt,
+                lazy: true,
+                crop: 'center',
+                widths: '295,360',
+                heights: '170,261',
+                screenWidths: '0,640',
+                classes: 'rounded-[10px] h-auto'
+              %}
+            {%- else -%}
+              {%- assign defaultImgURL = 'blogDefaultImg.png'
+                | asset_img_url: 'master'
+              -%}
+              {%- assign articleAlt = 'Image for article - '
+                | append: article.title
+              -%}
+              {% render 'picture-tag',
+                url: defaultImgURL,
+                alt: articleAlt,
+                lazy: true,
+                crop: 'center',
+                widths: '295,360',
+                heights: '170,261',
+                screenWidths: '0,640',
+                classes: 'rounded-[10px] h-auto'
+              %}
+            {%- endif -%}
+          </div>
+
+          <div class="flex gap-x-[15px] mb-5">
+            {%- if article.metafields.custom.byline_author -%}
+              <span class="text-[12px] leading-[15.6px] flex items-center font-medium gap-[5px]">
+                <div class="hidden sm:block">
+                  {{ authorDesktopSvg }}
+                </div>
+                <div class="block sm:hidden">
+                  {{ authorMobileSvg }}
+                </div>
+                {{ article.metafields.custom.byline_author }}
+              </span>
+            {%- endif -%}
+
+            {%- if article.published_at -%}
+              <span class="text-[12px] leading-[15.6px] flex items-center font-medium gap-[5px]">
+                <div class="hidden sm:block">
+                  {{ calendarDesktopSvg }}
+                </div>
+                <div class="block sm:hidden">
+                  {{ calendarMobileSvg }}
+                </div>
+                {{ article.published_at | date: '%a, %b %d, %Y' }}
+              </span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+        <div class="mb-5 min-h-[129px]">
+          <a
+            class="text-[16px] leading-[20.8px] sm:text-[20px] sm:leading-[26px] text-secondary"
+            href="{{ article.url }}"
+          >
+            {{ article.title }}
+          </a>
+          <p class="text-[14px] leading-[18.2px]">
+            {{
+              article.excerpt_or_content
+              | strip_html
+              | strip
+              | truncatewords: truncated_word_limit
+            }}
+          </p>
+        </div>
+        <a
+          href="{{ article.url }}"
+          class="btn flex items-center py-[10px] px-[15px] mt-[15px] border-accent text-accent font-medium rounded-[500px] text-black w-fit sm:px-[20px]"
+        >
+          <span class="mr-3 text-[14px] leading-[18.2px] sm:text-[16px] sm:leading-[20.8px]">
+            {{- link_cta -}}
+          </span>
+          {{ seeMoreSvg }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  {%- if paginate.pages > 1 -%}
+    <nav role="navigation">
+      <ol class="pagination flex justify-center items-center bg-grey-light gap-[5px] pb-[75px]">
+        {%- if paginate.previous %}
+          <li class="page--select">
+            <a class="text-secondary" href="{{ paginate.previous.url }}">
+              {{ prevPageSvg }}
+            </a>
+          </li>
+        {%- else -%}
+          <li class="page--select text-grey cursor-not-allowed">
+            {{ prevPageSvg }}
+          </li>
+        {%- endif -%}
+
+        {%- for part in paginate.parts -%}
+          {%- if part.is_link -%}
+            <li class="p-2.5">
+              <a href="{{ part.url }}">
+                {{ part.title }}
+              </a>
+            </li>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+              <li
+                class="active p-2.5 text-secondary current--page"
+                aria-current="page"
+              >
+                {{ part.title }}
+              </li>
+            {%- else -%}
+              <li class="p-2.5">
+                {{ part.title }}
+              </li>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if paginate.next -%}
+          <li class="page--select">
+            <a class="text-secondary" href="{{ paginate.next.url }}">
+              {{ nextPageSvg }}
+            </a>
+          </li>
+        {%- else -%}
+          <li class="page--select text-grey cursor-not-allowed">
+            {{ nextPageSvg }}
+          </li>
+        {%- endif -%}
+      </ol>
+    </nav>
+  {%- endif -%}
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Blog Listing Main",
+  "templates": ["blog"],
+  "settings": [
+    {
+      "type": "text",
+      "id": "link_cta",
+      "label": "Text to prompt users to read a blog",
+      "default": "More"
+    },
+    {
+      "type": "number",
+      "id": "truncated_word_limit",
+      "label": "Number of words displayed in blog preview",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "paginationLimit",
+      "label": "Number of items displayed on each grid page",
+      "default": 8
+    }
+  ],
+  "limit": 1,
+  "presets": [
+    {
+      "name": "Blog Listing Main"
+    }
+  ]
+}
+{% endschema %}

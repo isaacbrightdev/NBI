@@ -1,0 +1,9 @@
+{% assign welcome = customer.email %}
+
+{% if customer.first_name %}
+  {% assign welcome = customer.first_name %}
+{% endif %}
+
+<div class="container">
+  <h1 class="!text-h3-mobile lg:text-h3">Hi, {{ welcome }}</h1>
+</div>

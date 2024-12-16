@@ -1,0 +1,25 @@
+{%- # prettier-ignore -%}
+{%- comment -%}
+    Usage Example: 
+      {%- capture blockImageURL -%}
+        {%- render 'cdn-url-from-image', image: block.settings.image -%}
+      {%- endcapture -%}
+
+    Returns:
+
+      "//shop.myshopify.com/cdn/shop/the_image.jpeg?"
+
+
+    Why?:
+
+      To get a URL we can append CDN query parameters to and generate
+      our own picture tag with. e.g. "height", "width", "crop" in srcsets
+      that we couldn't otherwise generate with "image_tag" and "image_url".
+
+{%- endcomment -%}
+{%- assign cdnURL = '//'
+  | append: shop.permanent_domain
+  | append: '/cdn/shop/'
+-%}
+{%- assign cdnURL = cdnURL | append: image.src | append: '?' -%}
+{{- cdnURL -}}

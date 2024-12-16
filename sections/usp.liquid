@@ -1,0 +1,77 @@
+{% liquid
+  assign wrap_class = ''
+  assign block_class = 'flex-col md:flex-row md:items-center'
+  assign text_class = ''
+  if section.settings.layout == 'vertical'
+    assign wrap_class = 'justify-center'
+    assign block_class = 'flex-col items-center'
+    assign text_class = 'text-center'
+  endif
+%}
+<div class="my-6 flex w-full gap-10 px-5 lg:px-8 {{ wrap_class }}">
+  {%- for block in section.blocks -%}
+    <div class="flex gap-2.5 {{ block_class }}">
+      {%- if block.settings.image != blank -%}
+        {%- assign img_alt_1 = block.settings.image.alt
+          | default: shop.name
+          | escape
+        -%}
+        {{
+          block.settings.image
+          | image_url: width: 144
+          | image_tag: width: 36, height: 36, loading: 'lazy', alt: img_alt_1
+        }}
+      {%- endif -%}
+      {%- if block.settings.text != blank -%}
+        <p class="flex-1 {{ text_class }}">{{ block.settings.text }}</p>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</div>
+{% schema %}
+{
+  "name": "USP Module",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Module Layout",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "Horizontal Left-Justified"
+        },
+        {
+          "value": "vertical",
+          "label": "Vertical Centered"
+        }
+      ],
+      "default": "horizontal"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image (Square/1:1 images only)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "USP Text (Insert newlines with <br/>)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "USP Module"
+    }
+  ]
+}
+{% endschema %}

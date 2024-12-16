@@ -1,0 +1,36 @@
+{% schema %}
+{
+  "name": "MagicURL Time Delay",
+  "settings": [
+    {
+      "type": "number",
+      "id": "cart_poll_interval",
+      "label": "Interval time (in ms) before product is added. Default: 900ms.",
+      "default": 900
+    },
+    {
+      "type": "number",
+      "id": "cart_poll_total",
+      "label": "Total interval time (in ms) for polling attempts. Default: 1000ms.",
+      "default": 1000
+    },
+    {
+      "type": "number",
+      "id": "cart_poll_discount",
+      "label": "Interval time (in ms) to check for discount. Default: 100ms.",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "MagicURL Time Delay"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  window.cart_poll_interval = {{ section.settings.cart_poll_interval }};
+  window.cart_poll_total = {{ section.settings.cart_poll_total }};
+  window.cart_poll_discount = {{ section.settings.cart_poll_discount }};
+</script>

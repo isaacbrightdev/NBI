@@ -1,0 +1,35 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "login": {
+      "type": "login",
+      "disabled": true,
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "header",
+    "root",
+    "login"
+  ]
+}

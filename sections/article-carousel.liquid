@@ -1,0 +1,240 @@
+{% assign truncated_word_limit = section.settings.truncated_word_limit %}
+{% capture calendarDesktopSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1">
+    <use href='#icon-calendar' />
+  </svg>
+{% endcapture %}
+{% capture calendarMobileSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1">
+    <use href='#icon-platform' />
+  </svg>
+{% endcapture %}
+{% capture authorDesktopSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1">
+    <use href='#icon-account' />
+  </svg>
+{% endcapture %}
+{% capture authorMobileSvg %}
+  <svg
+    width="15"
+    height="15"
+    aria-hidden="true"
+    strokeWidth="1">
+    <use href='#icon-credits' />
+  </svg>
+{% endcapture %}
+{%- if section.settings.blog != blank
+  and section.settings.blog.articles_count > 0
+-%}
+  <div class="w-full max-w-full mx-auto {% if section.settings.border_top and section.settings.two_columns == false %}border-t border-grey py-4 lg:py-6 {% endif %} {% if section.settings.border_bottom and section.settings.two_columns == false %}border-b border-grey py-4 lg:py-6{% endif %}">
+    <div class="container-fluid max-w-screen-2xl gx-sm xl:gx-xl lg-max:!px-0 leading-snug py-10 lg:py-12">
+      {% if section.settings.border_top
+        and section.settings.two_columns == true
+      %}
+        <div class="col-12 lg:ml-[auto] lg:col-9">
+          <hr class="border-grey mb-4 lg:mb-12">
+        </div>
+      {% endif %}
+      <div class="min-h-[20.312rem] {% if section.settings.two_columns == true %}col-12 lg:ml-[auto] lg:col-9{% endif %}">
+        <marketing-promo-carousel
+          data-two-columns="{{- section.settings.two_columns -}}"
+          class="splide"
+          aria-label="{{- section.id -}}"
+        >
+          <div class="mb-5 flex items-center lg-max:container-fluid lg:mb-7">
+            <div class="flex-grow">
+              <h3 class="text-h3 lg-max:!text-h3-mobile">
+                {{- section.settings.title -}}
+              </h3>
+            </div>
+            <div class="flex flex-shrink-0 items-center gap-2.5 lg:gap-4">
+              <div
+                class="splide__arrows flex items-center gap-2.5 lg:gap-4"
+              ></div>
+            </div>
+          </div>
+          <div class="splide__track">
+            <ul class="splide__list">
+              {%- for article in section.settings.blog.articles limit: 10 -%}
+                <li
+                  id="Slide-{{- section.id -}}-{{- forloop.index -}}"
+                  class="splide__slide"
+                >
+                  <div class="article-card group relative flex flex-col min-w-0 bg-white bg-clip-border border rounded-[0.625rem] border-solid border-grey break-words items-stretch p-5 h-full">
+                    <div class="mb-5 col-12 xl:flex-shrink-0">
+                      <div class="course-card-image relative aspect-7/4 w-full xl:aspect-7/5">
+                        {%- if article.image != blank -%}
+                          {%- capture articleImageURL -%}
+                            {%- render 'cdn-url-from-image', image: article.image -%}
+                          {%- endcapture -%}
+                          {% render 'picture-tag',
+                            url: articleImageURL,
+                            alt: article.image.alt,
+                            lazy: true,
+                            crop: 'center',
+                            widths: '295,360',
+                            heights: '170,261',
+                            screenWidths: '0,640',
+                            classes: 'absolute w-full h-full left-0 top-0 object-cover object-center overflow-hidden rounded-[0.625rem] select-none'
+                          %}
+                        {%- else -%}
+                          {%- assign defaultImgURL = 'blogDefaultImg.png'
+                            | asset_img_url: 'master'
+                          -%}
+                          {%- assign articleAlt = 'Image for article - '
+                            | append: article.title
+                          -%}
+                          {% render 'picture-tag',
+                            url: defaultImgURL,
+                            alt: articleAlt,
+                            lazy: true,
+                            crop: 'center',
+                            widths: '295,360',
+                            heights: '170,261',
+                            screenWidths: '0,640',
+                            classes: 'absolute w-full h-full left-0 top-0 object-cover object-center overflow-hidden rounded-[0.625rem] select-none'
+                          %}
+                        {%- endif -%}
+                      </div>
+                    </div>
+
+                    <div class="flex flex-col w-full flex-auto justify-between">
+                      <div class="flex gap-x-[15px] mb-5">
+                        {%- if article.metafields.custom.byline_author -%}
+                          <span class="text-[12px] leading-[15.6px] flex items-center font-medium gap-[5px]">
+                            <span class="hidden sm:block">
+                              {{- authorDesktopSvg -}}
+                            </span>
+                            <span class="block sm:hidden">
+                              {{- authorMobileSvg -}}
+                            </span>
+                            {{ article.metafields.custom.byline_author }}
+                          </span>
+                        {%- endif -%}
+
+                        {%- if article.published_at -%}
+                          <span class="text-[12px] leading-[15.6px] flex items-center font-medium gap-[5px]">
+                            <span class="hidden sm:block">
+                              {{- calendarDesktopSvg -}}
+                            </span>
+                            <span class="block sm:hidden">
+                              {{- calendarMobileSvg -}}
+                            </span>
+                            {{- article.published_at | date: '%a, %b %d, %Y' -}}
+                          </span>
+                        {%- endif -%}
+                      </div>
+
+                      <h3 class="!text-[16px] leading-[20.8px] sm:text-[20px] sm:leading-[26px] text-secondary !font-normal">
+                        {{- article.title -}}
+                      </h3>
+                      <p class="text-[14px] leading-[18.2px]">
+                        {{-
+                          article.excerpt_or_content
+                          | strip_html
+                          | strip
+                          | truncatewords: truncated_word_limit
+                        -}}
+                      </p>
+                      <div>
+                        <a
+                          href="{{- article.url -}}"
+                          class="btn flex items-center py-[10px] px-[15px] mt-[15px] border-accent text-accent font-medium rounded-[500px] text-black w-fit sm:px-[20px] stretched-link"
+                        >
+                          <span class="mr-3 text-[14px] leading-[18.2px] sm:text-[16px] sm:leading-[20.8px]"
+                            >More</span
+                          >
+                          <svg
+                            width="15"
+                            height="15"
+                            aria-hidden="true"
+                            strokewidth="1"
+                            class="rotate-180"
+                          >
+                            <use href="#icon-arrow"></use>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </marketing-promo-carousel>
+      </div>
+      {% if section.settings.border_bottom
+        and section.settings.two_columns == true
+      %}
+        <div class="col-12 lg:ml-[auto] lg:col-9">
+          <hr class="border-grey mt-4 lg:mt-12">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Article Carousel",
+  "class": "article-carousel",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Related Articles",
+      "label": "Title"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.featured-blog.settings.blog.label"
+    },
+    {
+      "type": "number",
+      "id": "truncated_word_limit",
+      "label": "Number of words displayed in blog preview",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "two_columns",
+      "default": false,
+      "label": "Two Columns"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "default": false,
+      "label": "Border Top"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_bottom",
+      "default": false,
+      "label": "Border Bottom"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Article Carousel"
+    }
+  ]
+}
+{% endschema %}

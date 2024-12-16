@@ -1,0 +1,273 @@
+{% liquid
+  assign module_width_style = 'max-w-screen-2xl'
+  if section.settings.module_width_style == 'narrow'
+    assign module_width_style = 'max-w-4xl'
+  endif
+
+  assign theme_styles = 'bg-secondary text-white'
+  assign stopColor1 = 'var(--tw-primary)'
+  assign stopColor2 = 'var(--tw-secondary)'
+  if section.settings.module_theme == 'light'
+    assign theme_styles = 'bg-accent-light text-primary'
+    assign stopColor1 = 'var(--tw-gradient-light-stop)'
+    assign stopColor2 = 'var(--tw-gradient-light-stop-end)'
+  endif
+
+  assign colA_style = 'order-1 md:pr-20'
+  assign colB_style = 'order-2 md:pl-5'
+  if section.settings.image_position_style == 'left'
+    assign colA_style = 'order-2 pt-5 md:pt-0 md:pl-20'
+    assign colB_style = 'order-1 md:pr-5'
+  endif
+
+  assign item_align = section.settings.item_align
+
+  if section.settings.bg_img_pos != blank and section.settings.bg_img_pos != 'none'
+    assign bg_img_pos = section.settings.bg_img_pos | append: ' '
+  endif
+
+  assign bg_size = section.settings.bg_size | append: ' '
+
+  assign bg_classes = 'absolute w-full h-full ' | append: bg_img_pos | append: bg_size
+%}
+<div class="relative collection w-full mx-auto gx-[0px] {{ theme_styles }}">
+  {% if section.settings.bg_image != blank %}
+    {% assign bg_img = section.settings.bg_image
+      | image_url: width: section.settings.bg_image.width
+    %}
+    <img
+      src="{{ bg_img }}"
+      loading="lazy"
+      class="{{ bg_classes }}"
+      alt="background image"
+    >
+  {% else %}
+    {% render 'unlimited-background',
+      stopColor1: stopColor1,
+      stopColor2: stopColor2,
+      theme: section.settings.module_theme,
+      classes: 'absolute right-0 bottom-0 h-full object-contain'
+    %}
+  {% endif %}
+  <div class="relative flex-wrap md:flex-nowrap flex col-12 {{ module_width_style }} mx-auto px-5 py-12 pt-20 md:py-20 md:text-center {{ item_align }}">
+    <div class="text-left col-12 md:col-6 {{ colA_style }}">
+      {%- if section.settings.logo != blank -%}
+        {%- assign logoAlt = section.settings.logo.alt
+          | default: shop.name
+          | escape
+        -%}
+        {{
+          section.settings.logo
+          | image_url: width: 360
+          | image_tag:
+            width: section.settings.logo.width,
+            height: section.settings.logo.height,
+            loading: 'lazy',
+            class: 'mb-7',
+            alt: logoAlt
+        }}
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <h2 class="mb-7">{{ section.settings.subheading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.copy_text != blank -%}
+        <div class="mb-7">{{ section.settings.copy_text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.cta_text != blank
+        and section.settings.cta_url != blank
+      -%}
+        <a
+          href="{{ section.settings.cta_url }}"
+          class="btn btn--accent inline-block mb-10 md:mb-0"
+        >
+          {{- section.settings.cta_text -}}
+        </a>
+      {%- endif -%}
+    </div>
+    <div class="col-12 md:col-6 mb-7 md:mb-0 {{ colB_style }}">
+      {%- if section.settings.image != blank -%}
+        {%- assign imageAlt = section.settings.image.alt
+          | default: shop.name
+          | escape
+        -%}
+        {%- capture sectionImageURL -%}
+          {%- render 'cdn-url-from-image', image: section.settings.image -%}
+        {%- endcapture -%}
+        {% render 'picture-tag',
+          url: sectionImageURL,
+          alt: imageAlt,
+          lazy: true,
+          crop: 'center',
+          sizes: '280,360,700',
+          widths: '280,360,700',
+          heights: '233,300,583',
+          screenWidths: '0,375,425',
+          classes: 'rounded-[10px] h-auto m-auto md:m-0'
+        %}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Unlimited Module",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "module_width_style",
+      "label": "Module Width Style",
+      "options": [
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        }
+      ],
+      "default": "wide"
+    },
+    {
+      "type": "select",
+      "id": "module_theme",
+      "label": "Module Theme",
+      "options": [
+        {
+          "value": "dark",
+          "label": "Dark"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        }
+      ],
+      "default": "dark"
+    },
+    {
+      "type": "select",
+      "id": "image_position_style",
+      "label": "Core Layout",
+      "options": [
+        {
+          "value": "right",
+          "label": "Image On Right"
+        },
+        {
+          "value": "left",
+          "label": "Image On Left"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "item_align",
+      "label": "Vertical Alignment of Columns",
+      "options": [
+        {
+          "value": "items-center",
+          "label": "Center"
+        },
+        {
+          "value": "items-start",
+          "label": "Top"
+        }
+      ],
+      "default": "items-center"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "bg_img_pos",
+      "label": "Background Image Position (Only works with Background Size: Contain)",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "object-left-top",
+          "label": "Top Left"
+        },
+        {
+          "value": "object-right-top",
+          "label": "Top Right"
+        },
+        {
+          "value": "object-left-bottom",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "object-right-bottom",
+          "label": "Bottom Right"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "bg_size",
+      "label": "Background Size",
+      "options": [
+        {
+          "value": "object-none",
+          "label": "Default"
+        },
+        {
+          "value": "object-cover",
+          "label": "Cover"
+        },
+        {
+          "value": "object-contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "object-cover"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub-Heading"
+    },
+    {
+      "type": "html",
+      "id": "copy_text",
+      "label": "Copy Text"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Unlimited Module"
+    }
+  ]
+}
+{% endschema %}

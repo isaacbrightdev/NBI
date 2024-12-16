@@ -1,0 +1,49 @@
+@layer components {
+    .top-categories--header {
+        @apply flex flex-wrap justify-between items-center border-b border-grey py-8;
+    }
+
+    .top-categories--items {
+        @apply flex flex-nowrap gap-6 py-12 px-0 justify-between overflow-x-auto snap-x;
+    }
+
+    .top-categories--items::-webkit-scrollbar {
+        display: none;
+    }
+
+    .top-categories--item {
+        @apply text-center text-base text-primary w-28 block;
+    }
+
+    .top-categories--item-img {
+        @apply p-5 w-[75px] h-[75px] block mx-auto bg-grey-light rounded-full mb-2.5;
+    }
+
+    .nbi-difference--tiles {
+        @apply flex flex-row gap-6 overflow-x-auto w-full snap-x md:flex-wrap md:justify-center md:gap-0;
+    }
+
+    .nbi-difference--tiles::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nbi-difference--tile {
+        @apply p-5 lg:p-7 border border-grey rounded-md flex flex-shrink-0 gap-3.5 items-start w-[18.125rem] md:w-[calc(50%-1.5rem)] lg:w-[calc(33%-1.5rem)] md:m-3;
+    }
+
+    .upsell-module {
+        @apply rounded-2xl p-7 bg-no-repeat text-white md:flex items-center justify-between my-12 text-center md:text-left;
+    }
+
+    .upsell-module--title {
+        @apply font-medium leading-snug;
+    }
+
+    .upsell-module--title p {
+        orphans: 2;
+    }
+
+    .upsell-module--title em {
+        @apply text-accent;
+    }
+}

@@ -1,0 +1,98 @@
+{% unless section.settings.collection.products.size == 0 %}
+  <div class="w-full max-w-full mx-auto {% if section.settings.border_top and section.settings.two_columns == false %}border-t border-grey py-4 lg:py-6 {% endif %} {% if section.settings.border_bottom and section.settings.two_columns == false %}border-b border-grey py-4 lg:py-6{% endif %}">
+    <div
+      class="container-fluid max-w-screen-2xl gx-sm xl:gx-xl lg-max:!px-0 leading-snug py-10 lg:py-12"
+    >
+      {% if section.settings.border_top
+        and section.settings.two_columns == true
+      %}
+        <div class="col-12 lg:ml-[auto] lg:col-9">
+          <hr class="border-grey mb-4 lg:mb-12">
+        </div>
+      {% endif %}
+
+      <div
+        class="min-h-[20.312rem] {% if section.settings.two_columns == true %}col-12 lg:ml-[auto] lg:col-9{% endif %}"
+        data-section-id="collection-{{- section.id -}}-{{- block.id -}}"
+        data-horizontal-product-carousel
+      >
+        <script type="application/json">
+          {
+            "title": {{- section.settings.title | json -}},
+            "subTitle": {{- section.settings.sub_title | json -}},
+            "showViewAll": {{- section.settings.show_view_all | json -}},
+            "twoColumns": {{- section.settings.two_columns | json -}},
+            "collectionUrl": "{{- routes.collections_url -}}/{{- section.settings.collection.handle -}}",
+            "collectionHandle": {{- section.settings.collection.handle | json -}}
+          }
+        </script>
+      </div>
+
+      {% if section.settings.border_bottom
+        and section.settings.two_columns == true
+      %}
+        <div class="col-12 lg:ml-[auto] lg:col-9">
+          <hr class="border-grey mt-4 lg:mt-12">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endunless %}
+
+{% schema %}
+{
+  "name": "Product Carousel",
+  "tag": "section",
+  "class": "section horizontal-product-carousel",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Collections",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Shopify Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": false,
+      "label": "Show View All"
+    },
+    {
+      "type": "checkbox",
+      "id": "two_columns",
+      "default": false,
+      "label": "Two Columns"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "default": false,
+      "label": "Border Top"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_bottom",
+      "default": false,
+      "label": "Border Bottom"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Carousel"
+    }
+  ]
+}
+{% endschema %}

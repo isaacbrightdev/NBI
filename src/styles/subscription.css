@@ -1,0 +1,43 @@
+@layer components {
+    .subscriptions {
+        @apply bg-primary py-12 md:py-20 text-white bg-no-repeat bg-[length:0] md:bg-auto;
+    }
+    .subscriptions--subtitle {
+        @apply mb-5 text-center uppercase italic text-accent md:mb-7 md:text-left;
+    }
+    .subscriptions--title {
+        @apply text-center text-h2-mobile md:text-left lg:text-h2 leading-none mb-2;
+    }
+    .subscriptions--table {
+        @apply grid grid-cols-3 pb-20 md:grid-cols-5;
+    }
+    .subscriptions--table-selectbox {
+        @apply col-start-1 col-end-4 flex items-end p-5 pb-10 md:pb-5 md:col-end-3 md:border-b md:border-grey-light gap-2;
+    }
+    .subscriptions--table-selectbox .select--custom-wrapper {
+        @apply mx-auto md:mx-0;
+    }
+
+    .subscriptions--table-selectbox .select--custom-options {
+        @apply max-h-96 overflow-y-auto;
+    }
+
+    .subscriptions--table-label {
+        @apply col-span-3 col-start-1 border-b border-grey-light p-5 text-center md:col-span-2 md:h-14 md:text-left md:leading-none bg-primary;
+    }
+    .subscription--header {
+        @apply px-2.5 py-7 md:px-5 md:border-b md:border-grey-light text-center rounded-tl-3xl rounded-tr-3xl relative flex flex-col;
+    }
+
+    .subscription--lineitem {
+        @apply block md:h-14 p-5 text-center;
+    }
+
+    .subscription--lineitem-highlighted {
+        @apply bg-primary md:bg-secondary border-secondary md:border-grey-light border-b-4 md:border-b;
+    }
+
+    .subscription--footer {
+        @apply px-5 py-7 text-center rounded-bl-3xl rounded-br-3xl hidden md:block;
+    }
+}

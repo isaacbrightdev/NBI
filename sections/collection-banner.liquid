@@ -1,0 +1,163 @@
+{% liquid
+  assign type = section.settings.banner_type
+  assign heading = collection.title
+  assign headingClass = ''
+
+  if type == 'standard'
+    assign headingClass = 'text-primary h2 py-[15px] text-center text-[25px] lg:text-[40px]'
+  elsif type == 'curated'
+    assign headingClass = 'text-white h2 py-[15px] text-center text-[25px] lg:text-[40px]'
+  endif
+
+  assign description = collection.description
+  assign descriptionClass = ''
+  if type == 'standard'
+    assign descriptionClass = 'text-primary text-center max-w-[500px]'
+  elsif type == 'curated'
+    assign descriptionClass = 'text-white text-center max-w-[500px]'
+  endif
+%}
+
+{%- capture iconImageURL -%}
+  {% if section.settings.icon != blank %}
+    {%- render 'cdn-url-from-image', image: section.settings.icon -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+<section class="relative w-full overflow-hidden{% if type == 'curated' %} bg-primary{% else %} bg-gradient-to-b from-[var(--tw-gradient-light-stop)] to-[#FFF]{% endif %}">
+  <div class="flex flex-col px-[20px] py-[50px] justify-center items-center z-10 relative">
+    {% if type == 'standard' and iconImageURL != blank %}
+      <img
+        src="{{ iconImageURL }}"
+        alt="{{ heading }}"
+        class="mb-[20px]"
+        width="45"
+        height="auto"
+        loading="eager"
+      >
+    {% endif %}
+    <h1 class="{{ headingClass }}">{{ heading }}</h1>
+    <p class="{{ descriptionClass }}">{{ description }}</p>
+    {% if section.blocks.size > 0 and type == 'standard' %}
+      <div class="flex justify-between max-w-[500px] mx-auto">
+        {% for block in section.blocks %}
+          {% liquid
+            assign blockTop = block.settings.block_top
+            if type == 'standard'
+              assign blockTopClass = 'text-primary text-[16px] lg:text-[20px] font-medium text-center'
+            elsif type == 'curated'
+              assign blockTopClass = 'text-white text-[16px] lg:text-[20px] font-medium text-center'
+            endif
+
+            assign blockBottom = block.settings.block_bottom
+            assign blockBottomClass = ''
+            if type == 'standard'
+              assign blockBottomClass = 'text-primary text-[14px] text-center'
+            else
+              assign blockBottomClass = 'text-white text-[14px] text-center'
+            endif
+          %}
+          <div class="flex flex-col p-[20px] justify-center items-center z-10 relative">
+            <span class="{{ blockTopClass }}">{{ blockTop }}</span>
+            <span class="{{ blockBottomClass }}">{{ blockBottom }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  {% unless type == 'standard' %}
+    <div class="absolute lg:bottom-0 lg:right-0 -bottom-[93px] -right-[153px] z-0">
+      {% render 'faculty-banner-bg' %}
+    </div>
+  {% endunless %}
+
+  {%- if section.settings.bg_image != blank -%}
+    {%- assign image_mobile_alt = section.settings.bg_image.alt
+      | default: shop.name
+      | escape
+    -%}
+
+    {%- capture collectionBgImageUrl -%}
+      {%- render 'cdn-url-from-image', image: section.settings.bg_image -%}
+    {%- endcapture -%}
+
+    {%- render 'picture-tag',
+      url: collectionBgImageUrl,
+      alt: image_mobile_alt,
+      crop: 'center',
+      widths: '375,550,750,980,1100,1500,1780,2000,3000',
+      screenWidths: '0,640,768,980,1200,1440,1980,2400,3000',
+      classes: 'w-full h-full absolute top-0 left-0 object-cover'
+    -%}
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Collection Banner",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "id": "banner_type",
+      "type": "select",
+      "label": "Banner Type",
+      "default": "curated",
+      "options": [
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "curated",
+          "label": "Curated"
+        }
+      ]
+    },
+    {
+      "id": "icon",
+      "type": "image_picker",
+      "label": "Icon"
+    },
+    {
+      "id": "bg_image",
+      "type": "image_picker",
+      "label": "Background Image"
+    },
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading",
+      "default": "Get to know our expert faculty"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading",
+      "default": "NBI Faculty Directory"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Info Block",
+      "settings": [
+        {
+          "id": "block_top",
+          "type": "text",
+          "label": "Block Top"
+        },
+        {
+          "id": "block_bottom",
+          "type": "text",
+          "label": "Block Bottom"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Banner"
+    }
+  ]
+}
+{% endschema %}

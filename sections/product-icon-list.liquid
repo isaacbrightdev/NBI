@@ -1,0 +1,103 @@
+<div class="container xl:gx-xl">
+  <div class="row">
+    <div
+      class="col lg:col-8"
+      data-component="icon_list"
+      data-section-id="{{ section.id }}"
+    >
+      <div class="flex gap-4 w-full justify-between mb-10">
+        {% if section.settings.icon_01 or section.settings.label_01 %}
+          <div class="flex flex-col lg:flex-row items-start lg:items-center gap-2.5 flex-1">
+            {% if section.settings.icon_01 %}
+              <img
+                src="{{ section.settings.icon_01 | image_url }}"
+                width="{{ section.settings.icon_01.width }}"
+                height="{{ section.settings.icon_01.height }}"
+                loading="eager"
+              >
+            {% endif %}
+            {% if section.settings.label_01 %}
+              <p>{{ section.settings.label_01 }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.icon_02 or section.settings.label_02 %}
+          <div class="flex flex-col lg:flex-row items-start lg:items-center gap-2.5 flex-1">
+            {% if section.settings.icon_02 %}
+              <img
+                src="{{ section.settings.icon_02 | image_url }}"
+                width="{{ section.settings.icon_02.width }}"
+                height="{{ section.settings.icon_02.height }}"
+                loading="eager"
+              >
+            {% endif %}
+            {% if section.settings.label_02 %}
+              <p>{{ section.settings.label_02 }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.icon_03 or section.settings.label_03 %}
+          <div class="flex flex-col lg:flex-row items-start lg:items-center gap-2.5 flex-1">
+            {% if section.settings.icon_03 %}
+              <img
+                src="{{ section.settings.icon_03 | image_url }}"
+                width="{{ section.settings.icon_03.width }}"
+                height="{{ section.settings.icon_03.height }}"
+                loading="eager"
+              >
+            {% endif %}
+            {% if section.settings.label_03 %}
+              <p>{{ section.settings.label_03 }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Icon List",
+  "class": "product-icon-list",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "icon_01",
+      "label": "Icon 1"
+    },
+    {
+      "type": "text",
+      "id": "label_01",
+      "label": "Label 01"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_02",
+      "label": "Icon 2"
+    },
+    {
+      "type": "text",
+      "id": "label_02",
+      "label": "Label 02"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_03",
+      "label": "Icon 3"
+    },
+    {
+      "type": "text",
+      "id": "label_03",
+      "label": "Label 3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "product-icon-list"
+    }
+  ]
+}
+{% endschema %}

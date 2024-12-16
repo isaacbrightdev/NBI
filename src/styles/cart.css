@@ -1,0 +1,11 @@
+@layer components {
+    .cart-summary--text {
+        @apply mt-6 text-white text-fine-print text-center font-normal;
+    }
+    .cart-summary--text strong {
+        @apply font-bold;
+    }
+    .cart-summary--text a {
+        @apply underline text-white;
+    }
+}

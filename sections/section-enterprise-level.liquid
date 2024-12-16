@@ -1,0 +1,58 @@
+{{ 'section-enterprise-level.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign bacgrountImg = section.settings.backround_image | image_url: width: 1652
+%}
+
+<div class="enterprice-level">
+  <div class="bg-image" style="background-image: url({{ bacgrountImg }})">
+    <div class="el-content">
+      <div class="el-content-text">
+        <p class="el-title">{{ section.settings.title }}</p>
+        <div class="el-subtitle">{{ section.settings.paragraph }}</div>
+        <a href="{{ section.settings.button_url }}" class="el-button">
+          {{- section.settings.button_text -}}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Enterprice Level",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Section Title"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Section Paragraph"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "text",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "backround_image",
+      "label": "Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Enterprice Level",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

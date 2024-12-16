@@ -1,0 +1,63 @@
+{{ 'section-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign img = section.settings.image | image_url: width: 1652 | image_tag: width: 71, widths: '100, 200, 300, 500, 600, 700, 800, 1000, 1200, 1400, 1652', class: 'iwt-image'
+  assign bacgrountImg = section.settings.backround_image | image_url: width: 1652
+%}
+
+<div class="image-with-text-container">
+  <div class="bg-image" style="background-image: url({{ bacgrountImg }})">
+    <div class="iwt-content">
+      <div class="iwt-content-text">
+        <p class="iwt-title">{{ section.settings.title }}</p>
+        <p class="iwt-subtitle">{{ section.settings.subtitle }}</p>
+        <a href="{{ section.settings.button_url }}" class="iwt-button">{{ section.settings.button_text }}</a>
+      </div>
+      {{ img }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image with text",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section subtitle"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "text",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "backround_image",
+      "label": "Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Text",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

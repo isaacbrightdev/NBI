@@ -1,0 +1,492 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "193450e3-be7a-4feb-bf2e-82d0f72bab89": {
+      "type": "hero-module",
+      "blocks": {
+        "d99347a2-e191-49bd-9441-ef406c49ad10": {
+          "type": "bullet_list_item",
+          "settings": {
+            "stat_text": "40+",
+            "stat_title": "Years' Experience"
+          }
+        },
+        "6c6daee4-0672-46fa-93b0-aa20e2682980": {
+          "type": "bullet_list_item",
+          "settings": {
+            "stat_text": "100,000+",
+            "stat_title": "5-Star Reviews"
+          }
+        },
+        "9e9b3492-883c-4197-9993-09c99e1814f5": {
+          "type": "bullet_list_item",
+          "settings": {
+            "stat_text": "1,000+",
+            "stat_title": "New Courses Yearly"
+          }
+        }
+      },
+      "block_order": [
+        "d99347a2-e191-49bd-9441-ef406c49ad10",
+        "6c6daee4-0672-46fa-93b0-aa20e2682980",
+        "9e9b3492-883c-4197-9993-09c99e1814f5"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/BG_2x_fc37abdc-271f-403c-aa55-1d21e136c6d8.jpg",
+        "title": "CLE For Florida Attorneys That Teaches You The Nuts & Bolts",
+        "sub_title": "",
+        "faculty_image_count": 5,
+        "static_text": "Over 1 Million Professionals Trained"
+      }
+    },
+    "e7427617-19cd-4fe7-9fa8-94d61556fc59": {
+      "type": "horizontal-product-carousel",
+      "settings": {
+        "title": "Popular Courses",
+        "sub_title": "Browse our best-selling CLE courses.",
+        "collection": "best-selling-products",
+        "show_view_all": true,
+        "two_columns": false,
+        "border_top": false,
+        "border_bottom": false
+      }
+    },
+    "horizontal_product_carousel_KHbYtY": {
+      "type": "horizontal-product-carousel",
+      "settings": {
+        "title": "Introducing True Crime CLE",
+        "sub_title": "CLE doesn't have to be boring.",
+        "collection": "true-crime-cle-1",
+        "show_view_all": true,
+        "two_columns": false,
+        "border_top": false,
+        "border_bottom": false
+      }
+    },
+    "e90ca166-4552-43f7-8e9b-c38b25c36ad7": {
+      "type": "top-categories",
+      "blocks": {
+        "c4168518-00ac-474e-9377-3cba7522170d": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify://shop_images/TrustsEstatesProbate.png",
+            "url": "shopify://collections/trusts-estates-probate-cle-courses",
+            "title": "Trusts, Estates & Probate"
+          }
+        },
+        "54229032-6aba-4395-8065-b9f67555adf7": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify://shop_images/RealEstate.png",
+            "url": "shopify://collections/real-estate-cle-courses",
+            "title": "Real Estate"
+          }
+        },
+        "fd9d6022-9f74-45fd-b802-a6e6e7c55d4c": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify://shop_images/LitigationAppeals.png",
+            "url": "shopify://collections/litigation-appeals-cle-courses",
+            "title": "Litigation & Appeals"
+          }
+        },
+        "eaa1f63b-1401-406b-bf8c-0fa1770035ee": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify://shop_images/Tax.png",
+            "url": "shopify://collections/tax-cle-courses",
+            "title": "Tax"
+          }
+        },
+        "b8e05432-e15c-410a-8e15-89544f0f4f5f": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify://shop_images/BusinessSecurities.png",
+            "url": "shopify://collections/business-securities-law-cle-courses",
+            "title": "Business & Securities Law"
+          }
+        },
+        "0b93081d-f5c1-49bc-b16a-d7871f7de2b5": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify://shop_images/PersonalInjury.png",
+            "url": "shopify://collections/personal-injury-negligence-cle-courses",
+            "title": "Personal Injury & Negligence"
+          }
+        },
+        "d9fb892f-9c18-4e2b-ad1e-e8125a8b40bb": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify://shop_images/LaborEmployment.png",
+            "url": "shopify://collections/labor-employment-cle-courses",
+            "title": "Labor & Employment"
+          }
+        },
+        "6333667c-cb9b-4155-8562-56af878db783": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify://shop_images/Family.png",
+            "url": "shopify://collections/family-law-cle-courses",
+            "title": "Family Law"
+          }
+        }
+      },
+      "block_order": [
+        "c4168518-00ac-474e-9377-3cba7522170d",
+        "54229032-6aba-4395-8065-b9f67555adf7",
+        "fd9d6022-9f74-45fd-b802-a6e6e7c55d4c",
+        "eaa1f63b-1401-406b-bf8c-0fa1770035ee",
+        "b8e05432-e15c-410a-8e15-89544f0f4f5f",
+        "0b93081d-f5c1-49bc-b16a-d7871f7de2b5",
+        "d9fb892f-9c18-4e2b-ad1e-e8125a8b40bb",
+        "6333667c-cb9b-4155-8562-56af878db783"
+      ],
+      "settings": {
+        "title": "Top Categories",
+        "url": "shopify://pages/cle-courses-by-topic",
+        "ctaText": "Browse All",
+        "displayHeader": true
+      }
+    },
+    "69d41823-5e69-4b5a-b458-2a7985c24821": {
+      "type": "nbi-difference",
+      "blocks": {
+        "7dddda22-d541-4241-9af5-ca2f03d6b0f9": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/Quality_Content_2x_a8e51d19-9fb6-40dc-89c9-cfdf125719ea.png",
+            "heading": "Quality Content",
+            "text": "<p>Deep research, collaborative course design, and four decades of product innovation is our not-so-secret sauce.</p>"
+          }
+        },
+        "9368b470-f110-4c0b-b733-b13499e7e7fb": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/Diverse_Topics_2x_0b8737f0-aa67-4a21-aafc-482665a03349.png",
+            "heading": "Diverse Topics",
+            "text": "<p>We offer more topics than any other CLE provider. Rest assured, we've got your practice covered.</p>"
+          }
+        },
+        "453a43b0-5741-45ff-ae30-0320115cde9f": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/Practical_Courses.png",
+            "heading": "Practical Courses",
+            "text": "<p>NBI courses are practical by design, and come with valuable resources, forms and how-to instruction.</p>"
+          }
+        },
+        "3e126c60-6b16-42ec-832c-a49a4074c7ef": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/Expert_Instructors_2x_536ae5b8-dc42-4233-a87f-7baa6d5a2c55.png",
+            "heading": "Expert Instructors",
+            "text": "<p>We vet our thought-leading faculty as hard as a law school admissions department.</p>"
+          }
+        },
+        "223fc8ff-3f95-48de-8f86-bbb29982bd66": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/Credit.png",
+            "heading": "Credit Gurus",
+            "text": "<p>We're a longstanding accredited provider in each CLE state. We offer instant, hassle-free credit processing.</p>"
+          }
+        },
+        "e4a8a89f-c599-43b9-af1d-b12b9ad43531": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/Collaboration_2x_6b4e7b97-5b83-4da6-b264-98140f441062.png",
+            "heading": "Collaboration",
+            "text": "<p>We adapt our curriculum based on learnings from listening to 1 million+ students.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "7dddda22-d541-4241-9af5-ca2f03d6b0f9",
+        "9368b470-f110-4c0b-b733-b13499e7e7fb",
+        "453a43b0-5741-45ff-ae30-0320115cde9f",
+        "3e126c60-6b16-42ec-832c-a49a4074c7ef",
+        "223fc8ff-3f95-48de-8f86-bbb29982bd66",
+        "e4a8a89f-c599-43b9-af1d-b12b9ad43531"
+      ],
+      "settings": {
+        "icon": "shopify://shop_images/Group.svg",
+        "eyebrowText": "Over 40 Years of Experience",
+        "title": "Here's Our CV"
+      }
+    },
+    "a8ba8b53-c5d7-4c76-b194-c4c3d94716ac": {
+      "type": "two-up",
+      "settings": {
+        "image_1": "shopify://shop_images/CLECourses.jpg",
+        "text_color_1": "light",
+        "title_1": "CLE Courses",
+        "subtitle_1": "Top-quality live and OnDemand CLE courses in 40+ practice areas. Our programming is accredited in all jurisdictions, with courses designed for practitioners of all experience levels.",
+        "link_1": "shopify://collections/all-courses",
+        "cta_1": "Browse",
+        "image_2": "shopify://shop_images/UnlimitedCLE.jpg",
+        "text_color_2": "light",
+        "title_2": "Live In-Person Seminars",
+        "subtitle_2": "Attend our live, in-person Continuing Legal Education seminars at fantastic locations. Earn your CLE credits while enjoying an engaging and interactive experience.",
+        "link_2": "shopify://collections/live-in-person",
+        "cta_2": "Browse"
+      }
+    },
+    "6fdf2e01-08c3-4a19-a697-a84271571c54": {
+      "type": "two-up",
+      "settings": {
+        "image_1": "shopify://shop_images/StateSpecific.jpg",
+        "text_color_1": "light",
+        "title_1": "Unlimited CLE",
+        "subtitle_1": "As a subscriber, you’ll gain unlimited access to our endless library of industry-leading content, covering every topic you can imagine.",
+        "link_1": "shopify://pages/cle-courses-by-jurisdiction",
+        "cta_1": "Browse",
+        "image_2": "shopify://shop_images/eLearning.jpg",
+        "text_color_2": "light",
+        "title_2": "True Crime CLE",
+        "subtitle_2": "If you’re a true crime enthusiast and looking to enhance your legal knowledge, you’ll love NBI's True Crime CLE. This engaging and informative series combines riveting true crime stories with insightful legal analysis",
+        "link_2": "shopify://collections/true-crime-cle-1",
+        "cta_2": "Browse"
+      }
+    },
+    "ba6b0369-cacf-44a6-9620-66166a81f716": {
+      "type": "two-up",
+      "settings": {
+        "image_1": "shopify://shop_images/FastTracks.jpg",
+        "text_color_1": "light",
+        "title_1": "State-Specific CLE",
+        "subtitle_1": "Unlike most national CLE providers, we offer jurisdiction-specific content on topics where it matters most.",
+        "link_1": "shopify://pages/cle-courses-by-jurisdiction",
+        "cta_1": "Browse",
+        "image_2": "shopify://shop_images/JudicialForums.jpg",
+        "text_color_2": "light",
+        "title_2": "Judicial Forums",
+        "subtitle_2": "Hear litigation best practices directly from the judiciary. Get trial ready and brush up on courtroom do’s and don’ts.",
+        "link_2": "shopify://collections/judicial-forum-cle-courses",
+        "cta_2": "Browse"
+      }
+    },
+    "21a60eeb-d8bd-4421-9eac-4a187e097ea3": {
+      "type": "unlimited",
+      "disabled": true,
+      "settings": {
+        "module_width_style": "wide",
+        "module_theme": "dark",
+        "image_position_style": "right",
+        "item_align": "items-center",
+        "bg_image": "shopify://shop_images/Background_Gradient_Unlimited_CLE_b06da23c-6f25-4f5d-b759-73569f9cccd5.jpg",
+        "bg_img_pos": "object-right-bottom",
+        "bg_size": "object-cover",
+        "logo": "shopify://shop_images/White_Unlimited1x.svg",
+        "image": "shopify://shop_images/Unlimited_CLE.png",
+        "subheading": "Learn Without Limits",
+        "copy_text": "As an NBI Unlimited CLE Subscriber, you’ll gain access to NBI’s entire course catalog. If you opt for the All Inclusive Pass, you’ll also get access to each live event on our calendar. On average, All Inclusive subscribers save over $3,100.",
+        "cta_text": "Join Today",
+        "cta_url": "shopify://pages/subscribe-save"
+      }
+    },
+    "6cc24cec-c91b-4603-9533-8bad92441cc4": {
+      "type": "subscription-upsell-module",
+      "disabled": true,
+      "settings": {
+        "containerWidth": "",
+        "colorBackground": "#092254",
+        "backgroundSize": "bg-[length:110%]",
+        "backgroundPosition": "bg-right",
+        "product": "all-inclusive-subscription-annual",
+        "type": "year",
+        "title": "<p>Subscribe now and get 12 months of unlimited CLE</p>",
+        "upsellTitle": "<p>Claim your [$XX] subscription savings before it's gone</p>",
+        "upgradeTitle": "<p>Upgrade to the All Inclusive CLE Pass to get unlimited live event access</p>",
+        "upgradeLiveTitle": "<p>Upgrade to the All Inclusive CLE Pass to get unlimited On-Demand course access</p>",
+        "text": "<p>Disclaimer text at the bottom.</p>",
+        "defaultCTA": "Get Unlimited CLE",
+        "upgradeCTA": "Upgrade Now",
+        "discountCTA": "Upgrade to Unlimited CLE"
+      }
+    },
+    "6a7af152-c705-4d70-9f01-16e26aed3e39": {
+      "type": "marketing-promo-carousel",
+      "blocks": {
+        "fa3e1091-0ffa-4e5b-99a6-031e9053caf3": {
+          "type": "Slide",
+          "settings": {
+            "title": "New Best Sellers",
+            "cta_text": "Browse",
+            "url": "shopify://collections/best-selling-products",
+            "image": "shopify://shop_images/BestSellers-Final.jpg"
+          }
+        },
+        "35c00e31-c2e9-4540-ac7a-cd994850815b": {
+          "type": "Slide",
+          "settings": {
+            "title": "Conquer AI with Confidence",
+            "cta_text": "Browse",
+            "url": "shopify://collections/generative-ai-cle-courses",
+            "image": "shopify://shop_images/ConquerAI-Final.jpg"
+          }
+        },
+        "bc32a5bd-1026-4fdc-883d-bf7d3358fdf9": {
+          "type": "Slide",
+          "settings": {
+            "title": "Upcoming Live Webinars",
+            "cta_text": "Browse",
+            "url": "shopify://collections/upcoming-courses",
+            "image": "shopify://shop_images/RealEstate.jpg"
+          }
+        },
+        "fe610cfa-14f5-4c54-8e19-a19bd8a32c32": {
+          "type": "Slide",
+          "settings": {
+            "title": "Legal Ethics Courses",
+            "cta_text": "Browse",
+            "url": "shopify://collections/ethics-specialty-credits-cle-courses",
+            "image": "shopify://shop_images/LegalEthics.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "fa3e1091-0ffa-4e5b-99a6-031e9053caf3",
+        "35c00e31-c2e9-4540-ac7a-cd994850815b",
+        "bc32a5bd-1026-4fdc-883d-bf7d3358fdf9",
+        "fe610cfa-14f5-4c54-8e19-a19bd8a32c32"
+      ],
+      "settings": {
+        "title": "Don't Miss Out!",
+        "scroll_to_id": "",
+        "two_columns": false,
+        "border_top": false,
+        "border_bottom": false
+      }
+    },
+    "7685c9cc-fd0c-40aa-a361-9747ea9a50fa": {
+      "type": "trusted-by",
+      "blocks": {
+        "logo_MdJ7DQ": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Solomon_Law_Firm.png"
+          }
+        },
+        "logo_86wREQ": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Iddins_Law_Firm.png"
+          }
+        },
+        "logo_W9tNEf": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Chelly_Law_Firm.png"
+          }
+        },
+        "logo_gGJpzt": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Hudson_Jones_Law_Firm.png"
+          }
+        },
+        "c30ce038-4a27-4e5e-8ba4-0d5b41bb01b5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Brown_Crouppen_logo_white.png"
+          }
+        },
+        "ee3236e1-72c4-423e-860b-74580a03cfc7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Davidson_Law_Firm_logo_white.png"
+          }
+        },
+        "97fae567-f0a3-4d3b-88b6-96a9b8717d6b": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Cincinnati_Insurance_Companies_logo_white.png"
+          }
+        },
+        "947cc9a5-e9dd-452c-8b2a-cd86bfb68c2d": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/FoxRothschild_logo_white.png"
+          }
+        },
+        "4e7255e8-73c4-4a09-ade0-dff61d9e17a3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Manley_Deas_Kochalski_logo_white.png"
+          }
+        },
+        "2ea31183-98d2-4445-b1b8-c13496aec3fb": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Hastings_logo_white.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_MdJ7DQ",
+        "logo_86wREQ",
+        "logo_W9tNEf",
+        "logo_gGJpzt",
+        "c30ce038-4a27-4e5e-8ba4-0d5b41bb01b5",
+        "ee3236e1-72c4-423e-860b-74580a03cfc7",
+        "97fae567-f0a3-4d3b-88b6-96a9b8717d6b",
+        "947cc9a5-e9dd-452c-8b2a-cd86bfb68c2d",
+        "4e7255e8-73c4-4a09-ade0-dff61d9e17a3",
+        "2ea31183-98d2-4445-b1b8-c13496aec3fb"
+      ],
+      "settings": {
+        "bg_img_pos": "object-left-bottom",
+        "bg_size": "object-contain",
+        "title": "Trusted by Over 30,000 Law Firms",
+        "subheading": "Leading law firms and businesses trust NBI for their CLE needs"
+      }
+    },
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {
+      }
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "header",
+    "root",
+    "193450e3-be7a-4feb-bf2e-82d0f72bab89",
+    "e7427617-19cd-4fe7-9fa8-94d61556fc59",
+    "horizontal_product_carousel_KHbYtY",
+    "e90ca166-4552-43f7-8e9b-c38b25c36ad7",
+    "69d41823-5e69-4b5a-b458-2a7985c24821",
+    "a8ba8b53-c5d7-4c76-b194-c4c3d94716ac",
+    "6fdf2e01-08c3-4a19-a697-a84271571c54",
+    "ba6b0369-cacf-44a6-9620-66166a81f716",
+    "21a60eeb-d8bd-4421-9eac-4a187e097ea3",
+    "6cc24cec-c91b-4603-9533-8bad92441cc4",
+    "6a7af152-c705-4d70-9f01-16e26aed3e39",
+    "7685c9cc-fd0c-40aa-a361-9747ea9a50fa",
+    "shogun-optimizer"
+  ]
+}

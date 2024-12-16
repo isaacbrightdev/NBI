@@ -1,0 +1,99 @@
+<div class="container xl:gx-xl">
+  <div class="row overflow-hidden">
+    {% if section.settings.displayHeader %}
+      <header class="top-categories--header">
+        <h3 class="font-bold">{{ section.settings.title }}</h3>
+        <a
+          href="{{ section.settings.url }}"
+          class="btn btn--accent flex gap-2 items-center"
+        >
+          {{- section.settings.ctaText -}}
+
+          <svg
+            class="text-inherit icon-arrow rotate-180"
+            width="16"
+            height="9"
+            aria-hidden="true"
+            strokeWidth="1"
+          >
+            <use href="#icon-arrow" />
+          </svg>
+        </a>
+      </header>
+    {% endif %}
+
+    <div class="top-categories--items">
+      {% for block in section.blocks %}
+        <a class="top-categories--item" href="{{ block.settings.url }}">
+          <span class="top-categories--item-img">
+            <img
+              class="block mx-auto"
+              src="{{ block.settings.icon | image_url: width: 35, height: 35 }}"
+              width="35"
+              height="35"
+              loading="eager"
+            >
+          </span>
+          <span class="w-28 block">{{ block.settings.title }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Top Categories Module",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "CTA URL"
+    },
+    {
+      "type": "text",
+      "id": "ctaText",
+      "label": "CTA Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "displayHeader",
+      "label": "Display Title and CTA"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Collection URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Top Categories Module"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,30 @@
+<div class="container xl:gx-xl">
+  <div class="row">
+    <div
+      id="product-why-you-need"
+      class="col lg:col-8"
+      data-component="why_you_need"
+      data-section-id="{{ section.id }}"
+      data-section-text="{{ section.settings.text }}"
+    ></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Why You Need",
+  "class": "product-why-you-need",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Why You Need Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "product-why-you-need"
+    }
+  ]
+}
+{% endschema %}

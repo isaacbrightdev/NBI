@@ -1,0 +1,404 @@
+<script type="text/javascript">
+  window.SubscriptionSettings = {};
+  window.SubscriptionSettings.page = { subtitle: '{{ section.settings.salesSubTitle }}',
+  backgroundImage: '{{ section.settings.backgroundImage | image_url: width: 668, height: 588 }}',
+  backgroundImagePosition: '{{ section.settings.backgroundImagePosition }}',
+  backgroundImageSize: '{{ section.settings.backgroundImageSize }}' };
+  window.SubscriptionSettings.products = [
+  {% for block in section.blocks %}
+    {% if block.type == 'products' %}
+      {
+      productTitle: '{{ block.settings.title }}',
+      subHead: '{{ block.settings.subhead }}',
+      description: {{ block.settings.description | json }},
+      altText: {{ block.settings.altText | json }},
+      cta: '{{ block.settings.cta }}',
+      type: '{{ block.settings.type }}',
+      isHighlightedSection: {{ block.settings.isHighlightedSection }},
+      badge: { text: '{{ block.settings.badgeText }}', color: '{{ block.settings.badgeColor }}' },
+      mobileBackgroundImage: '{{ block.settings.mobileBackgroundImage | image_url: width: 668, height: 588 }}',
+      mobileBackgroundImagePosition: '{{ block.settings.mobileBackgroundImagePosition }}',
+      monthly: { product: {{ all_products[block.settings.product] | json }},
+      details: { firstVariantID: '{{ block.settings.product.selected_or_first_available_variant.id }}',
+      id: '{{ block.settings.product.id }}',
+      price: '{{ block.settings.product.price | money_without_trailing_zeros }}',
+      {% for group in block.settings.product.selling_plan_groups %}
+        {% for selling_plan in group.selling_plans %}
+          sellingPlanID: '{{ selling_plan.id }}'
+        {% endfor %}
+      {% endfor %}
+      }
+      }, annual: { product: {{ all_products[block.settings.annualProduct] | json }},
+      details: { firstVariantID: '{{ block.settings.annualProduct.selected_or_first_available_variant.id }}',
+      id: '{{ block.settings.annualProduct.id }}',
+      price: '{{ block.settings.annualProduct.price | money_without_trailing_zeros }}',
+      {% for group in block.settings.annualProduct.selling_plan_groups %}
+        {% for selling_plan in group.selling_plans %}
+          sellingPlanID: '{{ selling_plan.id }}'
+        {% endfor %}
+      {% endfor %}
+      }
+      } }
+    {% else %}
+      {
+      productTitle: '{{ block.settings.title }}',
+      subHead: '{{ block.settings.subhead }}',
+      description: {{ block.settings.description | json }},
+      altText: {{ block.settings.altText | json }},
+      isHighlightedSection: false, type: '{{ block.settings.type }}',
+      cta: '{{ block.settings.cta }}',
+      url: '{{ block.settings.url }}',
+      badge: { text: '{{ block.settings.badgeText }}', color: '{{ block.settings.badgeColor }}' },
+      mobileBackgroundImage: '{{ block.settings.mobileBackgroundImage | image_url: width: 668, height: 588 }}',
+      mobileBackgroundImagePosition: '{{ block.settings.mobileBackgroundImagePosition }}'
+      }
+    {% endif %}
+    {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ]
+</script>
+
+{% schema %}
+{
+  "name": "Subscription Table",
+  "class": "subscription-table",
+  "settings": [
+    {
+      "type": "text",
+      "id": "salesSubTitle",
+      "label": "Subscription Subscription Sub Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "backgroundImage",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "backgroundImagePosition",
+      "label": "Background Image Position",
+      "options": [
+        {
+          "value": "bg-left-top",
+          "label": "Top Left"
+        },
+        {
+          "value": "bg-right-top",
+          "label": "Top Right"
+        },
+        {
+          "value": "bg-center",
+          "label": "Center"
+        },
+        {
+          "value": "bg-left-bottom",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bg-right-bottom",
+          "label": "Bottom Right"
+        }
+      ],
+      "default": "bg-right-bottom"
+    },
+    {
+      "type": "select",
+      "id": "backgroundImageSize",
+      "label": "Background Image Size",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "bg-cover",
+          "label": "Cover"
+        },
+        {
+          "value": "bg-contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "none"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Products",
+      "type": "products",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Subscription Monthly Product"
+        },
+        {
+          "type": "product",
+          "id": "annualProduct",
+          "label": "Subscription Annual Product"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Subscription Title"
+        },
+        {
+          "type": "text",
+          "id": "subhead",
+          "label": "Subscription SubHead"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Subscription Description"
+        },
+        {
+          "type": "textarea",
+          "id": "altText",
+          "label": "Subscription Alternate Text"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "CTA",
+          "default": "Select"
+        },
+        {
+          "type": "checkbox",
+          "id": "isHighlightedSection",
+          "label": "Is this section highlighted?"
+        },
+        {
+          "type": "text",
+          "id": "badgeText",
+          "label": "Badge Text"
+        },
+        {
+          "type": "select",
+          "id": "badgeColor",
+          "label": "Badge Color",
+          "options": [
+            {
+              "value": "red",
+              "label": "Red"
+            },
+            {
+              "value": "grey",
+              "label": "Grey"
+            },
+            {
+              "value": "blue",
+              "label": "Blue"
+            },
+            {
+              "value": "purple",
+              "label": "Purlple"
+            },
+            {
+              "value": "yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "dark-blue",
+              "label": "Dark Blue"
+            },
+            {
+              "value": "green",
+              "label": "Green"
+            }
+          ],
+          "default": "red"
+        },
+        {
+          "type": "select",
+          "id": "type",
+          "label": "Product Type",
+          "options": [
+            {
+              "value": "allinclusive",
+              "label": "All Inclusive"
+            },
+            {
+              "value": "lawfirm",
+              "label": "Lawfirm"
+            },
+            {
+              "value": "ondemand",
+              "label": "On Demand"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "mobileBackgroundImage",
+          "label": "Mobile Background Image"
+        },
+        {
+          "type": "select",
+          "id": "mobileBackgroundImagePosition",
+          "label": "Mobile Background Image Position",
+          "options": [
+            {
+              "value": "bg-left-top",
+              "label": "Top Left"
+            },
+            {
+              "value": "bg-right-top",
+              "label": "Top Right"
+            },
+            {
+              "value": "bg-center",
+              "label": "Center"
+            },
+            {
+              "value": "bg-left-bottom",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bg-right-bottom",
+              "label": "Bottom Right"
+            }
+          ],
+          "default": "bg-right-bottom"
+        }
+      ]
+    },
+    {
+      "name": "Lawfirm Products",
+      "type": "lawfirmProduct",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Subscription Title"
+        },
+        {
+          "type": "text",
+          "id": "subhead",
+          "label": "Subscription SubHead"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Subscription Description"
+        },
+        {
+          "type": "textarea",
+          "id": "altText",
+          "label": "Subscription Alternate Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Inquiry Link CTA"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "CTA",
+          "default": "Inquire"
+        },
+        {
+          "type": "select",
+          "id": "type",
+          "label": "Product Type",
+          "options": [
+            {
+              "value": "allinclusive",
+              "label": "All Inclusive"
+            },
+            {
+              "value": "lawfirm",
+              "label": "Lawfirm"
+            },
+            {
+              "value": "ondemand",
+              "label": "On Demand"
+            }
+          ],
+          "default": "lawfirm"
+        },
+        {
+          "type": "text",
+          "id": "badgeText",
+          "label": "Badge Text"
+        },
+        {
+          "type": "select",
+          "id": "badgeColor",
+          "label": "Badge Color",
+          "options": [
+            {
+              "value": "red",
+              "label": "Red"
+            },
+            {
+              "value": "grey",
+              "label": "Grey"
+            },
+            {
+              "value": "blue",
+              "label": "Blue"
+            },
+            {
+              "value": "purple",
+              "label": "Purlple"
+            },
+            {
+              "value": "yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "dark-blue",
+              "label": "Dark Blue"
+            },
+            {
+              "value": "green",
+              "label": "Green"
+            }
+          ],
+          "default": "red"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobileBackgroundImage",
+          "label": "Mobile Background Image"
+        },
+        {
+          "type": "select",
+          "id": "mobileBackgroundImagePosition",
+          "label": "Mobile Background Image Position",
+          "options": [
+            {
+              "value": "bg-left-top",
+              "label": "Top Left"
+            },
+            {
+              "value": "bg-right-top",
+              "label": "Top Right"
+            },
+            {
+              "value": "bg-center",
+              "label": "Center"
+            },
+            {
+              "value": "bg-left-bottom",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bg-right-bottom",
+              "label": "Bottom Right"
+            }
+          ],
+          "default": "bg-right-bottom"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "subscription-table"
+    }
+  ]
+}
+{% endschema %}

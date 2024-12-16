@@ -1,0 +1,25 @@
+<div class="container xl:gx-xl">
+  <div class="row">
+    <div
+      class="col lg:col-8"
+      data-component="product_id"
+      data-section-id="{{ section.id }}"
+    >
+      <p class="text-callout mb-0 px-4">
+        Product ID {{ product.metafields.custom.eventid }}
+      </p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product ID",
+  "class": "product-id",
+  "presets": [
+    {
+      "name": "product-id"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,111 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {
+      }
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "6fa870ce-f02d-472e-9bb3-f66293f72ccb": {
+      "type": "collection-banner",
+      "blocks": {
+        "98264b2c-0195-4b00-968c-c7013c49fd7a": {
+          "type": "block",
+          "settings": {
+            "block_top": "",
+            "block_bottom": ""
+          }
+        }
+      },
+      "block_order": [
+        "98264b2c-0195-4b00-968c-c7013c49fd7a"
+      ],
+      "settings": {
+        "banner_type": "standard",
+        "icon": "{{ collection.image }}",
+        "subheading": "Get to know our expert faculty",
+        "heading": "NBI Faculty Directory"
+      }
+    },
+    "horizontal_product_carousel_hpUBPE": {
+      "type": "horizontal-product-carousel",
+      "settings": {
+        "title": "Featured Courses:  True Crime",
+        "sub_title": "CLE doesn't have to be boring.",
+        "collection": "true-crime-cle-1",
+        "show_view_all": false,
+        "two_columns": true,
+        "border_top": false,
+        "border_bottom": false
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "5738e8b5-e4d5-42dc-92b0-d8206875cab3": {
+      "type": "horizontal-product-carousel",
+      "settings": {
+        "title": "Featured Courses",
+        "sub_title": "",
+        "collection": "{{ collection.metafields.custom.highlighted_products.value }}",
+        "show_view_all": true,
+        "two_columns": false,
+        "border_top": false,
+        "border_bottom": false
+      }
+    },
+    "4f6e1aa3-9a7e-4785-8b11-b2bc44dcfb97": {
+      "type": "seo-block",
+      "settings": {
+        "title": "{{ collection.title }}",
+        "sub_title": "{{ collection.metafields.custom.seo_sub_title.value }}",
+        "text": "{{ collection.metafields.custom.seo_text.value }}",
+        "cta_text": "{{ collection.metafields.custom.seo_cta_text.value }}",
+        "cta_url": "{{ collection.metafields.custom.seo_cta_url.value }}"
+      }
+    },
+    "shogun-below": {
+      "type": "shogun-below",
+      "settings": {
+      }
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "shogun-above",
+    "header",
+    "6fa870ce-f02d-472e-9bb3-f66293f72ccb",
+    "horizontal_product_carousel_hpUBPE",
+    "root",
+    "5738e8b5-e4d5-42dc-92b0-d8206875cab3",
+    "4f6e1aa3-9a7e-4785-8b11-b2bc44dcfb97",
+    "shogun-below",
+    "shogun-optimizer"
+  ]
+}

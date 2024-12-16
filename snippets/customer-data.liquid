@@ -1,0 +1,42 @@
+<script>
+  {% if customer == nil %}
+    window.Customer = null
+  {% else %}
+
+    window.Customer = {
+      id: "{{ customer.id }}",
+      has_account: {{ customer.has_account }},
+      email: "{{ customer.email }}",
+      first_name: "{{ customer.first_name }}",
+      last_name: "{{ customer.last_name }}",
+      tags: {{ customer.tags | json }},
+      total_spent: {{ customer.total_spent }},
+      phone: {{ customer.phone | json }},
+      addresses: [
+        {%- for address in customer.addresses -%}
+          {
+            address1: "{{ address.address1 }}",
+            address2: "{{ address.address2 }}",
+            street: "{{ address.street }}",
+            city: "{{ address.city }}",
+            state: "{{ address.province }}",
+            state_code: "{{ address.province_code }}",
+            country: "{{ address.country }}",
+            country_code: "{{ address.country_code }}",
+            zip: "{{ address.zip }}"
+          }{%- if forloop.last == false -%},{%- endif -%}
+        {%- endfor -%}
+      ],
+      metafields: {
+        subscriptions: {{ customer.metafields.subscriptions | json }},
+        prev_reg: {{ customer.metafields.prev_reg | json }},
+        recentOrderAmount: {{ customer.metafields['recent-order-amount'] | json }},
+        {%- if customer.metafields.credit.tracker_jurisdictions -%}
+          creditJurisdictions: {{ customer.metafields.credit.tracker_jurisdictions }},
+        {%- else -%}
+          creditJurisdictions: [],
+        {%- endif -%}
+      }
+    }
+  {% endif %}
+</script>

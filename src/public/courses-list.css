@@ -1,0 +1,94 @@
+.courses-list-container * {
+    font-family: Poppins, sans-serif;
+}
+
+.courses-list-container {
+    padding: 75px 0 75px;
+}
+
+.courses-list-container .courses-list-content {
+    margin: 0 auto;
+    padding: 0 88px;
+    position: relative;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+}
+
+.courses-list-container .cl-header-contet {
+    margin: 0 auto;
+    max-width: 725px;
+}
+
+.courses-list-container .cl-header {
+    font-size: 2.25rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.courses-list-container .cl-paragraph {
+    margin: 37px auto 0;
+    max-width: 500px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.courses-list-container .cl-paragraph p {
+    font-size: 1.1rem;
+}
+
+.courses-list-container .cl-items {
+    margin: 72px auto 0;
+    max-width: 1178px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.courses-list-container .cl-item {
+    max-width: 363px;
+    display: flex;
+    flex-direction: column;
+}
+
+.courses-list-container .cl-image {
+    width: 100%;
+}
+
+.courses-list-container .cl-subtitle {
+    margin: 17px auto 0;
+    line-height: 1.2;
+}
+
+.courses-list-container .cl-title {
+    margin: 26px 0 0 6px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.courses-list-container .cl-button {
+    margin: 72px auto 0;
+    min-height: 47px;
+    position: relative;
+    width: 268px;
+    -webkit-border-radius: 23.5px;
+    -moz-border-radius: 23.5px;
+    border-radius: 23.5px;
+    background: #99e2f2;
+    color: #1b3666;
+    line-height: 47px;
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+    .courses-list-container .courses-list-content {
+        padding-right: var(--bs-gutter-x, .75rem);
+        padding-left: var(--bs-gutter-x, .75rem);
+    }
+
+    .courses-list-container .cl-header {
+        font-size: 1.5rem;
+    }
+}

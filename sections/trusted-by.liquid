@@ -1,0 +1,159 @@
+{% liquid
+  if section.settings.bg_image != blank
+    assign bg_img = section.settings.bg_image | image_url: width: section.settings.bg_image.width
+  else
+    assign bg_img = 'trustedByDefaultBG.svg' | asset_url
+  endif
+
+  assign stopColor1 = 'var(--tw-primary)'
+  assign stopColor2 = 'var(--tw-secondary)'
+
+  assign bg_img_pos = section.settings.bg_img_pos | append: ' '
+  assign bg_size = section.settings.bg_size | append: ' '
+  assign bg_classes = 'absolute w-full h-full ' | append: bg_img_pos | append: bg_size
+%}
+<div class="relative collection container-fluid gx-[0px] pl-0 bg-secondary text-white">
+  {% if section.settings.bg_image != blank %}
+    {% assign bg_img = section.settings.bg_image
+      | image_url: width: section.settings.bg_image.width
+    %}
+    <img
+      src="{{ bg_img }}"
+      loading="lazy"
+      class="{{ bg_classes }}"
+      alt="background image"
+    >
+  {% else %}
+    {% render 'unlimited-background',
+      stopColor1: stopColor1,
+      stopColor2: stopColor2,
+      theme: 'dark',
+      classes: 'absolute right-0 bottom-0 h-full object-contain',
+      width: 569,
+      height: 310
+    %}
+  {% endif %}
+  <div class="container w-full">
+    <div class="relative px-5 py-12 md:py-20 md:text-center">
+      {%- if section.settings.title != blank -%}
+        <h2 class="text-h2">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="pb-4 md:pb-8">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      <div class="row">
+        <div class="col-12 lg:col-8 xl:col-6 mx-auto flex flex-wrap md:justify-center">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.image != blank -%}
+              <div class="col-6 md:col-3 p-2 pl-0 md:p-4 flex self-center">
+                {%- assign img_alt_1 = block.settings.image.alt
+                  | default: shop.name
+                  | escape
+                -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 400
+                  | image_tag:
+                    width: block.settings.image.width,
+                    height: block.settings.image.height,
+                    class: 'm-auto p-4 lg:p-2',
+                    loading: 'lazy',
+                    alt: img_alt_1
+                }}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Trusted By Module",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "bg_img_pos",
+      "label": "Background Image Position",
+      "options": [
+        {
+          "value": "object-center",
+          "label": "Center"
+        },
+        {
+          "value": "object-left-top",
+          "label": "Top Left"
+        },
+        {
+          "value": "object-right-top",
+          "label": "Top Right"
+        },
+        {
+          "value": "object-left-bottom",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "object-right-bottom",
+          "label": "Bottom Right"
+        }
+      ],
+      "default": "object-right-bottom"
+    },
+    {
+      "type": "select",
+      "id": "bg_size",
+      "label": "Background Size",
+      "options": [
+        {
+          "value": "object-none",
+          "label": "Default"
+        },
+        {
+          "value": "object-cover",
+          "label": "Cover"
+        },
+        {
+          "value": "object-contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "object-contain"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub-heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Lawfirm Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trusted By Module"
+    }
+  ]
+}
+{% endschema %}

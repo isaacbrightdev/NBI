@@ -1,0 +1,43 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "aded0665-8c91-45ea-92b4-3aaf8ddd572a": {
+      "type": "mcle-hero-module",
+      "settings": {
+        "search_title": "Explore Today",
+        "page": "free-trial-sign-up",
+        "directory_title": "CLE Courses"
+      }
+    },
+    "bdc2737e-02d6-452e-a3f0-b617b4df15b4": {
+      "type": "faqs-module",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "header",
+    "aded0665-8c91-45ea-92b4-3aaf8ddd572a",
+    "bdc2737e-02d6-452e-a3f0-b617b4df15b4"
+  ]
+}

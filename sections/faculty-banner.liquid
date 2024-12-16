@@ -1,0 +1,92 @@
+{% liquid
+  assign subheading = section.settings.subheading
+  assign subheadingClass = 'text-white leading-[130%] text-center tracking-[1.2px] font-bold text-[12px] lg:text-[14px] lg:tracking-[1.4px] uppercase'
+  assign heading = section.settings.heading
+  assign headingClass = 'text-white h2 py-[15px] text-center text-[25px] lg:text-[40px]'
+  assign description = section.settings.description
+  assign descriptionClass = 'text-white text-center max-w-[500px]'
+  assign blocks = section.blocks
+%}
+
+<section class="relative w-full overflow-hidden bg-primary">
+  <div class="flex flex-col px-[20px] py-[50px] justify-center items-center z-10 relative">
+    <span class="{{ subheadingClass }}">{{ subheading }}</span>
+    <h1 class="{{ headingClass }}">{{ heading }}</h1>
+    <p class="{{ descriptionClass }}">{{ description }}</p>
+    {% if blocks.size > 0 %}
+      <div class="flex justify-between max-w-[500px] mx-auto">
+        {% for block in section.blocks %}
+          {% liquid
+            assign blockTop = block.settings.block_top
+            assign blockTopClass = 'text-white text-[16px] lg:text-[20px] font-medium text-center'
+            assign blockBottom = block.settings.block_bottom
+            assign blockBottomClass = 'text-white text-[14px] text-center'
+          %}
+          <div
+            class="flex flex-col p-[20px] justify-center items-center z-10 relative"
+          >
+            <span class="{{ blockTopClass }}">{{ blockTop }}</span>
+            <span class="{{ blockBottomClass }}">{{ blockBottom }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <div
+    class="absolute lg:bottom-0 lg:right-0 -bottom-[93px] -right-[153px] z-0"
+  >
+    {% render 'faculty-banner-bg' %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Faculty Banner",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "id": "subheading",
+      "type": "text",
+      "label": "Subheading",
+      "default": "Get to know our expert faculty"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading",
+      "default": "NBI Faculty Directory"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description",
+      "default": "NBI faculty are accomplished attorneys, professors, and professionals across the country. They are well respected both in academia as well as in the court system. Their breadth of legal and business knowledge enables them to offer valuable insights and actionable information."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Info Block",
+      "settings": [
+        {
+          "id": "block_top",
+          "type": "text",
+          "label": "Block Top",
+          "default": "100+"
+        },
+        {
+          "id": "block_bottom",
+          "type": "text",
+          "label": "Block Bottom",
+          "default": "Courses"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Faculty Banner"
+    }
+  ]
+}
+{% endschema %}

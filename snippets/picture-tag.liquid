@@ -1,0 +1,103 @@
+{% comment %}
+  {% # prettier-ignore %}
+  <documentation>
+
+  picture-tag - generates a responsive <picture/> element that can request different
+                image sizes/aspect ratios for explicit screen sizes
+
+                        *** ONLY WORKS WITH SHOPIFY CDN URLS ***
+
+  =====================================
+
+  Required Params:
+    url (string):             A Shopify CDN URL for an image, with the version query
+                              parameter included. Example:
+                              //dev.myshopify.com/cdn//assets/picture.png?v=31077932
+
+    screenWidths (Number[]):  An array of breakpoints to generate <source /> elements
+                              for (widths and heights (if provided) must be equal in
+                              length to this input)
+
+    widths (Number[]):         Pixel widths of the image being rendered
+
+  Optional Params:
+    alt(string)               The image alt text to be added to the <img /> element.
+
+    heights (Number[]):       Pixel height of the image being requested from the CDN
+
+    classes (string):         CSS/Tailwind classes to style the base img element with.
+
+    lazy (boolean):           Toggle native lazy loading
+
+    crop (string):            Shopify CDN cropping feature, expects one of the
+                              following: [top, center, bottom, left, right]
+
+  =====================================
+
+  Example Input:
+    {% render 'picture-tag',
+      url: "cdn.shopify.com/assets/coffee.jpeg?v=12345",
+      alt: "some alt text",
+      lazy: true,
+      crop: 'center',
+      widths: '295,360',
+      heights: '170,261',
+      screenWidths: '0,640',
+      classes: 'rounded-[10px] h-auto'
+    %}
+
+  Example Output:
+    <picture>
+      // Source set that browser will select optimal image from, depending on media query and size attribute
+      <source media="(min-width: 640px)" srcset="//cdn.shopify.com/assets/coffee.jpeg?v=12345&width=360&height=261&crop=center" sizes="360w" type="image/jpeg">
+      <source media="(min-width: 0px)" srcset="//cdn.shopify.com/assets/coffee.jpeg?v=12345&width=295&height=170&crop=center" sizes="295w" type="image/jpeg">
+
+      // Fallback img
+      <img src="//cdn.shopify.com/assets/coffee.jpeg?v=12345&width=295&height=170&crop=center" loading="lazy" alt="some alt text" class="rounded-[10px] h-auto">
+    </picture>
+
+  </documentation>
+  {%- endif -%}
+{% endcomment %}
+{% # prettier-ignore %}
+<picture>
+  {%- assign screenWidths = screenWidths | split: ',' | reverse -%}
+  {%- assign widths = widths | split: ',' | reverse -%}
+  {%- assign heights = heights | split: ',' | reverse -%}
+  {%- assign sizes = sizes | split: ',' | reverse -%}
+  {%- assign fallbackImg = '' -%}
+
+  {%- for screenWidth in screenWidths -%}
+    {%- assign cdnParams = '' -%}
+    {%- assign currentArrayIndex = forloop.index | minus: 1 -%}
+
+    {%- if widths and widths[currentArrayIndex] -%}
+      {%- assign width = '&width=' | append: widths[currentArrayIndex] -%}
+      {%- assign cdnParams = cdnParams | append: width -%}
+    {%- endif -%}
+
+    {%- if heights and heights[currentArrayIndex] -%}
+      {%- assign height = '&height=' | append: heights[currentArrayIndex] -%}
+      {%- assign cdnParams = cdnParams | append: height -%}
+    {%- endif -%}
+
+    {%- if crop -%}
+      {%- assign cropParam = '&crop=' | append: crop -%}
+      {%- assign cdnParams = cdnParams | append: cropParam -%}
+    {%- endif -%}
+
+    <source
+      media="(min-width: {{ screenWidth }}px)"
+      srcset="{{ url }}{{ cdnParams }}"
+      sizes="{{ widths[currentArrayIndex] }}w"
+      type="image/jpeg"
+    >
+    {%- if forloop.last -%}
+      <img
+        src="{{ url }}{{ cdnParams }}"
+        {%- if lazy -%}loading="lazy"{%- endif -%}
+        alt="{{alt}}"
+        class="{{ classes }}">
+    {%- endif -%}
+  {%- endfor -%}
+</picture>

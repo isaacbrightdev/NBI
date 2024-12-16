@@ -1,0 +1,16 @@
+<link
+  crossorigin
+  href="https://{{- shop.metaobjects.site_settings.main.algolia_app_id.value | escape -}}-dsn.algolia.net"
+  rel="preconnect"
+>
+<script data-algolia>
+  (function() {
+    window.Algolia = {
+      app_id: {{- shop.metaobjects.site_settings.main.algolia_app_id.value | escape | json -}},
+      search_api_key: {{- shop.metaobjects.site_settings.main.algolia_search_api_key.value | escape | json -}},
+      index_prefix: {{- shop.metaobjects.site_settings.main.algolia_index_prefix.value | escape | json -}},
+      query_suggestions_index_name: {{- shop.metaobjects.site_settings.main.algolia_query_suggestions_index_name.value | escape | json -}},
+      algolia_faculty_accounts_index_name: {{- shop.metaobjects.site_settings.main.algolia_faculty_accounts_index_name.value | escape | json -}},
+    };
+  })();
+</script>

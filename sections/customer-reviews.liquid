@@ -1,0 +1,89 @@
+{{ 'customer-reviews.css' | asset_url | stylesheet_tag }}
+
+<div class="customer-reviews-container">
+  <div class="l-constrained-6">
+    <p class="text-39">{{ section.settings.header }}</p>
+    <div class="customer-reviews">
+      <div class="review">
+        <img
+          class="nbi-bulk-sales-landing-page-v2-copy-2"
+          src="{{ 'nbi_bulk_sales_landing_pa_2.png' | asset_url  }}"
+          alt=""
+          width="137"
+          height="22"
+        >
+        <div class="text-content">
+          <p class="text-40">
+            “Large variety of courses offered. A great value with a
+            subscription.”
+          </p>
+          <p class="text-41">
+            — Michael Grisham<em class="text-style-7"
+              ><br>
+              Liepold, Harrison &amp; Associates, PLLC</em
+            >
+          </p>
+        </div>
+      </div>
+      <div class="review">
+        <img
+          class="nbi-bulk-sales-landing-page-v2"
+          src="{{ 'nbi_bulk_sales_landing_pa_2.png' | asset_url  }}"
+          alt=""
+          width="137"
+          height="22"
+        >
+        <div class="text-content">
+          <p class="text-40">
+            "The programs are exceptional! Program administration and the
+            availability of an NBI personal account manager are noteworthy!”
+          </p>
+          <p class="text-41">
+            — Werner Hellmer<br>
+            <em class="text-style-7">Day &amp; Hellmer P.C.</em>
+          </p>
+        </div>
+      </div>
+      <div class="review">
+        <img
+          class="nbi-bulk-sales-landing-page-v2-copy"
+          src="{{ 'nbi_bulk_sales_landing_pa_2.png' | asset_url  }}"
+          alt=""
+          width="137"
+          height="22"
+        >
+        <div class="text-content">
+          <p class="text-40">
+            “I have enjoyed using my Unlimited Pass to continue my legal
+            education. The courses are wonderful self-study. I have expanded my
+            knowledge significantly by taking advantage of their courses. I
+            would highly recommend it.”
+          </p>
+          <p class="text-41">
+            - Anna Garrick<br>
+            <em class="text-style-7">Camara</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Reviews",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

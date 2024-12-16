@@ -1,0 +1,70 @@
+{%- if collection.metafields.custom.enable_seo_block -%}
+  <div class="bg-grey-light">
+    <div class="flex max-w-screen-2xl items-start justify-between container-fluid gx-sm xl:gx-xl xl:items-center py-12 lg:py-[4.69rem] leading-snug">
+      <div class="row">
+        <div class="col-12">
+          {%- if section.settings.title != blank -%}
+            <h3 class="text-h3-mobile lg:text-h3 mb-5 lg:mb-[1.88rem] !font-medium">
+              {{- section.settings.title -}}
+            </h3>
+          {%- endif -%}
+          {%- if section.settings.sub_title != blank -%}
+            <p class="!font-medium text-h4-mobile mb-[0.62rem] lg:text-h4">
+              {{- section.settings.sub_title -}}
+            </p>
+          {%- endif -%}
+          {%- if section.settings.text != blank -%}
+            <p class="mb-6">{{- section.settings.text -}}</p>
+          {%- endif -%}
+          {%- if section.settings.cta_text != blank
+            and section.settings.cta_url != blank
+          -%}
+            <a href="{{- section.settings.cta_url -}}" class="font-semibold">
+              {{- section.settings.cta_text -}}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "SEO Block",
+  "enabled_on": {
+    "templates": ["collection"]
+  },
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Collection Title"
+    },
+    {
+      "id": "sub_title",
+      "type": "text",
+      "label": "Sub Title"
+    },
+    {
+      "id": "text",
+      "type": "text",
+      "label": "Text"
+    },
+    {
+      "id": "cta_text",
+      "type": "text",
+      "label": "CTA Link Text"
+    },
+    {
+      "type": "text",
+      "id": "cta_url",
+      "label": "CTA URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SEO Block"
+    }
+  ]
+}
+{% endschema %}

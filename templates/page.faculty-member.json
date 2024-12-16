@@ -1,0 +1,65 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "faculty-member": {
+      "type": "faculty-member",
+      "settings": {
+        "faculty_directory_url": "/pages/faculty"
+      }
+    },
+    "12783bef-701d-4b0e-ae2f-059ea8c5c5d9": {
+      "type": "horizontal-product-carousel",
+      "settings": {
+        "title": "Popular Courses",
+        "sub_title": "Browse our best-selling CLE courses.",
+        "collection": "best-selling-products",
+        "show_view_all": true,
+        "two_columns": false,
+        "border_top": false,
+        "border_bottom": false
+      }
+    },
+    "63d248e3-4a55-4f17-b837-f2848368df80": {
+      "type": "unlimited",
+      "settings": {
+        "module_width_style": "wide",
+        "module_theme": "dark",
+        "image_position_style": "right",
+        "item_align": "items-center",
+        "bg_img_pos": "object-right-bottom",
+        "bg_size": "object-contain",
+        "image": "shopify://shop_images/Speakforus.jpg",
+        "subheading": "Speak for NBI",
+        "copy_text": "You provide the expertise. We provide the spotlight. We're always looking for accomplished speakers who are passionate about legal education to join our community of expert instructors. Whether you're looking to grow your brand, get in front of prospective clients, or give back to the profession, speaking for NBI is the perfect opportunity for you.",
+        "cta_text": "Learn More",
+        "cta_url": "shopify://pages/speak-for-us"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "root",
+    "faculty-member",
+    "12783bef-701d-4b0e-ae2f-059ea8c5c5d9",
+    "63d248e3-4a55-4f17-b837-f2848368df80"
+  ]
+}

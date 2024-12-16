@@ -1,0 +1,235 @@
+<div class="container xl:gx-xl">
+  <div class="row">
+    <div
+      class="{{ section.settings.containerWidth }}"
+      data-component="subscription_upsell_module"
+      data-section-id="{{ section.id }}"
+    ></div>
+  </div>
+</div>
+
+<script>
+  window.UpSellModuleSettings = {};
+  window.UpSellModuleSettings.background = {
+    color: '{{ section.settings.colorBackground }}',
+    image: '{{ section.settings.backgroundImage | image_url }}',
+    imageSize: '{{ section.settings.backgroundSize }}',
+    imagePosition: '{{ section.settings.backgroundPosition }}'
+  };
+  window.UpSellModuleSettings.product = {
+    price: '{{ section.settings.product.price | money_without_trailing_zeros }}',
+    variantID: '{{ section.settings.product.selected_or_first_available_variant.id }}',
+    id: '{{ section.settings.product.id }}',
+    title: '{{ section.settings.product.title }}',
+    json: {{ all_products[section.settings.product] | json }},{% for group in section.settings.product.selling_plan_groups %}{% for selling_plan in group.selling_plans %}sellingPlanID : '{{ selling_plan.id }}'{% endfor %}{% endfor %}
+    };
+    window.UpSellModuleSettings.type = '{{ section.settings.type }}';
+    window.UpSellModuleSettings.title = {
+      default: "{{ section.settings.title }}",
+      upsell: "{{ section.settings.upsellTitle }}",
+      upgrade: "{{ section.settings.upgradeTitle }}",
+      upgradeLive: "{{ section.settings.upgradeLiveTitle }}"
+    };
+    window.UpSellModuleSettings.text = '{{ section.settings.text }}';
+    window.UpSellModuleSettings.cta = {
+      default: '{{ section.settings.defaultCTA }}',
+      upgrade: '{{ section.settings.upgradeCTA }}',
+      discount: '{{ section.settings.discountCTA }}'
+    };
+</script>
+
+{% schema %}
+{
+  "name": "Subscription Upsell",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "containerWidth",
+      "label": "Container Width",
+      "options": [
+        {
+          "value": "w-full md:w-3/5 lg:w-8/12",
+          "label": "lg:w-8/12"
+        },
+        {
+          "value": "col lg:col-8",
+          "label": "lg:col-8"
+        },
+        {
+          "value": "",
+          "label": "Full Width"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "color_background",
+      "id": "colorBackground",
+      "label": "Color Background",
+      "default": "#092254"
+    },
+    {
+      "type": "image_picker",
+      "id": "backgroundImage",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "backgroundSize",
+      "label": "Background Size",
+      "options": [
+        {
+          "value": "bg-auto",
+          "label": "Auto"
+        },
+        {
+          "value": "bg-cover",
+          "label": "Cover"
+        },
+        {
+          "value": "bg-contain",
+          "label": "Contain"
+        },
+        {
+          "value": "bg-[length:50%]",
+          "label": "50% smaller than the container"
+        },
+        {
+          "value": "bg-[length:110%]",
+          "label": "110% larger than the container"
+        },
+        {
+          "value": "bg-[length:120%]",
+          "label": "120% larger than the container"
+        }
+      ],
+      "default": "bg-[length:110%]"
+    },
+    {
+      "type": "select",
+      "id": "backgroundPosition",
+      "label": "Background Position",
+      "options": [
+        {
+          "value": "bg-center",
+          "label": "Center Center"
+        },
+        {
+          "value": "bg-bottom",
+          "label": "Center Bottom"
+        },
+        {
+          "value": "bg-top",
+          "label": "Center Top"
+        },
+        {
+          "value": "bg-right",
+          "label": "Center Right"
+        },
+        {
+          "value": "bg-left",
+          "label": "Center Left"
+        },
+        {
+          "value": "bg-left-top",
+          "label": "Top Left"
+        },
+        {
+          "value": "bg-right-top",
+          "label": "Top Right"
+        },
+        {
+          "value": "bg-left-bottom",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bg-right-bottom",
+          "label": "Bottom Right"
+        }
+      ],
+      "default": "bg-right"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Subscription Product"
+    },
+    {
+      "type": "select",
+      "id": "type",
+      "label": "Subscription Type",
+      "options": [
+        {
+          "value": "month",
+          "label": "month"
+        },
+        {
+          "value": "year",
+          "label": "year"
+        }
+      ],
+      "default": "month"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Subscribe and get 12 months of unlimited CLE</p>",
+      "info": "Title for customers who are not logged in or don't have an upsell discount."
+    },
+    {
+      "type": "richtext",
+      "id": "upsellTitle",
+      "label": "UpSell Title",
+      "default": "<p>Claim your [$XX] subscription savings before it's gone</p>",
+      "info": "Title for customers who are logged in and have and upsell discount."
+    },
+    {
+      "type": "richtext",
+      "id": "upgradeTitle",
+      "label": "Upgrade Title",
+      "default": "<p>Upgrade to the All Inclusive CLE Pass to get unlimited live courses included in your subscription</p>",
+      "info": "Title for customers who are logged in and have On-Demand pass in their cart or are already On-Demand Subscriber."
+    },
+    {
+      "type": "richtext",
+      "id": "upgradeLiveTitle",
+      "label": "Upgrade Live Title",
+      "default": "<p>Upgrade to the All Inclusive CLE Pass to get unlimited On-Demand courses included in your subscription</p>",
+      "info": "Title for customers who are logged in and is a Live Subscriber."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "text"
+    },
+    {
+      "type": "text",
+      "id": "defaultCTA",
+      "label": "Default CTA",
+      "default": "Get Unlimited",
+      "info": "CTA label for customers who are not logged in or don't have an upsell discount."
+    },
+    {
+      "type": "text",
+      "id": "upgradeCTA",
+      "label": "Upgrade CTA",
+      "default": "Upgrade Now",
+      "info": "CTA label for customers who are logged in and have On-Demand pass in their cart or are already On-Demand or Live Subscriber."
+    },
+    {
+      "type": "text",
+      "id": "discountCTA",
+      "label": "Upsell Discount CTA",
+      "default": "Upgrade to Unlimited CLE",
+      "info": "CTA label for customers who are logged in and have and upsell discount."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Subscription Upsell"
+    }
+  ]
+}
+{% endschema %}

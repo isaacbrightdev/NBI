@@ -1,0 +1,39 @@
+@layer base {
+  body {
+    @apply bg-white text-primary;
+    line-height: 1.5;
+  }
+
+  h1 {
+    @apply text-h1;
+  }
+
+  h2 {
+    @apply text-h2-mobile md:text-h2;
+  }
+
+  h3 {
+    @apply text-h3-mobile md:text-h3;
+  }
+
+  h4 {
+    @apply text-base md:text-h4;
+  }
+
+  a {
+    @apply text-secondary;
+  }
+
+  code {
+    background-color: #eee;
+    border-radius: 3px;
+    font-family: courier, monospace;
+    padding: 5px;
+  }
+}
+
+@layer components {
+  .prose-custom {
+    @apply prose;
+  }
+}

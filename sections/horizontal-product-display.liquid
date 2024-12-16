@@ -1,0 +1,108 @@
+<div class="w-full max-w-full mx-auto {% if section.settings.border_top and section.settings.two_columns == false %}border-t border-grey py-4 lg:py-6 {% endif %} {% if section.settings.border_bottom and section.settings.two_columns == false %}border-b border-grey py-4 lg:py-6{% endif %}">
+  <div
+    class="container-fluid max-w-screen-2xl gx-sm xl:gx-xl leading-snug py-10 lg:py-12"
+  >
+    <div class="row justify-center">
+      {% if section.settings.border_top
+        and section.settings.two_columns == true
+      %}
+        <div class="col-12 lg:ml-[auto] lg:col-9">
+          <hr class="border-grey mb-4 lg:mb-12">
+        </div>
+      {% endif %}
+      <div
+        class="{% if section.settings.two_columns == true %}col-12 lg:col-9{% endif %}"
+        data-section-id="collection-{{- section.id -}}-{{- block.id -}}"
+        {% if section.settings.use_algolia == false %}
+          data-horizontal-product-display
+        {% endif %}
+        {% if section.settings.use_algolia %}
+          {% if request.page_type == 'collection'
+            or request.page_type == 'product'
+          %}
+            data-horizontal-product-display-algolia
+          {% endif %}
+        {% endif %}
+      >
+        {% if section.settings.use_algolia %}
+          {% unless request.page_type == 'collection'
+            or request.page_type == 'product'
+          %}
+            <div class="relative flex flex-col min-w-0 text-error font-bold text-center bg-clip-border shadow-dropdown rounded-[0.625rem] break-words items-stretch p-5 h-full">
+              Algolia Horizontal Product Display can only work on Collection and
+              Product Pages
+            </div>
+          {% endunless %}
+        {% endif %}
+        <script type="application/json">
+          {
+            "title": {{- section.settings.title | json -}},
+          "useAlgolia": {{- section.settings.use_algolia | json -}},
+          "collectionHandle": {{- section.settings.collection.handle | json -}}
+          }
+        </script>
+      </div>
+      {% if section.settings.border_bottom
+        and section.settings.two_columns == true
+      %}
+        <div class="col-12 lg:ml-[auto] lg:col-9">
+          <hr class="border-grey mt-4 lg:mt-12">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Horiz Product Display",
+  "tag": "section",
+  "class": "section horizontal-product-display",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "You May Also Like",
+      "label": "Title"
+    },
+    {
+      "type": "checkbox",
+      "id": "two_columns",
+      "default": false,
+      "label": "Two Columns"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Shopify Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_algolia",
+      "default": false,
+      "label": "Algolia Frequently Bought Together",
+      "info": "If selected, this will override Shopify Collections. Only use on Product/Collection Pages"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "default": false,
+      "label": "Border Top"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_bottom",
+      "default": false,
+      "label": "Border Bottom"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Horiz Product Display"
+    }
+  ]
+}
+{% endschema %}

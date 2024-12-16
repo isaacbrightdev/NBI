@@ -1,0 +1,6 @@
+@layer components {
+  .footer__bottom .footer__nav-item:not(:last-child)::after {
+    content: "|";
+    @apply text-white;
+  }
+}

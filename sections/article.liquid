@@ -1,0 +1,94 @@
+{% assign articleURL = shop.url | append: article.url %}
+<div class="container xl:gx-xl">
+  <div class="row">
+    <div class="max-w-[828px] mx-auto">
+      {%- if article.image -%}
+        <img
+          class="mx-auto"
+          width="728"
+          height="auto"
+          loading="eager"
+          src="{{ article.image | image_url: width: 728 }}"
+        >
+      {%- endif -%}
+
+      <div class="border border-grey rounded-lg my-12 p-12">
+        <div class="article-container">
+          {{ article.content }}
+        </div>
+
+        <hr class="border-grey my-12">
+
+        {% if article.tags.size > 0 %}
+          <h4>Related Topics</h4>
+          <ul class="flex flex-wrap gap-x-3.5 gap-y-1 my-3.5">
+            {% for tag in article.tags %}
+              <li class="font-bold">
+                <a href="{{ blog.url }}/tagged/{{ tag | replace: ' ', '-' }}">
+                  {{- tag -}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        <ul class="flex gap-2 items-center">
+          {% for block in section.blocks %}
+            {% assign socialMediaLink = block.settings.url
+              | replace: '[url]', articleURL
+              | replace: '[title]', article.title
+            %}
+            <li class="w-12 h-12">
+              <a
+                class="block"
+                href="{{ socialMediaLink }}"
+                target="_blank"
+                ><img
+                  width="{{ block.settings.icon.width }}"
+                  height="{{ block.settings.icon.height }}"
+                  loading="eager"
+                  src="{{ block.settings.icon | image_url }}"
+              ></a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Article Settings",
+  "class": "article-settings",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "socialMediaLinks",
+      "name": "Social Media Links",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "url",
+          "label": "Share URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "article"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,72 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": true
+      }
+    },
+    "6c4bc5b1-9463-469d-97bf-ebf73c0a0714": {
+      "type": "faqs-page",
+      "settings": {
+        "bg_image": "shopify://shop_images/Pattern_8e7ae259-3ea3-4975-9a39-db5f36da022c.svg"
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "4586e104-4656-4bfe-a269-8dfd892f9c57": {
+      "type": "support",
+      "blocks": {
+        "179cfdf2-d25c-42ae-be1c-e4556df2e12c": {
+          "type": "group",
+          "settings": {
+            "image": "shopify://shop_images/Email_Button.png",
+            "support_title": "Email Customer Support",
+            "support_subtitle": "customerservice@nbi-sems.com",
+            "support_cta_text": "Email us",
+            "support_cta_url": "mailto:customerservice@nbi-sems.com"
+          }
+        },
+        "30a57e22-3f9c-473b-b020-0f65b65bac3e": {
+          "type": "group",
+          "settings": {
+            "image": "shopify://shop_images/Email_Button_4dd81a38-defa-4154-ba64-1b10f67f53f0.png",
+            "support_title": "Call Customer Support",
+            "support_subtitle": "(800) 930-6182",
+            "support_cta_text": "",
+            "support_cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "179cfdf2-d25c-42ae-be1c-e4556df2e12c",
+        "30a57e22-3f9c-473b-b020-0f65b65bac3e"
+      ],
+      "settings": {
+        "bg_image": "shopify://shop_images/Gradient_Banner_Wide_NBI.jpg",
+        "bg_img_pos": "object-right-bottom",
+        "bg_size": "object-cover",
+        "bg_css": "",
+        "summary_eyebrow": "Have More Questions?"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "6c4bc5b1-9463-469d-97bf-ebf73c0a0714",
+    "root",
+    "4586e104-4656-4bfe-a269-8dfd892f9c57"
+  ]
+}

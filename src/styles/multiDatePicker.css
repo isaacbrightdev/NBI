@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+}
+
+.rmdp-wrapper {
+  padding: .75rem;
+  border-radius: 0.3125rem !important;
+}
+
+.rmdp-border {
+  border-color: var(--tw-grey) !important;
+}
+
+
+.rmdp-day {
+  color: var(--tw-primary) !important;
+}
+
+.rmdp-week-day {
+  color: var(--tw-grey-dark) !important;
+}
+
+.rmdp-day.rmdp-deactive, .rmdp-day.rmdp-disabled {
+  color: var(--tw-grey) !important;
+}
+.rmdp-day.rmdp-deactive span, .rmdp-day.rmdp-disabled span {
+  text-decoration: line-through
+}
+
+.rmdp-header {
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+
+.rmdp-calendar {
+  padding: 0 !important;
+}
+
+.rmdp-header-values {
+  color: var(--tw-primary) !important;
+  margin-left: initial !important;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
+  background-color: var(--tw-primary) !important;
+  color: #fff;
+}
+
+.rmdp-day.rmdp-range {
+  background-color: var(--tw-secondary) !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+
+.rmdp-day.rmdp-today span {
+  background-color: transparent !important;
+  font-weight: 700;
+  color: var(--tw-primary) !important;
+}
+
+.rmdp-range-hover.rmdp-day.end span, .rmdp-range.rmdp-day.end span,
+.rmdp-range-hover.rmdp-day.start span,
+.rmdp-range.rmdp-day.start span {
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--tw-primary) !important;
+  background-color: var(--tw-primary) !important;
+}
+
+.rmdp-range.rmdp-day.rmdp-today span,
+.rmdp-day.rmdp-today:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
+  color: #fff !important;
+}
+
+.rmdp-week .rmdp-range:last-child {
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.rmdp-week .rmdp-range:first-child {
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+}
+
+.rmdp-day.rmdp-selected span:not(.highlight) {
+  background-color: var(--tw-primary) !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  border-radius: 50rem;
+}

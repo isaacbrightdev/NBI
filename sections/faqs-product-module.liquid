@@ -1,0 +1,94 @@
+{% if product.metafields.custom.faqs.value != blank %}
+  <div
+    id="product-faqs"
+    class="max-w-screen-2xl items-start justify-between container-fluid gx-sm xl:gx-xl leading-snug py-10 lg:py-12"
+  >
+    <div class="row justify-center z-[1]">
+      <div class="col-12 lg:col-8 mx-auto">
+        <div class="row justify-center z-[1]">
+          <div class="col-12">
+            <h2 class="text-h3 lg:text-h2 font-normal text-center mb-8 lg:mb-12">
+              Top FAQs
+            </h2>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 gap-2.5">
+          {%- for metaobject in product.metafields.custom.faqs.value -%}
+            <details
+              id="Details-{{- block.id -}}-{{- section.id -}}"
+              class="bg-white border border-grey border-solid rounded-[0.625rem] overflow-hidden"
+            >
+              <summary
+                class="pl-16 flex select-none font-medium relative w-full text-base text-left p-5 rounded-none border-0 items-center faq-item"
+                id="Summary-{{- block.id -}}-{{- section.id -}}"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                  class="icon-plus"
+                >
+                  <use href="#icon-plus"></use>
+                </svg>
+                <svg
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                  class="icon-minus"
+                >
+                  <use href="#icon-minus"></use>
+                </svg>
+                {{- metaobject.faq_item_title | escape -}}
+              </summary>
+              <div
+                class="pl-16 px-5 pb-5 prose prose-h1:text-primary prose-h2:text-primary prose-h3:text-primary prose-h4:text-primary prose-p:text-primary"
+                id="CollapsibleAccordion-{{- block.id -}}-{{- section.id -}}"
+                role="region"
+                aria-labelledby="Summary-{{- block.id -}}-{{- section.id -}}"
+              >
+                {{- metaobject.faq_item_content -}}
+              </div>
+            </details>
+          {%- endfor %}
+        </div>
+
+        <div class="flex flex-col items-center pt-10 lg:pt-14 mb-10">
+          <div id="getThisCourse"></div>
+          <p class="pt-4">
+            Have more questions?
+            <a
+              href="{{- section.settings.faq_contact_us_link -}}"
+              class="underline font-medium text-primary"
+              >Please Contact Us</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "FAQ Product Module",
+  "class": "section-faq bg-grey-light",
+  "limit": 1,
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "url",
+      "id": "faq_contact_us_link",
+      "label": "Contact Us Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Product Module",
+      "settings": {
+        "faq_contact_us_link": "/contact-us"
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,318 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "root": {
+      "type": "root",
+      "custom_css": [
+
+      ],
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "section-image-with-text",
+      "settings": {
+        "title": "Actionable, Engaging CLE for Your Firm",
+        "subtitle": "Discover the benefits of an unlimited CLE subscription designed to keep your team current, educated, and skilled for success.",
+        "button_text": "Request Your Demo",
+        "button_url": "#contact_our_sales_team",
+        "image": "shopify://shop_images/rectangle_1.jpg",
+        "backround_image": "shopify://shop_images/jpegs_artboard-05.png"
+      }
+    },
+    "section_enterprise_level_YKpTCd": {
+      "type": "section-enterprise-level",
+      "settings": {
+        "title": "Enterprise-Level CLE Solutions for Your Entire Legal Team",
+        "paragraph": "<p><strong>Is your legal team overwhelmed by the continual changes and extensive knowledge required in the legal field?<br/><br/></strong>NBI ensures your team remains current and educated, offering CLE courses on state-specific changes, courtroom strategies, business skills, and leadership development.  <br/><br/><strong>NBI’s unlimited CLE subscription </strong>provides access to over 3,000 practical, engaging, and directly applicable courses on real-world legal challenges. Embrace a lifetime of learning with diverse formats that keep your team captivated and informed.</p>",
+        "button_text": "Request Your Demo",
+        "button_url": "#contact_our_sales_team",
+        "backround_image": "shopify://shop_images/jpegs_artboard-13.png"
+      }
+    },
+    "discover_nbi_BRLrtQ": {
+      "type": "discover-nbi",
+      "blocks": {
+        "select_9piPiw": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/layer_3.png",
+            "title": "Actionable and Practical CLE",
+            "subtitle": "Our courses focus on real-world applications, providing your team with actionable insights they can immediately implement in their daily practice."
+          }
+        },
+        "select_xLQH6R": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/layer_4.png",
+            "title": "Unlimited Access",
+            "subtitle": "Access 3,000+ courses, 70+ live webcasts per month, a “True Crime” series, and more. Get comprehensive coverage of all legal topics."
+          }
+        },
+        "select_XEWVNj": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/layer_5.png",
+            "title": "Guaranteed Credit Compliance",
+            "subtitle": "Our courses are pre-approved for CLE credits, ensuring compliance with all requirements."
+          }
+        }
+      },
+      "block_order": [
+        "select_9piPiw",
+        "select_xLQH6R",
+        "select_XEWVNj"
+      ],
+      "settings": {
+        "header": "Discover why NBI’s unlimited CLE stands out among other CLE providers"
+      }
+    },
+    "courses_list_xBKa6j": {
+      "type": "courses-list",
+      "blocks": {
+        "select_n6BLDV": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/rectangle_3.png",
+            "title": "Unlimited Live CLE Courses",
+            "subtitle": "Our live courses cover the latest legal trends and developments, offering opportunities for interaction and immediate application of knowledge."
+          }
+        },
+        "select_Wqaftj": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/rectangle_3_copy.png",
+            "title": "Unlimited Downloadable CLE",
+            "subtitle": "Download CLE courses and access them offline. This format means your team can continue their education even without internet access, providing flexibility and convenience."
+          }
+        },
+        "select_zrMqfk": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/rectangle_3_copy_2.png",
+            "title": "Unlimited On-Demand CLE Courses",
+            "subtitle": "Your team can access an extensive library of on-demand CLE courses at their convenience, ensuring continuous professional development."
+          }
+        },
+        "select_xzwnrC": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/rectangle_3_copy_3.png",
+            "title": "Unlimited State-Specific CLE Courses",
+            "subtitle": "Stay compliant with state-specific CLE courses tailored to meet the legal education requirements."
+          }
+        },
+        "select_9PdTXb": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/rectangle_3_copy_3_2.png",
+            "title": "Unlimited Ethics & Specialty CLE Courses",
+            "subtitle": "Enhance your team’s expertise with our specialized courses covering ethics and other essential legal topics"
+          }
+        },
+        "select_FMJaPV": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/rectangle_3_copy_3_3.png",
+            "title": "Unlimited Paralegal Content",
+            "subtitle": "Support your paralegals with unlimited courses to improve their skills and stay current with legal practices."
+          }
+        }
+      },
+      "block_order": [
+        "select_n6BLDV",
+        "select_Wqaftj",
+        "select_zrMqfk",
+        "select_xzwnrC",
+        "select_9PdTXb",
+        "select_FMJaPV"
+      ],
+      "settings": {
+        "header": "Diverse Learning Formats for Your Legal Team",
+        "paragraph": "<p>Empower your legal team to cover skills gaps, continue their education, and develop new strategies with our diverse course formats.<br/> <br/>With our unlimited CLE subscription, your team can access a variety of course formats, letting each member select the courses that best suit their needs.</p>",
+        "button_text": "Request Your Demo",
+        "button_url": "#contact_our_sales_team"
+      }
+    },
+    "business_skills_GUCCU7": {
+      "type": "business-skills",
+      "blocks": {
+        "select_NKUtLR": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/layer_6.png",
+            "title": "Business Management Skills",
+            "subtitle": "Master strategies for managing a thriving small firm, from financial planning to client acquisition, ensuring your practice operates efficiently and profitably.",
+            "button_link": "https://nbi-sems.com/collections/all-courses",
+            "button_text": "Explore Business Management Courses"
+          }
+        },
+        "select_TEY4Az": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/layer_6.png",
+            "title": "Workflow Efficiency",
+            "subtitle": "Learn the benefits of a client-centered workflow to improve office efficiency and client satisfaction, enabling your team to work smarter, not harder.",
+            "button_link": "https://nbi-sems.com/collections/all-courses",
+            "button_text": "Explore Workflow Efficiency"
+          }
+        },
+        "select_4NL4Bf": {
+          "type": "select",
+          "settings": {
+            "image": "shopify://shop_images/layer_6.png",
+            "title": "Business Expertise",
+            "subtitle": "Gain fluency in fundamental business principles, from effective marketing to strategic planning, to better manage and grow your legal practice.",
+            "button_link": "https://nbi-sems.com/collections/all-courses",
+            "button_text": "Explore Business Expertise Courses"
+          }
+        }
+      },
+      "block_order": [
+        "select_NKUtLR",
+        "select_TEY4Az",
+        "select_4NL4Bf"
+      ],
+      "settings": {
+        "header": "Advance Your Legal Practice with Business Skills",
+        "paragraph": "<p>When attorneys earn their law degrees, they often envision practicing law, not running a business. Yet, managing a law firm requires wearing multiple hats.<br/> <br/><strong>  NBI’s unlimited CLE subscription</strong> offers courses designed to develop essential business skills. These courses help lawyers navigate the complexities of legal practice and business management, ensuring their firms thrive.</p><h6>Access exclusive CLE courses to strengthen your expertise:</h6>",
+        "button_text": "Request Your Demo",
+        "button_url": "#contact_our_sales_team"
+      }
+    },
+    "customer_reviews_dTW7hW": {
+      "type": "customer-reviews",
+      "settings": {
+        "header": "What Our Customers Say"
+      }
+    },
+    "form_anchor_7yAAdW": {
+      "type": "form-anchor",
+      "settings": {
+        "anchor": "contact_our_sales_team"
+      }
+    },
+    "1720559424bd572892": {
+      "type": "apps",
+      "blocks": {
+        "hulk_form_builder_form_block_hM3RyE": {
+          "type": "shopify://apps/hulk-form-builder/blocks/form-block/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+          "settings": {
+            "form_uuid": "MKfR9ZgCspvhKa3HmgRqAg",
+            "form_settings": false,
+            "font_color": "#000000",
+            "size": 14,
+            "input_background_color": "#ffffff",
+            "input_background_color_focus": "#f4dada",
+            "input_border_radius": 1,
+            "input_border_color": "#ebe9e9",
+            "input_border_color_focus": "#2d2727",
+            "input_font_color": "#3d3131",
+            "input_size": 14,
+            "border_color": "#121212",
+            "border_radius": 2,
+            "border": 1,
+            "fill_color": "#ebe9e9",
+            "padding": 35,
+            "form_width": 600,
+            "btn_text": "Submit",
+            "sub_btn_txt_color": "#f3f3f3",
+            "sub_btn_bg_color": "#3f3333",
+            "sub_btn_font_size": 14,
+            "sub_btn_bdr_color": "#ffffff",
+            "sub_btn_bdr_rad": 3,
+            "sub_btn_bdr_width": 1,
+            "fonts": "Times New Roman"
+          }
+        }
+      },
+      "block_order": [
+        "hulk_form_builder_form_block_hM3RyE"
+      ],
+      "settings": {
+      }
+    },
+    "industry_leading_6M6JKg": {
+      "type": "industry-leading",
+      "blocks": {
+        "select_GBwMby": {
+          "type": "select",
+          "settings": {
+            "title": "4,000",
+            "subtitle": "Hours of State-Specific Online CLE"
+          }
+        },
+        "select_q6RpyK": {
+          "type": "select",
+          "settings": {
+            "title": "2,500",
+            "subtitle": "Hours of Live Video Webinars"
+          }
+        },
+        "select_CPTxcq": {
+          "type": "select",
+          "settings": {
+            "title": "13,000",
+            "subtitle": "Hours of onDemand CLE"
+          }
+        },
+        "select_7NjnMf": {
+          "type": "select",
+          "settings": {
+            "title": "10,000",
+            "subtitle": "State-Specific Legal Forms"
+          }
+        }
+      },
+      "block_order": [
+        "select_GBwMby",
+        "select_q6RpyK",
+        "select_CPTxcq",
+        "select_7NjnMf"
+      ],
+      "settings": {
+        "header": "Industry-Leading CLE",
+        "subtitle": "Never stop learning with unlimited CLE from NBI, a national leader in the CLE industry for more than 35 years."
+      }
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "header",
+    "root",
+    "main",
+    "section_enterprise_level_YKpTCd",
+    "discover_nbi_BRLrtQ",
+    "courses_list_xBKa6j",
+    "business_skills_GUCCU7",
+    "customer_reviews_dTW7hW",
+    "form_anchor_7yAAdW",
+    "1720559424bd572892",
+    "industry_leading_6M6JKg",
+    "shogun-optimizer"
+  ]
+}

@@ -1,0 +1,211 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "short_nav": false
+      }
+    },
+    "product-banner": {
+      "type": "product-banner",
+      "settings": {
+      }
+    },
+    "product-nav": {
+      "type": "product-nav",
+      "settings": {
+      }
+    },
+    "root": {
+      "type": "root",
+      "settings": {
+      }
+    },
+    "c3bd91ca-a554-468a-b201-557d92d98570": {
+      "type": "product-overview",
+      "settings": {
+      }
+    },
+    "product_location_dRAWQt": {
+      "type": "product-location",
+      "settings": {
+        "image_side": "left",
+        "loc_image": "{{ product.metafields.custom.location_module_image.value }}",
+        "headerText": "{{ product.metafields.location.header_text.value }}",
+        "description": "",
+        "address_line_1": "{{ product.metafields.location.address_line_1.value }}",
+        "address_line_2": "{{ product.metafields.location.address_line_2.value }}",
+        "address_line_3": "{{ product.metafields.location.address_line_3.value }}",
+        "bullet_point_1": "{{ product.metafields.custom.location_module_bullet_point_1.value }}",
+        "bullet_point_2": "{{ product.metafields.custom.location_module_bullet_point_2.value }}",
+        "bullet_point_3": "{{ product.metafields.custom.location_module_bullet_point_3.value }}",
+        "ctaText": "See Location",
+        "ctaURL": "{{ product.metafields.location.cta_url.value }}"
+      }
+    },
+    "ca7535a8-5ed9-406a-9abd-dd3aa89bdcfa": {
+      "type": "product-icon-list",
+      "settings": {
+        "label_01": "",
+        "label_02": "",
+        "label_03": ""
+      }
+    },
+    "b974e05d-68b1-4fa5-83fa-b5c12244da33": {
+      "type": "product-related-topics",
+      "settings": {
+      }
+    },
+    "96df99cb-5aac-4a18-8cfc-0a345ad31e4b": {
+      "type": "product-course-book",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "4197fcad-41ae-4e9b-b1cb-23aa6706b2f2": {
+      "type": "subscription-upsell-module",
+      "disabled": true,
+      "settings": {
+        "containerWidth": "col lg:col-8",
+        "colorBackground": "#092254",
+        "backgroundImage": "shopify://shop_images/Pattern.svg",
+        "backgroundSize": "bg-[length:110%]",
+        "backgroundPosition": "bg-right",
+        "product": "all-inclusive-subscription-annual",
+        "type": "month",
+        "title": "<p>Subscribe and get 12 months of unlimited CLE</p>",
+        "upsellTitle": "<p>Claim your [$XX] subscription savings before it's gone</p>",
+        "upgradeTitle": "<p>Upgrade to the All Inclusive CLE Pass to get unlimited live courses included in your subscription</p>",
+        "upgradeLiveTitle": "<p>Upgrade to the All Inclusive CLE Pass to get unlimited OnDemand courses included in your subscription</p>",
+        "text": "<p>Billed $1428 annually.<br/>The average subscriber saves $3,100 per year on their CLE costs.</p>",
+        "defaultCTA": "Get Unlimited CLE",
+        "upgradeCTA": "Upgrade Now",
+        "discountCTA": "Upgrade to Unlimited CLE"
+      }
+    },
+    "6828fed3-18fe-49ef-b5cc-71b89263490f": {
+      "type": "product-id",
+      "settings": {
+      }
+    },
+    "984f8469-63a9-4aa9-abab-1ccfdca8c248": {
+      "type": "product-page-break",
+      "settings": {
+      }
+    },
+    "67ce3f8b-2de9-46d4-90aa-db1348cc6b48": {
+      "type": "product-credit-details",
+      "blocks": {
+        "tile_LtGfWx": {
+          "type": "tile",
+          "settings": {
+            "creditlogoslug": "hr",
+            "image": "shopify://shop_images/credit-logo-hr.png"
+          }
+        },
+        "tile_pmUiwh": {
+          "type": "tile",
+          "settings": {
+            "creditlogoslug": "shrm",
+            "image": "shopify://shop_images/credit-logo-shrm.png"
+          }
+        },
+        "tile_wjnKri": {
+          "type": "tile",
+          "settings": {
+            "creditlogoslug": "nas",
+            "image": "shopify://shop_images/credit-logo-nas.png"
+          }
+        }
+      },
+      "block_order": [
+        "tile_LtGfWx",
+        "tile_pmUiwh",
+        "tile_wjnKri"
+      ],
+      "settings": {
+      }
+    },
+    "00a9a722-4b07-48f2-bf7c-99b963494e06": {
+      "type": "product-page-break",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "df31faf4-8359-4155-9d60-fa94b8bab5c8": {
+      "type": "product-agenda",
+      "settings": {
+      }
+    },
+    "cbf845e1-556b-4a90-8372-fcfe5bdcbeef": {
+      "type": "product-page-break",
+      "settings": {
+      }
+    },
+    "70379a22-c45d-4297-a29a-31135b83183f": {
+      "type": "product-speakers",
+      "settings": {
+      }
+    },
+    "fb6413d0-ff3c-43ff-9ec6-3aca65d64b50": {
+      "type": "product-form-break",
+      "settings": {
+      }
+    },
+    "ed15f69b-0ade-408e-8403-62004655bc89": {
+      "type": "reviews",
+      "disabled": true,
+      "settings": {
+        "title": "Reviews"
+      }
+    },
+    "fee2eafd-aafb-4a72-8347-bd19449d6c56": {
+      "type": "related-products-carousel",
+      "settings": {
+        "title": "Related Courses",
+        "sub_title": "",
+        "two_columns": false,
+        "border_top": true,
+        "border_bottom": true
+      }
+    },
+    "0bdd5505-b98b-4c52-8858-5839458744e6": {
+      "type": "faqs-product-module",
+      "settings": {
+        "faq_contact_us_link": "shopify://pages/contact-us"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "product-banner",
+    "product-nav",
+    "root",
+    "c3bd91ca-a554-468a-b201-557d92d98570",
+    "product_location_dRAWQt",
+    "ca7535a8-5ed9-406a-9abd-dd3aa89bdcfa",
+    "b974e05d-68b1-4fa5-83fa-b5c12244da33",
+    "96df99cb-5aac-4a18-8cfc-0a345ad31e4b",
+    "4197fcad-41ae-4e9b-b1cb-23aa6706b2f2",
+    "6828fed3-18fe-49ef-b5cc-71b89263490f",
+    "984f8469-63a9-4aa9-abab-1ccfdca8c248",
+    "67ce3f8b-2de9-46d4-90aa-db1348cc6b48",
+    "00a9a722-4b07-48f2-bf7c-99b963494e06",
+    "df31faf4-8359-4155-9d60-fa94b8bab5c8",
+    "cbf845e1-556b-4a90-8372-fcfe5bdcbeef",
+    "70379a22-c45d-4297-a29a-31135b83183f",
+    "fb6413d0-ff3c-43ff-9ec6-3aca65d64b50",
+    "ed15f69b-0ade-408e-8403-62004655bc89",
+    "fee2eafd-aafb-4a72-8347-bd19449d6c56",
+    "0bdd5505-b98b-4c52-8858-5839458744e6"
+  ]
+}

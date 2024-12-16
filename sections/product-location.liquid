@@ -1,0 +1,136 @@
+<div class="container xl:gx-xl">
+  <div class="row">
+    <div
+      id="product-location"
+      class="col lg:col-8"
+      data-component="product_location"
+      data-section-id="{{ section.id }}"
+    ></div>
+  </div>
+</div>
+
+<script>
+
+  window.ProductLocationSettings = {};
+  window.ProductLocationSettings.header = {
+    text: '{{ section.settings.headerText }}',
+  };
+  window.ProductLocationSettings.description = {
+    text: '{{ section.settings.description }}',
+    address_line_1: '{{ section.settings.address_line_1 }}',
+    address_line_2: '{{ section.settings.address_line_2 }}',
+    address_line_3: '{{ section.settings.address_line_3 }}',
+    bullet_point_1: '{{ section.settings.bullet_point_1 }}',
+    bullet_point_2: '{{ section.settings.bullet_point_2 }}',
+    bullet_point_3: '{{ section.settings.bullet_point_3 }}'
+  };
+  {%- if section.settings.loc_image -%}
+    {%- capture loc_image -%}
+      {%- render 'cdn-url-from-image', image: section.settings.loc_image -%}
+    {%- endcapture -%}
+    window.ProductLocationSettings.image = {
+      image: '{{ loc_image }}',
+      imageSide: '{{ section.settings.image_side }}'
+    };
+  {%- endif -%}
+
+  window.ProductLocationSettings.cta = {
+    text: '{{ section.settings.ctaText }}',
+    url: '{{ section.settings.ctaURL }}'
+  };
+</script>
+
+{% schema %}
+{
+  "name": "Product Location",
+  "class": "product-location",
+  "settings": [
+    {
+      "id": "image_side",
+      "type": "select",
+      "label": "Align Image",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "loc_image",
+      "label": "Location Image"
+    },
+    {
+      "type": "text",
+      "id": "headerText",
+      "label": "Header Text",
+      "default": "Product Location"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Short Description lorem ipslum dolor sit amet"
+    },
+    {
+      "type": "text",
+      "id": "address_line_1",
+      "label": "Address Line 1",
+      "default": "123 Main St"
+    },
+    {
+      "type": "text",
+      "id": "address_line_2",
+      "label": "Address Line 2",
+      "default": "Eau Claire, WI 54703"
+    },
+    {
+      "type": "text",
+      "id": "address_line_3",
+      "label": "Address Line 3",
+      "default": "US"
+    },
+    {
+      "type": "text",
+      "id": "bullet_point_1",
+      "label": "Bullet Point 1",
+      "default": "Item one"
+    },
+    {
+      "type": "text",
+      "id": "bullet_point_2",
+      "label": "Bullet Point 2",
+      "default": "Item two"
+    },
+    {
+      "type": "text",
+      "id": "bullet_point_3",
+      "label": "Bullet Point 3",
+      "default": "Item three"
+    },
+    {
+      "type": "text",
+      "id": "ctaText",
+      "label": "CTA Text",
+      "default": "See Location"
+    },
+    {
+      "type": "text",
+      "id": "ctaURL",
+      "label": "CTA URL",
+      "default": "google.com"
+    }
+  ],
+  "presets": [
+    {
+      "name": "product-location"
+    }
+  ]
+}
+{% endschema %}

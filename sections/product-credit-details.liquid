@@ -1,0 +1,45 @@
+<div class="container xl:gx-xl">
+  <div class="row">
+    <div
+      id="product-credit-details"
+      class="col lg:col-7"
+      data-component="credit_details"
+      data-section-id="{{ section.id }}"
+    ></div>
+  </div>
+</div>
+<script>
+  window.CreditLogos = {};
+  {% for block in section.blocks %}
+    window.CreditLogos["{{ block.settings.creditlogoslug }}"] = "{{ block.settings.image | image_url }}";
+  {% endfor %}
+</script>
+{% schema %}
+{
+  "name": "Product Credit Details",
+  "class": "product-credit-details",
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Credit Logo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "creditlogoslug",
+          "label": "Credit Logo Slug"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "product-credit-details"
+    }
+  ]
+}
+{% endschema %}

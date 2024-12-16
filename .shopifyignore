@@ -1,0 +1,6 @@
+package.json
+package-lock.json
+src/
+jsconfig.json
+cypress/
+node_modules/

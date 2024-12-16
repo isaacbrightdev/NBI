@@ -1,0 +1,68 @@
+<div class="collection container-fluid gx-[0px]">
+  <div class="row py-4">
+    <div class="col-12 lg:col-8 xl:col-6 mx-auto flex flex-wrap lg:justify-center">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.image != blank -%}
+          <div class="col-6 md:col-3 p-2 lg:p-4">
+            <div class="aspect-video pointer-events-none select-none relative">
+              {%- assign img_alt_1 = block.settings.image.alt
+                | default: shop.name
+                | escape
+              -%}
+              {{
+                block.settings.image
+                | image_url: width: 1100
+                | image_tag:
+                  width: block.settings.image.width,
+                  height: block.settings.image.height,
+                  loading: 'lazy',
+                  class: 'h-full absolute top-0 left-0 w-full aspect-video object-center object-contain',
+                  sizes: '100vw',
+                  widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+                  alt: img_alt_1
+              }}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Law Firm Logos",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Law Firm Logos",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,39 @@
+{
+  "plugins": [
+    "@shopify/prettier-plugin-liquid",
+    "@svgr/plugin-prettier",
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "trailingComma": "none",
+  "editorconfig": true,
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@/components/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/graphql/(.*)$",
+    "^@/utils/(.*)$",
+    "^[./]"
+  ],
+  "overrides": [
+    {
+      "files": "*.svg",
+      "options": {
+        "parser": "html"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx", "*.tsx", "*.ts", "*.tsx", "*.cjs"],
+      "options": {
+        "semi": true,
+        "singleQuote": true
+      }
+    },
+    {
+      "files": ["*.css"],
+      "options": {
+        "parser": "scss"
+      }
+    }
+  ]
+}

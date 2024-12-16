@@ -1,0 +1,171 @@
+<div class="container-fluid gx-[0px] relative mt-[-1px] {% unless section.settings.image != blank %}bg-primary{% endunless %}">
+  <script>
+    (() => {
+      window._disableNavSearch = true;
+    })();
+  </script>
+  {%- if section.settings.image != blank -%}
+    {%- if section.settings.mobileImage == blank -%}
+      {%- assign image_mobile_alt = section.settings.image.alt
+        | default: shop.name
+        | escape
+      -%}
+      {{-
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          width: section.settings.image.width,
+          height: section.settings.image.height,
+          class: 'w-full h-full absolute top-0 left-0 object-cover -z-[1]',
+          sizes: '100vw',
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+          alt: image_mobile_alt
+      -}}
+    {%- else -%}
+      <picture>
+        <source
+          media="(min-width: 48rem)"
+          srcset="{{ section.settings.image | image_url: width: 3840 }}"
+        >
+        <source
+          media="(max-width: 47.998rem)"
+          srcset="{{ section.settings.mobileImage | image_url: width: 768 }}"
+        >
+        <img
+          src="{{ section.settings.image | image_url: width: 3840 }}"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+          loading="eager"
+          fetchpriority="high"
+          alt="{{ image_mobile_alt }}"
+          class="w-full h-full absolute top-0 left-0 object-cover -z-[1]"
+        >
+      </picture>
+    {%- endif -%}
+  {%- endif -%}
+  <div class="relative py-12 row lg:py-16">
+    <div class="col-12 lg:col-8 mx-auto flex flex-col flex-wrap justify-center items-center text-white leading-snug max-w-[51.75rem]">
+      {%- if section.settings.title != blank -%}
+        <h1 class="!text-h2 mb-2.5 text-center">
+          {{- section.settings.title | escape -}}
+        </h1>
+      {%- endif -%}
+
+      {%- if section.settings.sub_title != blank -%}
+        <p class="mb-10 text-center">
+          {{- section.settings.sub_title | escape -}}
+        </p>
+      {%- endif -%}
+      <div class="mb-7 w-full relative z-[1]" id="hero-module-search"></div>
+      <div class="flex items-center mb-10 px-[12px]">
+        <div
+          data-faculty-image-count="{{- section.settings.faculty_image_count -}}"
+          id="hero-module-faculty_accounts"
+          class="relative flex transform"
+          style="--tw-translate-x: {{ 4 | times: section.settings.faculty_image_count }}%"
+        ></div>
+        {%- if section.settings.static_text != blank -%}
+          <span class="text-sm-body">
+            {{- section.settings.static_text | escape -}}
+          </span>
+        {%- endif -%}
+      </div>
+
+      <div class="flex items-center col-12 lg:col-8 justify-evenly">
+        {%- for block in section.blocks -%}
+          <div
+            class="flex flex-col justify-center text-center"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.stat_text != blank -%}
+              <div class="text-h4">{{- block.settings.stat_text -}}</div>
+            {%- endif -%}
+            {%- if block.settings.stat_title != blank -%}
+              <div class="text-[0.875rem]">
+                {{- block.settings.stat_title -}}
+              </div>
+            {%- endif -%}
+          </div>
+
+          {% unless forloop.last %}
+            <div
+              class="inline-block self-stretch w-px min-h-[1em] bg-secondary h-full mx-7"
+            ></div>
+          {% endunless -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Hero Module",
+  "class": "section",
+  "max_blocks": 4,
+  "limit": 1,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobileImage",
+      "label": "Background Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "CLE Is Just the Beginning"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Eyebrow Text",
+      "default": "Educational content and resources to evolve your solo or small-firm practice"
+    },
+    {
+      "type": "range",
+      "id": "faculty_image_count",
+      "label": "Faculty Image Count",
+      "default": 5,
+      "step": 1,
+      "max": 5,
+      "min": 1
+    },
+    {
+      "type": "text",
+      "id": "static_text",
+      "label": "Static Text",
+      "default": "X lawyers learning from over X faculty"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Bullet List Item",
+      "type": "bullet_list_item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stat_text",
+          "label": "Stat Text"
+        },
+        {
+          "type": "text",
+          "id": "stat_title",
+          "label": "Stat Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Module"
+    }
+  ]
+}
+{% endschema %}

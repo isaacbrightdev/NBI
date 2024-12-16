@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .faq-item .icon-plus,
+  .faq-item .icon-minus {
+    @apply transition-opacity absolute top-5 left-6;
+  }
+  .faq-item:not(.is-open) .icon-minus {
+    @apply opacity-0;
+  }
+
+  .faq-item.is-open .icon-plus {
+    @apply opacity-0;
+  }
+
+  .faq-fixed-top {
+    @apply fixed z-[49] top-[80px] inset-x-0;
+  }
+
+  .sticky-top {
+    @apply sticky z-[1020] top-0;
+  }
+
+}
+
+
+.faq-drop-down.relative .faq-toggle-container {
+  position: relative;
+  border-bottom: none!important;
+}
